@@ -1,0 +1,14 @@
+// variables.scss 파일
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+$fontsize1: 32px;
+$fontsize2: 24px;
+$fontsize3: 14px;
+$fontsize4: 12px;
+
+$title-font: 'Nanum Myeongjo', serif;
+$sub-font: 'Noto Sans KR', sans-serif;
