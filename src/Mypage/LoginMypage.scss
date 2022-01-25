@@ -1,10 +1,60 @@
 @import './src/styles/variables.scss';
 
+.bodyContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+
+  border: 1px solid black;
+  margin-left: 40px;
+  .subMenu {
+    .sideMypage {
+      margin-bottom: 11px;
+    }
+
+    .logout {
+      margin-bottom: 11px;
+    }
+  }
+
+  .mainMenu {
+    margin: 11px;
+
+    .sidebarProfile {
+      padding: 11px 0;
+    }
+
+    .sidebarAdress {
+      padding: 11px 0;
+    }
+
+    .sidebarOrder {
+      padding: 11px 0;
+    }
+
+    .sidebarWish {
+      padding: 11px 0;
+    }
+  }
+
+  .customService {
+    border: 1px solid #ccc;
+    padding: 12px 12px 24px 12px;
+  }
+}
+
 .content {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding: 100px 100px;
+  margin-left: px;
+  padding: 100px 100px 0;
   width: 80%;
   border: 1px solid black;
 
