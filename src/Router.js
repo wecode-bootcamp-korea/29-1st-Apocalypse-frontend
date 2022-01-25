@@ -7,6 +7,9 @@ import OrderPage from './OrderPage/OrderPage';
 import ProductDetailList from './ProductDetailList/ProductDetailList';
 import ProductDetailPage from './ProductDetailPage/ProductDetailPage';
 
+import './styles/reset.scss';
+import './styles/common.scss';
+
 const Router = () => {
   return (
     <BrowserRouter>
