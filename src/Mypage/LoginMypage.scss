@@ -1,7 +1,95 @@
+@import './src/styles/variables.scss';
+
 .content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+  padding: 100px 100px;
   width: 80%;
   border: 1px solid black;
+
+  .mypageHeader {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 24px;
+
+    .mypageTitle {
+      display: flex;
+    }
+  }
+
+  .welcomeMsg {
+    margin: 25px 0 25px 0;
+  }
+
+  .myInfoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .firstLine {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 40px;
+    }
+
+    .secondLine {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 40px;
+    }
+
+    .myInfo {
+      padding-right: 60px;
+      margin: 10px 0 10px 0;
+
+      .myInfoTitle {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+      }
+
+      .myInfoName {
+        padding-top: 10px;
+      }
+    }
+
+    .order {
+      margin: 5px 0 5px 0;
+      .orderHeader {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+      }
+    }
+
+    .adress {
+      padding-right: 100px;
+
+      .adressHeader {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+      }
+
+      .adressInfo {
+        padding-top: 10px;
+      }
+    }
+
+    .delivery {
+      .deliveryHeader {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+      }
+
+      .deliveryInfo {
+        padding-top: 10px;
+      }
+    }
+  }
 }
