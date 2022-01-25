@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+.nav {
+  .mainNav {
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    .leftNavBox {
+      @include flexCenter;
+      div {
+        padding-right: 30px;
+      }
+    }
+    .centerNavBox {
+      text-align: center;
+      .mainTitle {
+        font-family: $title-font;
+        font-size: $fontsize1;
+        font-weight: bolder;
+        margin-bottom: 10px;
+      }
+    }
+    .rightNavBox {
+      @include flexCenter;
+      i {
+        padding-left: 30px;
+        font-size: $fontsize2;
+      }
+    }
+  }
+  .subNav {
+    .leftSubNav {
+      border: 1px solid red;
+      background-color: white;
+      height: 300px;
+    }
+  }
+}
