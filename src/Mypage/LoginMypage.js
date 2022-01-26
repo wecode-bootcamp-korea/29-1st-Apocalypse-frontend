@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './LoginMypage.scss';
-import '../styles/variables.scss';
 
 function LoginMypage() {
   return (
@@ -9,7 +9,7 @@ function LoginMypage() {
       <div className="sidebar">
         <div className="sidebarNav">
           <ul className="subMenu">
-            <li class="sideMypage">
+            <li className="sideMypage">
               <a>마이페이지</a>
             </li>
             <li className="logout">
@@ -17,7 +17,9 @@ function LoginMypage() {
             </li>
           </ul>
           <ul className="mainMenu">
-            <li className="sidebarProfile">회원정보 입력</li>
+            <li className="sidebarProfile">
+              <Link to="/LoginOrderList">회원정보 입력</Link>
+            </li>
             <li className="sidebarAdress">배송주소록</li>
             <li className="sidebarOrder">주문내역 보기</li>
             <li className="sidebarWish">관심상품 리스트</li>
@@ -25,7 +27,7 @@ function LoginMypage() {
         </div>
         <div className="customService">
           <h1 className="serviceHeader">고객관리지원팀</h1>
-          <div className=" serviceContent">
+          <div className="serviceContent">
             <p>
               "문의 사항이 있으시거나 고객관리지원팀과 상담을 원하실 경우 다음
               링크"
@@ -40,7 +42,7 @@ function LoginMypage() {
           </div>
         </div>
       </div>
-      <div className="content">
+      <div className="mypageContent">
         <div className="mypageHeader">
           <h2 className="mypageTitle">내 정보 및 주문 관리</h2>
         </div>
@@ -55,7 +57,7 @@ function LoginMypage() {
                 <a>정보보기</a>
               </div>
               <div className="myInfoName">
-                <span>이름 이화종</span>
+                <p>이름 이화종</p>
               </div>
               <div className="myInfoAdress">
                 <p>이메일 주소: hjlee1811@gamil.com</p>
@@ -91,7 +93,7 @@ function LoginMypage() {
                 <p>휴대전화 번호 010-5760-1811</p>
               </div>
             </div>
-            <div class="delivery">
+            <div className="delivery">
               <div className="deliveryHeader">
                 <h3>기본 배송지</h3>
                 <a>전체보기</a>

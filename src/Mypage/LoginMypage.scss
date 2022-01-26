@@ -9,58 +9,94 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  width: 15%;
-
-  border: 1px solid black;
+  width: 20%;
+  margin-top: 50px;
   margin-left: 40px;
+
   .subMenu {
+    height: 50px;
+    margin-bottom: 20px;
+
     .sideMypage {
-      margin-bottom: 11px;
+      padding-left: 11px;
+      margin-bottom: 10px;
+      font-weight: 600;
     }
 
     .logout {
-      margin-bottom: 11px;
+      padding-left: 11px;
     }
   }
 
   .mainMenu {
     margin: 11px;
+    height: 310px;
 
     .sidebarProfile {
       padding: 11px 0;
+      font-weight: 700;
+      font-size: $fontsize3;
     }
 
     .sidebarAdress {
       padding: 11px 0;
+      font-weight: 700;
+      font-size: $fontsize3;
     }
 
     .sidebarOrder {
       padding: 11px 0;
+      font-weight: 700;
+      font-size: $fontsize3;
     }
 
     .sidebarWish {
       padding: 11px 0;
+      font-weight: 700;
+      font-size: $fontsize3;
     }
   }
 
   .customService {
     border: 1px solid #ccc;
     padding: 12px 12px 24px 12px;
+    width: 180px;
+
+    p {
+      padding-bottom: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-family: $title-font;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .serviceContent {
+      height: 310px;
+      word-wrap: break-word;
+    }
   }
 }
 
-.content {
+.mypageContent {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-left: px;
-  padding: 100px 100px 0;
+  margin: 45px 0 0;
+  padding: 60px 0px 40px 90px;
   width: 80%;
-  border: 1px solid black;
 
   .mypageHeader {
     border-bottom: 1px solid #ccc;
     padding-bottom: 24px;
+
+    h2 {
+      font-size: $fontsize2;
+      font-family: $title-font;
+    }
 
     .mypageTitle {
       display: flex;
@@ -76,6 +112,12 @@
     display: flex;
     flex-direction: column;
 
+    h3 {
+      font-size: 20px;
+      font-weight: 400;
+      font-family: $title-font;
+    }
+
     .firstLine {
       display: flex;
       flex-direction: row;
@@ -89,8 +131,13 @@
     }
 
     .myInfo {
-      padding-right: 60px;
-      margin: 10px 0 10px 0;
+      width: 310px;
+      height: 251px;
+      margin: 10px 50px 50px 0;
+
+      p {
+        padding-bottom: 11px;
+      }
 
       .myInfoTitle {
         display: flex;
@@ -100,22 +147,35 @@
       }
 
       .myInfoName {
-        padding-top: 10px;
+        padding-top: 15px;
       }
     }
 
     .order {
       margin: 5px 0 5px 0;
+      width: 310px;
+      height: 251px;
+
       .orderHeader {
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #ccc;
-        padding-bottom: 10px;
+        padding-bottom: 15px;
+      }
+
+      .orderContent {
+        margin-top: 15px;
       }
     }
 
     .adress {
-      padding-right: 100px;
+      width: 310px;
+      height: 251px;
+      margin-right: 50px;
+
+      p {
+        padding-bottom: 15px;
+      }
 
       .adressHeader {
         display: flex;
@@ -125,11 +185,19 @@
       }
 
       .adressInfo {
-        padding-top: 10px;
+        padding: 20px 0px 0px 0px;
+        margin-bottom: 10px;
       }
     }
 
     .delivery {
+      width: 310px;
+      height: 251px;
+
+      p {
+        padding-bottom: 15px;
+      }
+
       .deliveryHeader {
         display: flex;
         justify-content: space-between;
@@ -138,7 +206,8 @@
       }
 
       .deliveryInfo {
-        padding-top: 10px;
+        padding: 20px 0px 0px 0px;
+        margin-bottom: 10px;
       }
     }
   }
