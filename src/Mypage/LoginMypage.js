@@ -9,20 +9,42 @@ function LoginMypage() {
       <div className="sidebar">
         <div className="sidebarNav">
           <ul className="subMenu">
-            <li className="sideMypage">
-              <a>마이페이지</a>
-            </li>
-            <li className="logout">
-              <a>로그아웃</a>
-            </li>
+            <Link className="textLink" to="">
+              <li className="sideMypage">
+                <div>마이페이지</div>
+              </li>
+            </Link>
+            <Link className="textLinkLogin" to="">
+              <li className="logout">
+                <div>로그아웃</div>
+              </li>
+            </Link>
           </ul>
           <ul className="mainMenu">
-            <li className="sidebarProfile">
-              <Link to="/LoginOrderList">회원정보 입력</Link>
-            </li>
-            <li className="sidebarAdress">배송주소록</li>
-            <li className="sidebarOrder">주문내역 보기</li>
-            <li className="sidebarWish">관심상품 리스트</li>
+            <Link className="textLink" to="/LoginOrderList">
+              <li className="sidebarProfile">
+                <span>회원정보 입력</span>
+                <i className="fas fa-angle-right" />
+              </li>
+            </Link>
+            <Link className="textLink" to="/LoginOrderAdress">
+              <li className="sidebarAdress">
+                <span>배송주소록</span>
+                <i class="fas fa-angle-right" />
+              </li>
+            </Link>
+            <Link className="textLink" to="">
+              <li className="sidebarOrder">
+                <span>주문내역 보기</span>
+                <i className="fas fa-angle-right" />
+              </li>
+            </Link>
+            <Link className="textLink" to="*">
+              <li className="sidebarWish">
+                관심상품 리스트
+                <i className="fas fa-angle-right" />
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="customService">
