@@ -1,11 +1,11 @@
 import React from 'react';
 
-import MainNav from '../components/Nav/MainNav';
+import Nav from '../components/Nav/Nav';
 
 function Main() {
   return (
     <div>
-      <MainNav />
+      <Nav />
     </div>
   );
 }
