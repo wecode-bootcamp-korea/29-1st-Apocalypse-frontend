@@ -1,0 +1,54 @@
+.myPageNav {
+  .myPageLogin {
+    .title {
+      margin: 30px;
+      font-weight: bolder;
+    }
+    .loginBox {
+      display: flex;
+      flex-direction: column;
+      margin: 30px;
+      margin-bottom: 0px;
+      input {
+        margin-bottom: 20px;
+        height: 40px;
+        border: 0.5px solid gray;
+        padding: 10px;
+      }
+    }
+    .findPassWord {
+      margin: 30px;
+      margin-top: 0px;
+      text-decoration: underline;
+    }
+    button {
+      margin: 30px;
+      margin-top: 0;
+      height: 40px;
+      width: 85%;
+      color: white;
+      background-color: black;
+    }
+    .under {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px;
+      margin-top: 0px;
+
+      .join {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .myPageLoginComplete {
+    div {
+      margin: 30px;
+      cursor: pointer;
+      text-decoration: underline;
+      font-weight: bolder;
+      color: black;
+    }
+  }
+}

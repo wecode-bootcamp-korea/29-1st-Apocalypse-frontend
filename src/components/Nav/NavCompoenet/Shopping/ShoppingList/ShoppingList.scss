@@ -1,0 +1,35 @@
+.shoppingList {
+  margin-top: 30px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 150px;
+    height: fit-content;
+  }
+  .productList {
+    .subTitle {
+      margin-top: 20px;
+      font-weight: bolder;
+    }
+    .product {
+      margin-top: 20px;
+
+      .productSub {
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      .productDetailHide {
+        display: none;
+      }
+      .productDetail {
+        margin-top: 20px;
+        margin-left: 10px;
+        .products {
+          margin-bottom: 10px;
+          color: black;
+        }
+      }
+    }
+  }
+}

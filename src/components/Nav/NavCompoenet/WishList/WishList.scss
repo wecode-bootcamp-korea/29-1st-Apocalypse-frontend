@@ -1,0 +1,19 @@
+.wishListNav {
+  max-height: 500px;
+  .title {
+    margin: 30px;
+    font-weight: bolder;
+  }
+  .content {
+    margin: 30px;
+    margin-top: 0;
+  }
+  button {
+    margin: 30px;
+    margin-top: 0;
+    height: 40px;
+    width: 85%;
+    color: white;
+    background-color: black;
+  }
+}
