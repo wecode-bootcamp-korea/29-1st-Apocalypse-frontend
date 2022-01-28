@@ -6,7 +6,10 @@ const ProductDetail = ({ productList }) => {
   return (
     <div className="products">
       <Link
-        to="/ProductDetailPage"
+        to={{
+          pathname: '/ProductDetailPage',
+          state: { name: productList.name },
+        }}
         style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}
       >
         {productList.name}

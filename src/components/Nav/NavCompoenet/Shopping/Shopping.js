@@ -17,7 +17,10 @@ const Shopping = () => {
     <div className="shoppingNav">
       <div className="mainTitle">
         <Link
-          to="/ProductDetailList"
+          to={{
+            pathname: '/ProductDetailList',
+            state: { name: 'test' },
+          }}
           style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}
         >
           상품목록
