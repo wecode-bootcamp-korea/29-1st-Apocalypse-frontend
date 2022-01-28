@@ -1,0 +1,123 @@
+@import '../../styles/variables.scss';
+
+.Modal {
+  @mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .previewImg {
+    width: 326px;
+    height: fit-content;
+    margin-right: 60px;
+  }
+
+  .Preview {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 450px;
+    padding: 20px 0px;
+    background-color: #fcfeef;
+    @include flex-center;
+    text-align: left;
+    animation: modal-show 0.3s;
+    overflow: hidden;
+    font-size: $fontsize3;
+  }
+
+  .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: none;
+    font-size: 30px;
+    border: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .previewInfo {
+    width: 326px;
+
+    .classify {
+      font-size: $fontsize4;
+      padding-bottom: 13px;
+    }
+
+    .previewTitle {
+      font-family: $title-font;
+      font-size: $fontsize2;
+      margin: 16px 0px;
+    }
+
+    .explain {
+      line-height: 16px;
+      margin: 20px 0px;
+    }
+
+    .price {
+      margin: 25px 0px 8px;
+    }
+
+    .wishList {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+
+      .Bookmark {
+        margin-right: 10px;
+      }
+      text-align: right;
+      margin-top: 30px;
+      padding-bottom: 2px;
+    }
+
+    .addCart {
+      font-size: $fontsize3;
+      width: 326px;
+      height: 48px;
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .openModal {
+    display: flex;
+    align-items: center;
+    animation: modal-bg-show 0.3s;
+  }
+  @keyframes modal-show {
+    from {
+      opacity: 0;
+      margin-top: -50px;
+    }
+    to {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
+  @keyframes modal-bg-show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
