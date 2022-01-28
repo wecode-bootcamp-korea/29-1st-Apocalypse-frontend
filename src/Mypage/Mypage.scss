@@ -1,6 +1,17 @@
-@import '../styles/common.scss';
-@import '../styles/reset.scss';
 @import '../styles/variables.scss';
+@mixin numberInputStyle {
+  height: 50px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 15px;
+  outline: none;
+}
+
+@mixin authenticationStyle {
+  width: 100%;
+  height: 50px;
+  font-size: 15px;
+}
 
 .myPage {
   height: 100%;
@@ -128,45 +139,33 @@
             display: flex;
             justify-content: space-between;
             margin-top: 10px;
+            
             .firstNumber {
               display: block;
-              height: 50px;
-              border: 1px solid #ccc;
-              text-align: center;
-              font-size: 15px;
-              outline: none;
+              @include numberInputStyle
             }
+            
             .lastNumber {
-              height: 50px;
-              border: 1px solid #ccc;
-              text-align: center;
-              font-size: 15px;
-              outline: none;
+              @include numberInputStyle
             }
           }
           .authenticationBtn {
-            width: 100%;
-            height: 50px;
-            font-size: 15px;
+            @include authenticationStyle;
             background-color: #000;
             color: #fff;
             border: none;
             margin-top: 10px;
           }
           .authenticationTextInput {
-            width: 100%;
-            height: 50px;
+            @include authenticationStyle;
             margin-top: 30px;
-            font-size: 15px;
             text-align: center;
             border: 1px solid #ccc;
             outline: none;
           }
           .authenticationNumCheck {
-            width: 100%;
-            height: 50px;
+            @include authenticationStyle;
             margin-top: 10px;
-            font-size: 15px;
             background-color: #000;
             color: #fff;
             border: none;

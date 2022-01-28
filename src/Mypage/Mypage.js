@@ -6,46 +6,61 @@ import './Mypage.scss';
 import Warring from './Warring';
 
 function Mypage() {
-  const [userInputId, setUserInputId] = useState('');
-  const [userInputPw, setUserInputPw] = useState('');
-  const [signUpuserInputId, setSignUpUserInputId] = useState('');
-  const [signUpuserInputPw, setSignUpUserInputPw] = useState('');
-  const [warring, setWarring] = useState([]);
+  const [userInputText, setUserInputText] = useState({
+    userName: '',
+    userInputId: '',
+    userInputPw: '',
+    signUpuserInputId: '',
+    signUpuserInputPw: '',
+  });
 
-  const navigate = useNavigate();
+  const [signUpNumber, setSignUpNumber] = useState(0);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const toLoginNavigate = useNavigate();
   const goToLoginMyPage = () => {
-    navigate('/loginMyPage');
+    toLoginNavigate('/loginMyPage');
+  };
+
+  const toMainNavigate = useNavigate();
+  const goToMain = () => {
+    toMainNavigate('/');
   };
   const enter = e => {
     if (e.key === 'Enter') {
       goToSignIn();
     }
   };
+
   const goToSignIn = () => {
     fetch('http://10.58.5.61:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         name: 'park',
-        email: userInputId,
-        password: userInputPw,
+        email: userInputText.userInputId,
+        password: userInputText.userInputPw,
         phone_number: '01023233232',
         address: '선릉역',
       }),
     })
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'INVALID PASSWORD') {
-          alert('비밀번호가 옳바르지 않습니다.');
+        if (result.message === 'INVALID PASSWORD1') {
+          setErrorMessage('비밀번호가 올바르지 않습니다.');
         } else if (result.message === 'INVALID EMAIL') {
-          alert('아이디가 옳바르지 않습니다.');
+          alert('이메일이 올바르지 않습니다.');
         } else if (result.message === 'DOES NOT EXIST USER') {
           alert('이메일 주소를 입력하세요.');
           alert('비밀번호를 입력하세요.');
         } else if (result.message === 'SUCCESS') {
-          sessionStorage.setItem('success', result.JWT);
+          sessionStorage.setItem('token', result.JWT);
           goToLoginMyPage();
         }
-        console.log(result, userInputId, userInputPw);
+        console.log(
+          result,
+          userInputText.userInputId,
+          userInputText.userInputPw
+        );
       });
   };
 
@@ -53,31 +68,43 @@ function Mypage() {
     fetch('http://10.58.5.61:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
-        name: 'park',
-        email: signUpuserInputId,
-        password: signUpuserInputPw,
-        phone_number: '01023233232',
+        name: userInputText.userName,
+        email: userInputText.signUpuserInputId,
+        password: userInputText.signUpuserInputPw,
+        phone_number: signUpNumber,
         address: '선릉역',
       }),
     })
       .then(response => response.json())
-      .then(result =>
-        console.log(result, signUpuserInputId, signUpuserInputPw)
-      );
+      .then(result => {
+        if (result.message === 'INVALID PASSWORD') {
+          alert('비밀번호 형식이 올바르지 않습니다.');
+        } else if (result.message === 'INVALID EMAIL') {
+          alert('이메일이 형식이 올바르지 않습니다.');
+        } else if (result.message === 'ALREADY EXIST EMAIL') {
+          alert('존재하는 아아디 입니다.');
+        } else if (result.message === 'DOES NOT EXIST USER') {
+          alert('존재하지 않는 유저입니다.');
+        } else if (result.message === 'CREATED') {
+          sessionStorage.setItem('token', result.JWT);
+          alert('환영합니다.');
+          goToMain();
+        }
+        console.log(
+          result,
+          userInputText.signUpuserInputId,
+          userInputText.signUpuserInputPw
+        );
+      });
+  };
+  const handleInputChange = e => {
+    const { name, value } = e.target;
+    setUserInputText({ ...userInputText, [name]: value });
+  };
+  const handleSetNumber = e => {
+    setSignUpNumber(e.target.value);
   };
 
-  const handleIdInput = e => {
-    setUserInputId(e.target.value);
-  };
-  const handlePwInput = e => {
-    setUserInputPw(e.target.value);
-  };
-  const handleSuIdInput = e => {
-    setSignUpUserInputId(e.target.value);
-  };
-  const handleSuPwInput = e => {
-    setSignUpUserInputPw(e.target.value);
-  };
   return (
     <div className="myPage">
       <div className="wrapper">
@@ -85,15 +112,23 @@ function Mypage() {
         <div className="customerBox">
           <div className="newCustomers">
             <h2>신규 고객</h2>
-            <input className="inputText" type="text" placeholder="* 이름" />
             <input
-              onChange={handleSuIdInput}
+              name="userName"
+              className="inputText"
+              onChange="handleUserName"
+              type="text"
+              placeholder="* 이름"
+            />
+            <input
+              name="signUpuserInputId"
+              onChange={handleInputChange}
               className="inputText"
               type="text"
               placeholder="* 이메일주소"
             />
             <input
-              onChange={handleSuPwInput}
+              name="signUpuserInputPw"
+              onChange={handleInputChange}
               className="inputText"
               type="password"
               placeholder="* 비밀번호"
@@ -118,8 +153,16 @@ function Mypage() {
                   <option value="017">017</option>
                   <option value="018">018</option>
                 </select>
-                <input className="lastNumber" type="text" />
-                <input className="lastNumber" type="text" />
+                <input
+                  className="lastNumber"
+                  onChange={handleSetNumber}
+                  type="text"
+                />
+                <input
+                  className="lastNumber"
+                  onChange={handleSetNumber}
+                  type="text"
+                />
               </div>
               <button className="authenticationBtn">인증번호 요청</button>
               <input className="authenticationTextInput" type="text" />
@@ -242,17 +285,17 @@ function Mypage() {
 
           <div className="existingCustomers">
             <h2>기존 고객</h2>
-            {warring.map(data => {
-              return <Warring data={data} />;
-            })}
+
             <input
-              onChange={handleIdInput}
+              name=" userInputId"
+              onChange={handleInputChange}
               className="inputText"
               type="text"
               placeholder="* 이메일주소"
             />
             <input
-              onChange={handlePwInput}
+              name="userInputPw"
+              onChange={handleInputChange}
               onKeyUp={enter}
               className="inputText"
               type="password"
@@ -263,7 +306,7 @@ function Mypage() {
               입력해 주시고,
               <a href="#">여기를 클릭하세요.</a>
             </div>
-            <button className="loginBtn" onClick={goToLoginMyPage}>
+            <button className="loginBtn" onClick={goToSignIn}>
               로그인
             </button>
           </div>

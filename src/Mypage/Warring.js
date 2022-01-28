@@ -2,9 +2,9 @@ import React from 'react';
 
 function Warring(props) {
   return (
-    <div>
-      <span>아이디를 입력하세요</span>
-      <span>{props.data}</span>
+    <div className="warring">
+      <span>비밀번호가 맞지 않습니다.</span>
+      <span className="noPassWord">{props.data}</span>
     </div>
   );
 }
