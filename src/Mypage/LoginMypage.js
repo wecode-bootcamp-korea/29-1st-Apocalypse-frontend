@@ -7,7 +7,6 @@ import Test from './Test';
 
 function LoginMypage() {
   return (
-    <BrowserRouter>
       <div className="bodyContainer">
         <div className="sidebar">
           <div className="sidebarNav">
@@ -77,7 +76,6 @@ function LoginMypage() {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
   );
 }
 
