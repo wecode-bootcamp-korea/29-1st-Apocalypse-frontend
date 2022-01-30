@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
 const ProductDetail = ({ productList }) => {
@@ -10,7 +9,7 @@ const ProductDetail = ({ productList }) => {
           pathname: '/ProductDetailPage',
           state: { name: productList.name },
         }}
-        style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}
+        className="openProductList"
       >
         {productList.name}
       </Link>

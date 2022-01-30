@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 import ShoppingList from './ShoppingList/ShoppingList';
 import './Shopping.scss';
 
@@ -21,7 +20,7 @@ const Shopping = () => {
             pathname: '/ProductDetailList',
             state: { name: 'test' },
           }}
-          style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}
+          className="goProductDetailList"
         >
           상품목록
         </Link>
