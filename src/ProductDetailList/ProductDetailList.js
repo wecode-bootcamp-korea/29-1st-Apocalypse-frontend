@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import Nav from '../components/Nav/Nav';
 import ProductList from './ProductList/ProductList';
 import './ProductDetailList.scss';
 const ProductDetailList = () => {
@@ -16,7 +15,7 @@ const ProductDetailList = () => {
   // const [tests, setTests] = useState([]);
 
   // const test = e => {
-  //   setIsChecked(isChecked => !isChecked);
+  //   setIsChecked(isChecked =>2 !isChecked);
   //   console.log(!isChecked);
   //   console.log(e.target.value);
   //   if (isChecked) {
@@ -27,7 +26,6 @@ const ProductDetailList = () => {
 
   const checkHandler = ({ target }) => {
     setIsChecked(isChecked => !isChecked);
-    console.log(isChecked);
     checkedItemHandler(target.parentNode, target.value, target.checked);
   };
 
@@ -40,11 +38,11 @@ const ProductDetailList = () => {
       setCheckedItems(checkedItems);
     }
   };
-
   console.log(checkedItems);
+  console.log(isChecked);
+
   return (
     <>
-      <Nav />
       <div className="productDetailList">
         <div className="filters">
           <div className="filter">
@@ -63,35 +61,12 @@ const ProductDetailList = () => {
                       <input
                         type="checkbox"
                         value={product.Korea}
-                        // onClick={test}
                         onChange={e => checkHandler(e)}
                       />
                       <div>{product.Korea}</div>
                     </label>
                   );
                 })}
-            </div>
-          </div>
-          <div className="filter2">
-            <div className="filter10">
-              <input type="checkbox" value="1" />
-              <div>asd</div>
-            </div>
-            <div className="filter10">
-              <input type="checkbox" value="2" />
-              <div>asd</div>
-            </div>
-            <div className="filter10">
-              <input type="checkbox" value="3" />
-              <div>asd</div>
-            </div>
-            <div className="filter10">
-              <input type="checkbox" value="4" />
-              <div>asd</div>
-            </div>
-            <div className="filter10">
-              <input type="checkbox" value="5" />
-              <div>asd</div>
             </div>
           </div>
         </div>

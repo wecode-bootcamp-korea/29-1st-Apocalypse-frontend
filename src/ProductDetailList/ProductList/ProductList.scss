@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
   .productList {
     padding: 30px 30px 30px 30px;
     width: 25%;
@@ -10,15 +11,7 @@
       width: 100%;
       height: fit-content;
     }
-    .koreaName {
-      text-align: center;
-      margin-top: 30px;
-    }
-    .englishName {
-      text-align: center;
-      margin-top: 30px;
-    }
-    .price {
+    div {
       text-align: center;
       margin-top: 30px;
     }
