@@ -152,11 +152,11 @@ const ProductDetailList = () => {
           </div>
         </div>
         <div className={filterBox ? 'filterDetail' : 'filterDetailHide'}>
-          <div className="filter10">
+          <div className="filterBox">
             {filterList.length > 0 &&
               filterList.map(product => {
                 return (
-                  <label key={product.id} className="filter101">
+                  <label key={product.id} className="filter">
                     <input
                       type="checkbox"
                       value={product.category_name}
