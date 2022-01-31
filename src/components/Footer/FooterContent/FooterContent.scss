@@ -1,27 +1,27 @@
 @import '../../../styles/variables.scss';
 
-.FooterContent {
-  font-size: $fontsize3;
-  width: 260px;
-  padding: 60px 0px 0px 20px;
+.footerContent {
   display: flex;
   flex-direction: column;
+  width: 260px;
+  padding: 60px 0px 0px 20px;
+  font-size: $fontsize3;
 
   a {
     text-decoration-line: none;
     color: inherit;
   }
 
-  .FooterContentTitle {
-    letter-spacing: 2px;
-    font-weight: 600;
+  .footerContentTitle {
     padding-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: 2px;
   }
 
-  .FooterContentItem {
-    width: fit-content;
+  .footerContentItem {
     padding-bottom: 5px;
     margin-bottom: 24px;
+    width: fit-content;
     &:hover {
       padding-bottom: 4px;
       border-bottom: 1px solid black;

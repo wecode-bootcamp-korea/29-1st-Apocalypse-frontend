@@ -1,16 +1,16 @@
 import React from 'react';
-import './Footer.scss';
 import FooterContent from './FooterContent/FooterContent';
+import './Footer.scss';
 
 function Footer() {
   return (
-    <div className="Footer">
+    <footer className="footer">
       <div className="footerContent">
         <FooterContent />
         <FooterContent />
         <FooterContent />
       </div>
-    </div>
+    </footer>
   );
 }
 
