@@ -1,18 +1,20 @@
 @import '../styles/variables.scss';
 
-.Main {
-  @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  $borderColor: #e2e1d7;
 
   a {
     text-decoration-line: none;
     color: inherit;
   }
 
-  .MoreText {
+  .moreText {
     margin-top: 25px;
   }
 
@@ -43,7 +45,7 @@
       position: absolute;
       text-align: center;
 
-      .MoreText {
+      .moreText {
         margin: 0px;
         height: 63px;
       }
@@ -81,9 +83,10 @@
       }
     }
 
-    .img {
+    .section1Img {
       width: 627px;
       height: 660px;
+      object-fit: cover;
     }
   }
 
@@ -96,7 +99,8 @@
 
     .seciton2Img {
       width: 1254px;
-      height: fit-content;
+      height: 560px;
+      object-fit: cover;
       margin: auto;
     }
   }
@@ -112,7 +116,25 @@
     margin-bottom: 30px;
 
     .productList {
-      @include flex-center();
+      padding: 0px 20px;
+      @include flex-center;
+    }
+
+    .carousel {
+      width: 1708px;
+      overflow-x: auto;
+      display: flex;
+      scroll-behavior: smooth;
+      transition: transform 1s;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .arrow {
+      background: none;
+      border: none;
     }
 
     .fa-chevron-left,
@@ -134,7 +156,7 @@
 
     .line {
       height: 71px;
-      border-right: 1px solid #e2e1d7;
+      border-right: 1px solid $borderColor;
     }
   }
 }

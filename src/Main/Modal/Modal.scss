@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.Modal {
+.modal {
   @mixin flex-center {
     display: flex;
     justify-content: center;
@@ -24,7 +24,7 @@
     margin-right: 60px;
   }
 
-  .Preview {
+  .preview {
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -78,7 +78,7 @@
       align-items: center;
       justify-content: end;
 
-      .Bookmark {
+      .bookmark {
         margin-right: 10px;
       }
       text-align: right;

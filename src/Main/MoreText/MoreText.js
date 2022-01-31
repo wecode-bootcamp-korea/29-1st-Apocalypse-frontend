@@ -3,7 +3,7 @@ import './MoreText.scss';
 
 function MoreText() {
   return (
-    <div className="MoreText">
+    <div className="moreText">
       <a className="more" href="/">
         더 알아보기
       </a>

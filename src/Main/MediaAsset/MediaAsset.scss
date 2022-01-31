@@ -1,12 +1,13 @@
 @import '../../styles/variables.scss';
 
-.MediaAsset {
+.mediaAsset {
   text-align: center;
   margin: 0px 25px;
 
   .productImg {
-    width: 601px;
-    height: fit-content;
+    width: 602px;
+    height: 662px;
+    object-fit: cover;
   }
 
   .text {

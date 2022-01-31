@@ -4,11 +4,11 @@ import './MediaAsset.scss';
 
 function MediaAsset() {
   return (
-    <div className="MediaAsset">
+    <div className="mediaAsset">
       <img
         className="productImg"
         alt="img"
-        src="https://www.jomalone.co.kr/media/export/cms/homepage/220117/BBB_Scent_Pairing_Palette_1080x1920_72dpi_Insta_Story_MOB_626x660.jpg"
+        src="https://images.unsplash.com/photo-1501824466809-99dbdfbc08d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2667&q=80"
       />
       <div className="text">
         <h1 className="title">NEW 솔리드 센트</h1>

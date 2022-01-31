@@ -3,7 +3,7 @@ import Modal from '../Modal/Modal';
 import Bookmark from '../Bookmark/Bookmark';
 import './Product.scss';
 
-function Product(props) {
+function Product({ productList }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [ProductHover, setProductHover] = useState(false);
 
@@ -19,12 +19,12 @@ function Product(props) {
 
   return (
     <div
-      className="MainProduct"
+      className="mainProduct"
       onMouseOver={() => setProductHover(true)}
-      onMouseOut={() => setProductHover(false)}
+      onMouseLeave={() => setProductHover(false)}
     >
       <div className="productBox">
-        {ProductHover ? <Bookmark /> : ''}
+        {ProductHover ? <Bookmark productList={productList} /> : ''}
         <img
           className="productImg"
           alt="img"
@@ -33,13 +33,18 @@ function Product(props) {
       </div>
       <p className="badge">신제품</p>
       <div className="productInfo">
-        <p className="korName">벨벳 로즈 앤 오드 리미티드 코롱 인텐스</p>
-        <p className="engName">Rose $ Magnolia Limited Cologne</p>
-        <p className="price">₩143,000</p>
+        <p className="korName">{productList.korean_name}</p>
+        <p className="engName">{productList.english_name}</p>
+        <p className="price">
+          ₩
+          {parseInt(productList.price)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+        </p>
         <button className="previewBtn" onClick={openModal}>
           미리보기
         </button>
-        <Modal open={modalOpen} close={closeModal} />
+        <Modal open={modalOpen} close={closeModal} productList={productList} />
       </div>
     </div>
   );

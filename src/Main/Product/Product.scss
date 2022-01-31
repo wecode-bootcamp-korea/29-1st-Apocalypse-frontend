@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.MainProduct {
+.mainProduct {
   @mixin flex-center {
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@
     margin: 4px 0px;
     position: relative;
 
-    .Bookmark {
+    .bookmark {
       position: absolute;
       right: 20px;
       font-size: 20px;
