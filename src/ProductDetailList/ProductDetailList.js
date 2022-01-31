@@ -124,7 +124,7 @@ const ProductDetailList = () => {
   };
 
   return (
-    <>
+    <div className="totalProductDetailList">
       <div className="productDetailList">
         <div className="filters">
           <div className="filter">
@@ -175,7 +175,7 @@ const ProductDetailList = () => {
             return <ProductList product={product} key={product.id} />;
           })}
       </div>
-    </>
+    </div>
   );
 };
 
