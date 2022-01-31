@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.productInfo {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  $borderColor: #e2e1d7;
+  font-size: $fontsize2;
+  font-family: $title-font;
+
+  width: 1158px;
+  height: 118px;
+  padding: 46px 0px;
+  border-top: 1px solid $borderColor;
+  border-bottom: 1px solid $borderColor;
+
+  .productInfoBtn {
+    font-size: 16px;
+  }
+}

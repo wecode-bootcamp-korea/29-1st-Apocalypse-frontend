@@ -1,0 +1,143 @@
+@import '../styles/variables.scss';
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productDetailPage {
+  $borderColor: #e2e1d7;
+  flex-direction: column;
+  @include flex-center;
+
+  .nav {
+    width: 100%;
+    height: 70px;
+    background-color: black;
+  }
+
+  .headerImg {
+    width: 100%;
+    height: 134px;
+  }
+
+  .productFull {
+    padding: 66px 0px;
+  }
+
+  .product {
+    @include flex-center;
+    margin-bottom: 120px;
+  }
+
+  .imgWrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 800px;
+    // margin: 0px 150px;
+    height: 502px;
+  }
+
+  .productImg {
+    width: 472px;
+    height: fit-content;
+    object-fit: cover;
+  }
+
+  .share {
+    position: absolute;
+    bottom: 0px;
+    font-size: $fontsize3;
+  }
+
+  .right {
+    width: 328px;
+    font-size: $fontsize3;
+
+    .classify {
+      margin-bottom: 20px;
+    }
+
+    .korName {
+      font-family: $title-font;
+      font-size: $fontsize2;
+      line-height: 31px;
+    }
+
+    .engName {
+      margin-top: 4px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .price {
+      font-weight: bold;
+      height: 26px;
+      margin: 14px 0px 24px;
+    }
+
+    .addReview,
+    .wishListText {
+      display: flex;
+      justify-content: right;
+    }
+
+    .addReview {
+      margin-bottom: 18px;
+    }
+
+    .explain {
+      line-height: 24px;
+      margin: 26px 0px;
+    }
+
+    .smallProductImg {
+      width: 58px;
+      height: 58px;
+    }
+
+    .addCart {
+      margin: 24px 0px 30px;
+      width: 328px;
+      height: 48px;
+      background-color: black;
+      border: none;
+      color: white;
+      font-size: 13px;
+    }
+  }
+
+  .productInfo:nth-child(2) {
+    margin-top: -1px;
+  }
+
+  .line {
+    margin-top: 40px;
+    width: 1166px;
+    border-bottom: 1px solid $borderColor;
+  }
+
+  .lazyImg {
+    padding-top: 40px;
+    width: 1166px;
+    height: 500px;
+    object-fit: cover;
+  }
+
+  .productItemList {
+    display: flex;
+    padding-top: 40px;
+  }
+
+  .review {
+    margin-top: 80px;
+
+    .title {
+      margin-bottom: 40px;
+      font-size: 28px;
+      font-family: $title-font;
+    }
+  }
+}
