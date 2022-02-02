@@ -1,0 +1,80 @@
+@mixin buttonScss {
+  margin: 10px 10px 0px 10px;
+  width: 100px;
+  height: 30px;
+}
+
+.tendencyDetail {
+  margin: 30px;
+  align-items: center;
+  text-align: center;
+
+  .imformationBoxHide {
+    display: none;
+  }
+
+  .imformationBox {
+    .imformation {
+      margin: auto 30px;
+      padding: 10px 30px;
+      align-items: center;
+    }
+
+    .startButton {
+      margin: auto 30px;
+      padding: 10px 30px;
+    }
+  }
+
+  .tendencyTestHide {
+    display: none;
+  }
+
+  .tendencyTest {
+    .first {
+      margin-bottom: 30px;
+    }
+
+    .second {
+      margin-bottom: 30px;
+    }
+
+    .third {
+      margin-bottom: 30px;
+    }
+
+    .fourth {
+      margin-bottom: 30px;
+    }
+
+    .questionBox {
+      display: flex;
+      justify-content: center;
+    }
+
+    .buttonBox {
+      Button {
+        @include buttonScss;
+      }
+    }
+  }
+  .resultInfoBox {
+    .resultInfo {
+      font-weight: bold;
+    }
+    button {
+      @include buttonScss;
+    }
+  }
+  .reset {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+    border: none;
+    background-color: #fcfeef;
+    cursor: pointer;
+  }
+}

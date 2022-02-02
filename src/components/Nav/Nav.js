@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Shopping from './NavCompoenet/Shopping/Shopping';
+import Tendency from './NavCompoenet/tendency/Tendency';
 import Search from './NavCompoenet/Search/Search';
 import MyPage from './NavCompoenet/MyPage/MyPage';
 import WishList from './NavCompoenet/WishList/WishList';
@@ -126,7 +127,7 @@ function Nav() {
             className={subNav.tendency ? 'tendency' : 'tendencyHide'}
             onMouseLeave={CloseSubNav}
           >
-            야 이걸 알고리즘을 어떻게 짜서 구현해야되냐
+            <Tendency />
           </div>
         </div>
       </div>

@@ -11,10 +11,30 @@
     font-size: 24px;
   }
 
-  .help {
-    margin-top: 50px;
-    font-weight: bolder;
-    text-decoration: underline;
-    cursor: pointer;
+  .searchingBox {
+    .middleSearch {
+      display: flex;
+      margin-left: 30px;
+      margin-right: 30px;
+      overflow: scroll;
+      .searching {
+        margin: 0px 30px 30px 30px;
+        img {
+          width: 200px;
+          height: fit-content;
+        }
+        .productName {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+
+  .helpBox {
+    .help {
+      font-weight: bolder;
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 }
