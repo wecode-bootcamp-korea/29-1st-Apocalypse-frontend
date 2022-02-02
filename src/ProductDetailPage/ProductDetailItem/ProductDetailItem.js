@@ -1,9 +1,9 @@
-import react from 'react';
-import './ProductItem.scss';
+import React from 'react';
+import './ProductDetailItem.scss';
 
-function ProductItem() {
+function ProductDetailItem() {
   return (
-    <div className="productItem">
+    <div className="productDetailItem">
       <img
         className="productItemImg"
         alt="img"
@@ -22,4 +22,4 @@ function ProductItem() {
   );
 }
 
-export default ProductItem;
+export default ProductDetailItem;
