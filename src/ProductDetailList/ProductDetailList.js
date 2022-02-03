@@ -21,6 +21,12 @@ const ProductDetailList = () => {
       .then(result => setProductList(result.Product));
   }, []);
 
+  useEffect(() => {
+    fetch('http://192.168.0.55:8000/products?category=무기')
+      .then(res => res.json())
+      .then(result => console.log(result));
+  }, []);
+
   const OpenFilterBox = () => {
     setFilterBox(filterBox => !filterBox);
   };
@@ -28,18 +34,22 @@ const ProductDetailList = () => {
   const checkHandler = e => {
     doFilterProduct(e.target.checked, e.target.value);
     if (filterProduct.size === 0) {
-      // console.log('fff');
-      // fetch('/data/commentDataList.json')
-      //   .then(res => res.json())
-      //   .then(result => setProductList(result.Product));
+      console.log(filterProduct);
+      fetch(`http://192.168.0.55:8000/products`)
+        .then(res => res.json())
+        .then(result => {
+          setProductList(result.Product);
+          console.log(result.Product);
+        });
     } else {
       let test1 = [...filterProduct].join();
-      //test1는 백엔드 통신용입니다. 아직 맞춰보지않아서 이렇습니다.
-
-      // console.log(test1);
-      // fetch(`/data/commentDataList.json${test1}`)
-      //   .then(res => res.json())
-      //   .then(result => setProductList(result.Product));
+      console.log(test1);
+      fetch(`http://192.168.0.55:8000/products?category=${test1}`)
+        .then(res => res.json())
+        .then(result => {
+          setProductList(result.Product);
+          console.log(result.Product);
+        });
     }
   };
 
@@ -66,10 +76,10 @@ const ProductDetailList = () => {
   const DoHighPrice = () => {
     setProductList(
       productList.sort((a, b) => {
-        if (parseInt(a.Price) > parseInt(b.Price)) {
+        if (parseInt(a.price) > parseInt(b.price)) {
           return -1;
         }
-        if (parseInt(a.Price) < parseInt(b.Price)) {
+        if (parseInt(a.price) < parseInt(b.price)) {
           return 1;
         }
         return 0;
@@ -96,10 +106,10 @@ const ProductDetailList = () => {
   const DoLowPrice = () => {
     setProductList(
       productList.sort((a, b) => {
-        if (parseInt(a.Price) > parseInt(b.Price)) {
+        if (parseInt(a.price) > parseInt(b.price)) {
           return 1;
         }
-        if (parseInt(a.Price) < parseInt(b.Price)) {
+        if (parseInt(a.price) < parseInt(b.price)) {
           return -1;
         }
         return 0;
