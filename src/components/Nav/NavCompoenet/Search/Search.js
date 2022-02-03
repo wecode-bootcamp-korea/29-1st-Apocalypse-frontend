@@ -17,7 +17,7 @@ const Search = () => {
   };
 
   let searchResult = searching.filter(product =>
-    product.Korea.includes(searchingInput)
+    product.korean_name.includes(searchingInput)
   );
 
   const doHelp = () => {

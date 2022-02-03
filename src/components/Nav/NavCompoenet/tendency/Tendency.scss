@@ -31,22 +31,6 @@
   }
 
   .tendencyTest {
-    .first {
-      margin-bottom: 30px;
-    }
-
-    .second {
-      margin-bottom: 30px;
-    }
-
-    .third {
-      margin-bottom: 30px;
-    }
-
-    .fourth {
-      margin-bottom: 30px;
-    }
-
     .questionBox {
       display: flex;
       justify-content: center;
@@ -58,14 +42,25 @@
       }
     }
   }
+
+  .resultInfoBoxHide {
+    display: none;
+  }
+
   .resultInfoBox {
     .resultInfo {
       font-weight: bold;
     }
+
     button {
       @include buttonScss;
     }
   }
+
+  .resetHide {
+    display: none;
+  }
+
   .reset {
     position: absolute;
     top: 0px;
@@ -76,5 +71,19 @@
     border: none;
     background-color: #fcfeef;
     cursor: pointer;
+  }
+
+  .resultProductHide {
+    display: none;
+  }
+
+  .resultProduct {
+    img {
+      width: 200px;
+      height: fit-content;
+    }
+    div {
+      margin-top: 30px;
+    }
   }
 }
