@@ -1,0 +1,174 @@
+@import '../styles/variables.scss';
+@mixin numberInputStyle {
+  height: 50px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 15px;
+  outline: none;
+}
+
+@mixin authenticationStyle {
+  width: 100%;
+  height: 50px;
+  font-size: 15px;
+}
+
+.newCustomers {
+  width: 50%;
+  height: 100%;
+  margin-right: 40px;
+  max-width: 100%;
+  overflow: visible;
+  position: relative;
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin:0 0 20px;
+  }
+
+  .inputText {
+    display: block;
+    width: 100%; 
+    height: 40px;
+    padding: 15px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+
+  .showPassword {
+    display: flex;
+    
+    .inputCheckBox {
+      border: 1px solid black;
+      width: 12px;
+      height: 12px;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+    
+    span {
+    font-size: 15px;
+    }
+  }
+  
+  .conditionalText {
+    margin: 20px 0;
+    font-size: 15px;
+    color: #de342c;
+  }
+
+  .phoneAuthentication {
+    .phoneNumber { 
+      font-size: 15px;
+    }
+
+    .numberInputWrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      
+      .firstNumber {
+        display: block;
+        @include numberInputStyle
+      }
+      
+      .lastNumber {
+        @include numberInputStyle
+      }
+    }
+    .authenticationBtn {
+      @include authenticationStyle;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      margin-top: 10px;
+    }
+    .authenticationTextInput {
+      @include authenticationStyle;
+      margin-top: 30px;
+      text-align: center;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    .authenticationNumCheck {
+      @include authenticationStyle;
+      margin-top: 10px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+    }
+  }
+  
+  .tncSpace {
+    margin-top: 20px;
+    .termsAndConditions {
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .tncContent {
+      width: 100%;
+      height: 150px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      overflow: scroll;
+    }
+    
+    .agreeBox {
+      height: 30px;
+      margin: 10px 0;
+      display: flex;
+      
+      .radioCheckBox {
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+      } 
+      .agree {
+        margin: 0 30px 0 0;
+      }
+    }
+  }
+  .receipt {
+    height: 50px;
+    margin: 20px 0;
+    .newsLetter {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    .agreeBox {
+      height: 30px;
+      margin: 10px 0;
+      display: flex;
+
+      .received{
+        margin: 0 30px 0 0;
+      }
+
+      .radioCheckbox {
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+      } 
+    }
+  }
+  .subscribers { 
+    display: flex;
+    margin: 20px 0 40px;
+    .subscribersText {
+      margin-left: 20px;
+    }
+  }
+  .joinMemberShip {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+  }
+}
