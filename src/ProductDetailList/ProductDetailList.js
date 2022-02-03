@@ -21,12 +21,6 @@ const ProductDetailList = () => {
       .then(result => setProductList(result.Product));
   }, []);
 
-  useEffect(() => {
-    fetch('http://192.168.0.55:8000/products?category=무기')
-      .then(res => res.json())
-      .then(result => console.log(result));
-  }, []);
-
   const OpenFilterBox = () => {
     setFilterBox(filterBox => !filterBox);
   };
