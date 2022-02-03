@@ -16,9 +16,11 @@ const Tendency = () => {
     const parentNodebox = e.target.parentNode.parentNode.parentNode;
     const nextresultbox = e.target.parentNode.parentNode.parentNode.nextSibling;
     if (e.target.name === parentNodebox.parentNode.lastChild.className) {
+      console.log(e.target.value);
       parentNodebox.style.display = 'none';
       parentNodebox.parentNode.nextSibling.style.display = 'block';
     } else {
+      console.log(e.target.value);
       parentNodebox.style.display = 'none';
       nextresultbox.style.display = 'block';
     }
@@ -53,7 +55,7 @@ const Tendency = () => {
               style={{ display: 'none' }}
             >
               <div className="questionBox">
-                <div>{`Q0${com.id + '. ' + ' '}`}</div>
+                <div>{`${'Q0' + com.id + '. ' + ' '}`}</div>
                 <div>{com.Question}</div>
               </div>
               <div>

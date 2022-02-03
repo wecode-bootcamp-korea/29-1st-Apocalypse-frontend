@@ -25,7 +25,7 @@ const TendenctTest = [
       {
         id: 4,
         Button: '원딜',
-        Value: '원딜',
+        Value: '원거리무기',
         Name: 'first',
       },
       {
