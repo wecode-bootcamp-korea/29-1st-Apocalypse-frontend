@@ -1,0 +1,50 @@
+@import './src/styles/variables.scss';
+
+.LoginWishList {
+  width: 700px;
+  height: 700px;
+  margin-right: 180px;
+  padding-bottom: 24px;
+
+  .LoginWishListHeader {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 24px;
+    margin-right: 180px;
+
+    .LoginWishTitle {
+      font-family: $title-font;
+      font-size: $fontsize1;
+    }
+  }
+
+  .LoginWishListProduct {
+    display: flex;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    .productInfo {
+      p {
+        padding-bottom: 10px;
+      }
+    }
+
+    .productPrice {
+      padding-left: 100px;
+    }
+
+    .forwardCart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 30px;
+
+      .goToCart {
+        width: 150px;
+        height: 40px;
+        background-color: black;
+        color: #ffff;
+      }
+    }
+  }
+}
