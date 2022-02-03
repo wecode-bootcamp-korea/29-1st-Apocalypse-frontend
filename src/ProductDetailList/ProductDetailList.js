@@ -28,21 +28,17 @@ const ProductDetailList = () => {
   const checkHandler = e => {
     doFilterProduct(e.target.checked, e.target.value);
     if (filterProduct.size === 0) {
-      console.log(filterProduct);
       fetch(`http://192.168.0.55:8000/products`)
         .then(res => res.json())
         .then(result => {
           setProductList(result.Product);
-          console.log(result.Product);
         });
     } else {
-      let test1 = [...filterProduct].join();
-      console.log(test1);
-      fetch(`http://192.168.0.55:8000/products?category=${test1}`)
+      let filterProducts = [...filterProduct].join();
+      fetch(`http://192.168.0.55:8000/products?category=${filterProducts}`)
         .then(res => res.json())
         .then(result => {
           setProductList(result.Product);
-          console.log(result.Product);
         });
     }
   };
