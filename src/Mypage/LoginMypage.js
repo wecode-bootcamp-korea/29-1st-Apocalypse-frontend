@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
-import './LoginMypage.scss';
 import LoginMypageMain from './LoginMypageMain';
-import Test from './Test';
+
+import './LoginMypage.scss';
 
 function LoginMypage() {
   return (
@@ -73,7 +73,6 @@ function LoginMypage() {
         <div className="mypageContent">
           <Routes>
             <Route path="/" element={<LoginMypageMain />} />
-            <Route path="/Test" element={<Test />} />
           </Routes>
         </div>
       </div>
