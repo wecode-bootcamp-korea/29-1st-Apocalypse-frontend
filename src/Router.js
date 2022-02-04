@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import Main from './Main/Main';
 import LoginMypage from './Mypage/LoginMypage';
 import Mypage from './Mypage/Mypage';
