@@ -1,0 +1,175 @@
+@import './src/styles/variables.scss';
+
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartWrapper {
+  display: flex;
+  margin-left: 40px;
+
+  .cartContent {
+    height: 100%;
+    margin: 100px 40px 0 40px;
+
+    .cartHeader {
+      display: flex;
+      justify-content: center;
+      width: 710px;
+      padding-bottom: 30px;
+
+      h1 {
+        font-family: $title-font;
+        font-size: $fontsize1;
+      }
+    }
+
+    .cartProduct {
+      .cartLabel {
+        display: flex;
+        padding: 20px 0 20px 0;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+
+        .product {
+          width: 350px;
+        }
+
+        .price {
+          width: 100px;
+        }
+
+        .quantity {
+          width: 80px;
+        }
+
+        .totalPrice {
+          display: flex;
+          justify-content: flex-end;
+          width: 130px;
+        }
+      }
+
+      .cartItem {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .itemImg {
+        }
+
+        .itemName {
+          width: 250px;
+        }
+
+        .itemPrice {
+          width: 100px;
+        }
+
+        .itemQuantity {
+          width: 70px;
+          height: 70px;
+
+          select {
+            width: 70px;
+            height: 49px;
+            text-align: center;
+            outline: none;
+          }
+        }
+
+        .itemTotal {
+          display: flex;
+          justify-content: flex-end;
+          width: 130px;
+        }
+      }
+    }
+
+    .cartTotal {
+      display: flex;
+      justify-content: end;
+      margin-top: 20px;
+
+      span {
+        margin-left: 10px;
+      }
+    }
+
+    .cartFooter {
+      @include flex;
+      width: 710px;
+      margin-top: 40px;
+
+      a {
+        color: black;
+      }
+
+      button {
+        width: 200px;
+        height: 50px;
+        background-color: black;
+        color: #fff;
+      }
+    }
+  }
+
+  .cartSide {
+    margin: 100px 40px 0 40px;
+
+    .customService {
+      border: 1px solid #ccc;
+      padding: 24px 12px 30px 12px;
+      width: 320px;
+
+      p {
+        padding: 20px;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+        font-family: $title-font;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .serviceContent {
+        word-wrap: break-word;
+      }
+    }
+
+    .billSummary {
+      width: 320px;
+      margin-top: 30px;
+      padding: 24px 12px 30px 12px;
+      border: 1px solid #ccc;
+
+      h3 {
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .billPrice {
+        @include flex;
+        margin: 30px 0 30px 0;
+        font-weight: 700;
+      }
+
+      .deliveryFee {
+        @include flex;
+        margin: 30px 0 30px 0;
+        font-weight: 700;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+      }
+
+      .billTotal {
+        @include flex;
+        margin: 30px 0 30px 0;
+        font-weight: 700;
+      }
+    }
+  }
+}
