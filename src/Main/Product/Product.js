@@ -19,7 +19,7 @@ function Product({ productList }) {
 
   return (
     <div
-      className="mainProduct"
+      className="product"
       onMouseOver={() => setProductHover(true)}
       onMouseLeave={() => setProductHover(false)}
     >

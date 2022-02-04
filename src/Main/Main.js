@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useHistory } from 'react';
 import MediaAsset from './MediaAsset/MediaAsset';
 import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
@@ -6,14 +6,14 @@ import Benefit from './Benefit/Benefit';
 import './Main.scss';
 
 function Main() {
-  const [productList, setProductList] = useState([]);
+  const [product, setProduct] = useState([]);
   const carousel = useRef(null);
 
   useEffect(() => {
     fetch('http://localhost:3000/data/mainData.json')
       .then(res => res.json())
       .then(data => {
-        setProductList(data.list);
+        setProduct(data.list);
       });
   }, []);
 
@@ -27,11 +27,12 @@ function Main() {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
   };
 
-  if (!productList || !productList.length) return null;
+  if (!product || !product.length) return null;
 
   return (
     <main className="main">
-      <div className="nav" />
+      <div className="nav"></div>
+
       <div className="mainVideo">
         <div className="text">
           <h1 className="title">Celebrating the Rose</h1>
@@ -40,7 +41,7 @@ function Main() {
       </div>
 
       <div className="section1">
-        <div className="product">
+        <div className="productBox">
           <img
             className="productImg"
             alt="img"
@@ -80,8 +81,8 @@ function Main() {
             <i class="fas fa-chevron-left" />
           </button>
           <div className="carousel" ref={carousel}>
-            {productList.length > 0 &&
-              productList.map(com => {
+            {product.length > 0 &&
+              product.map(com => {
                 return <Product productList={com} key={com.id} />;
               })}
           </div>
