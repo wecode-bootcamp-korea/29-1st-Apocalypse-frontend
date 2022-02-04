@@ -95,7 +95,9 @@ const Tendency = () => {
         <img alt="KoreaName" src="/images/test.jpg" />
         <div className="koreaName">koreaName</div>
         <div className="englishName">englishName</div>
-        <div className="price">price</div>
+        <div className="price">{`${parseInt(10000)
+          .toString()
+          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}원`}</div>
       </div>
     </div>
   );

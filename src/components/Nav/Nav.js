@@ -90,6 +90,18 @@ function Nav() {
   return (
     <header className="nav">
       <div className="mainNav">
+        <div
+          className={
+            subNav.shoppingNav ||
+            subNav.tendency ||
+            subNav.searchNav ||
+            subNav.myPageNav ||
+            subNav.wishListNav ||
+            subNav.shoppingBasketNav
+              ? 'modal'
+              : 'modalHide'
+          }
+        />
         <div className="leftNavBox">
           <div
             onMouseOver={OpenShopping}
@@ -109,10 +121,13 @@ function Nav() {
           <div className="subTitle">WECODE</div>
         </div>
         <div className="rightNavBox">
-          <i class="fas fa-search" onMouseOver={OpenSearch} />
-          <i class="far fa-user" onMouseOver={OpenMypage} />
+          <i className="fas fa-search" onMouseOver={OpenSearch} />
+          <i className="far fa-user" onMouseOver={OpenMypage} />
           <i className="far fa-bookmark" onMouseOver={OpenWishList} />
-          <i class="fas fa-shopping-basket" onMouseOver={OpenShoppingBasket} />
+          <i
+            className="fas fa-shopping-basket"
+            onMouseOver={OpenShoppingBasket}
+          />
         </div>
       </div>
       <div className="leftSubNav">
@@ -144,19 +159,19 @@ function Nav() {
           className={subNav.searchNav ? 'search' : 'searchHide'}
           onMouseLeave={CloseSubNav}
         >
-          <Search subNav={subNav} />
+          <Search />
         </div>
         <div
           className={subNav.myPageNav ? 'myPage' : 'myPageHide'}
           onMouseLeave={CloseSubNav}
         >
-          <MyPage subNav={subNav} />
+          <MyPage />
         </div>
         <div
           className={subNav.wishListNav ? 'wishList' : 'wishListHide'}
           onMouseLeave={CloseSubNav}
         >
-          <WishList subNav={subNav} />
+          <WishList />
         </div>
         <div
           className={
@@ -164,7 +179,7 @@ function Nav() {
           }
           onMouseLeave={CloseSubNav}
         >
-          <ShoppingBasket subNav={subNav} />
+          <ShoppingBasket />
         </div>
       </div>
     </header>

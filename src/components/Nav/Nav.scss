@@ -13,6 +13,20 @@
     align-items: center;
     justify-content: space-between;
 
+    .modalHide {
+      display: none;
+    }
+
+    .modal {
+      position: fixed;
+      top: 78px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
     .leftNavBox {
       @include flexCenter;
 
@@ -62,29 +76,19 @@
     .subNav {
       .shoppingHide {
         display: none;
-        // opacity: 0;
-        // position: absolute;
-        // width: 400px;
-        // height: 400px;
-        // top: 78px;
       }
 
       .shopping {
-        background-color: #fcfeef;
         position: absolute;
         width: 100%;
         top: 78px;
-        // opacity: 1;
-        // transition: opacity 0.5s ease-in-out;
+        z-index: 1000;
+        background-color: #fcfeef;
       }
 
       .tendencyHide {
         display: none;
         opacity: 0;
-        // position: absolute;
-        // width: 400px;
-        // height: 400px;
-        // top: 78px;
       }
 
       .tendency {
@@ -93,107 +97,63 @@
         width: 100%;
         height: 400px;
         top: 78px;
+        z-index: 1000;
         background-color: #fcfeef;
-        // opacity: 1;
-        // transition: display 0.5s ease-in-out;
       }
     }
   }
-  // .background {
-  //   position: absolute;
-  //   top: 78px;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100vh;
-  //   background-color: red;
-  //   z-index: 1000;
 
-  //   /* 숨기기 */
-  //   z-index: -1;
-  //   opacity: 0;
-  // }
-  // .backgroundShow {
-  //   opacity: 1;
-  //   z-index: 1000;
-  // }
   .rightSubNav {
     .searchHide {
       display: none;
-      opacity: 0;
-      // position: absolute;
-      // width: 400px;
-      // height: 400px;
-      // top: 78px;
     }
 
     .search {
       position: absolute;
-      background-color: #fcfeef;
       width: 100%;
       top: 78px;
-
       height: 400px;
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out;
+      z-index: 1000;
+      background-color: #fcfeef;
     }
 
     .myPageHide {
       display: none;
-      opacity: 0;
-      // position: absolute;
-      // width: 400px;
-      // height: 400px;
-      // top: 78px;
     }
 
     .myPage {
       position: absolute;
-      background-color: #fcfeef;
       width: 400px;
       top: 78px;
       right: 0;
-
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out;
+      z-index: 1000;
+      background-color: #fcfeef;
     }
 
     .wishListHide {
       display: none;
-      opacity: 0;
-      // position: absolute;
-      // width: 400px;
-      // height: 400px;
-      // top: 78px;
     }
 
     .wishList {
       position: absolute;
-      background-color: #fcfeef;
       width: 400px;
       top: 78px;
       right: 0;
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out;
+      z-index: 1000;
+      background-color: #fcfeef;
     }
 
     .shoppingBasketHide {
       display: none;
-      opacity: 0;
-      // position: absolute;
-      // width: 400px;
-      // height: 400px;
-      // top: 78px;
     }
 
     .shoppingBasket {
       position: absolute;
-      background-color: #fcfeef;
       width: 400px;
       top: 78px;
-
       right: 0;
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out;
+      z-index: 1000;
+      background-color: #fcfeef;
     }
   }
 }
