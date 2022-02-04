@@ -5,7 +5,10 @@ import Product from './Product/Product';
 import Benefit from './Benefit/Benefit';
 import './Main.scss';
 
+import Nav from '../components/Nav/Nav';
+
 function Main() {
+
   const [product, setProduct] = useState([]);
   const carousel = useRef(null);
 
