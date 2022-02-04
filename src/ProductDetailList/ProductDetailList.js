@@ -75,21 +75,6 @@ const ProductDetailList = () => {
         return 0;
       })
     );
-    // fetch('/data/commentDataList.json')
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     setProductList(
-    //       result.Product.sort((a, b) => {
-    //         if (parseInt(a.Price) > parseInt(b.Price)) {
-    //           return -1;
-    //         }
-    //         if (parseInt(a.Price) < parseInt(b.Price)) {
-    //           return 1;
-    //         }
-    //         return 0;
-    //       })
-    //     );
-    //   });
     OpenRangeBox();
   };
 
@@ -105,21 +90,6 @@ const ProductDetailList = () => {
         return 0;
       })
     );
-    // fetch('/data/commentDataList.json')
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     setProductList(
-    //       result.Product.sort((a, b) => {
-    //         if (parseInt(a.Price) > parseInt(b.Price)) {
-    //           return 1;
-    //         }
-    //         if (parseInt(a.Price) < parseInt(b.Price)) {
-    //           return -1;
-    //         }
-    //         return 0;
-    //       })
-    //     );
-    //   });
     OpenRangeBox();
   };
 
