@@ -1,0 +1,93 @@
+@import '../../styles/variables.scss';
+
+.productDetailTop {
+  display: flex;
+  font-size: $fontsize3;
+
+  .leftColumn {
+    .productImg {
+      margin: 0px 160px;
+      width: 472px;
+      height: 472px;
+      object-fit: cover;
+    }
+  }
+
+  .rightColumn {
+    width: 328px;
+
+    .classify {
+      padding-bottom: 13px;
+    }
+
+    .korName {
+      margin-top: 16px;
+      font-family: $title-font;
+      font-size: $fontsize2;
+      line-height: 31px;
+    }
+
+    .engName {
+      margin-top: 6px;
+      font-family: 'Roboto Regular';
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .price {
+      margin-top: 14px;
+      font-weight: 600;
+    }
+
+    .addReview {
+      display: flex;
+      justify-content: end;
+      margin: 46px 0px;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    .explain {
+      line-height: 24px;
+    }
+
+    .productSizeBox {
+      display: flex;
+      margin-left: -15px;
+
+      .productSize {
+        margin-top: 20px;
+        text-align: center;
+
+        .productSmallImg {
+          width: 58px;
+          height: 58px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .sizeText {
+      margin: 15px 15px 0px 15px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid black;
+      font-size: 10px;
+    }
+
+    .wishList {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      padding-bottom: 2px;
+      text-align: right;
+
+      .bookmark {
+        margin-right: 10px;
+      }
+    }
+
+    .addCartBtn {
+      width: 328px;
+    }
+  }
+}
