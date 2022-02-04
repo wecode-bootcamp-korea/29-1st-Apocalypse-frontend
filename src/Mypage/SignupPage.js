@@ -23,11 +23,15 @@ const SignupPage = () => {
   const handleSubmit = e => {
     e.preventDefault();
     setErrorMessage(validate(userInputText));
-    setIsSubmit(true);
+    goToSignUp();
   };
 
   const handleSetNumber = e => {
     setSignUpNumber(e.target.value);
+  };
+
+  const submitForm = () => {
+    setIsSubmit(true);
   };
 
   const toMainNavigate = useNavigate();
@@ -36,17 +40,17 @@ const SignupPage = () => {
   };
 
   const validate = values => {
-    const errors = {};
-    if (!values.userName) {
-      errors.userName = '이름을 입력하세요';
+    const errorMessage = {};
+    if (!userInputText.userName) {
+      errorMessage.userName = '이름을 입력하세요.';
     }
-    if (!values.signUpuserInputId) {
-      errors.signUpuserInputId = '이메일이 형식이 올바르지 않습니다.';
+    if (!userInputText.signUpuserInputId) {
+      errorMessage.signUpuserInputId = '이메일을 입력하세요.';
     }
-    if (!values.signUpuserInputPw) {
-      errors.signUpuserInputPw = '비밀번호 형식이 올바르지 않습니다.';
+    if (!userInputText.signUpuserInputPw) {
+      errorMessage.signUpuserInputPw = '비밀번호를 입력하세요.';
     }
-    return errors;
+    return errorMessage;
   };
 
   const goToSignUp = () => {
@@ -67,9 +71,7 @@ const SignupPage = () => {
         } else if (result.message === 'INVALID EMAIL') {
           alert('이메일이 형식이 올바르지 않습니다.');
         } else if (result.message === 'ALREADY EXIST EMAIL') {
-          alert('존재하는 아아디 입니다.');
-        } else if (result.message === 'DOES NOT EXIST USER') {
-          alert('존재하지 않는 유저입니다.');
+          alert('입력하신 이메일 주소로 이미 회원등록이 되어 있습니다. ');
         } else if (result.message === 'CREATED') {
           sessionStorage.setItem('token', result.JWT);
           alert('환영합니다.');
@@ -86,9 +88,15 @@ const SignupPage = () => {
   return (
     <div className="newCustomers" onSubmit={handleSubmit}>
       <h2>신규 고객</h2>
-      <p>{errorMessage.userName}</p>
-      <p>{errorMessage.signUpuserInputId}</p>
-      <p>{errorMessage.signUpuserInputPw}</p>
+      {errorMessage.userName && (
+        <p className="error">{errorMessage.userName}</p>
+      )}
+      {errorMessage.signUpuserInputId && (
+        <p className="error">{errorMessage.signUpuserInputId}</p>
+      )}
+      {errorMessage.signUpuserInputPw && (
+        <p className="error">{errorMessage.signUpuserInputPw}</p>
+      )}
       <input
         name="userName"
         className="inputText"
@@ -256,7 +264,8 @@ const SignupPage = () => {
           (만 19세 이상부터 회원가입이 가능합니다.)
         </div>
       </div>
-      <button onClick={goToSignUp} className="joinMemberShip">
+      {!isSubmit ? submitForm() : goToSignUp()}
+      <button onClick={handleSubmit} className="joinMemberShip">
         회원가입
       </button>
     </div>

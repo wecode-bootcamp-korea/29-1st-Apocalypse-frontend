@@ -4,19 +4,22 @@ import './SigninPage.scss';
 
 const SigninPage = () => {
   const initialValues = { userInputId: '', userInputPw: '' };
-
+  const [isSubmit, setIsSubmit] = useState(false);
   const [userInputText, setUserInputText] = useState(initialValues);
   const [errorMessage, setErrorMessage] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
     setErrorMessage(validate(userInputText));
-    setIsSubmit(true);
+    goToSignIn();
   };
   const handleInputChange = e => {
     const { name, value } = e.target;
     setUserInputText({ ...userInputText, [name]: value });
+  };
+
+  const submitForm = () => {
+    setIsSubmit(true);
   };
 
   const toLoginNavigate = useNavigate();
@@ -30,15 +33,15 @@ const SigninPage = () => {
     }
   };
 
-  const validate = values => {
-    const errors = {};
-    if (!values.userInputId) {
-      errors.userInputId = '이메일이 형식이 올바르지 않습니다.';
+  const validate = userInputText => {
+    const errorMessage = {};
+    if (!userInputText.userInputId) {
+      errorMessage.userInputId = '이메일을 입력하세요.';
     }
-    if (!values.userInputPw) {
-      errors.userInputPw = '비밀번호 형식이 올바르지 않습니다.';
+    if (!userInputText.userInputPw) {
+      errorMessage.userInputPw = '비밀번호를 입력하세요.';
     }
-    return errors;
+    return errorMessage;
   };
 
   const goToSignIn = () => {
@@ -55,9 +58,9 @@ const SigninPage = () => {
       .then(response => response.json())
       .then(result => {
         if (result.message === 'INVALID PASSWORD1') {
-          alert('비밀번호가 올바르지 않습니다.');
+          alert('비밀번호가 형식이 올바르지 않습니다.');
         } else if (result.message === 'INVALID EMAIL') {
-          alert('이메일이 올바르지 않습니다.');
+          alert('이메일이  형식이 올바르지 않습니다.');
         } else if (result.message === 'DOES NOT EXIST USER') {
           alert('빈칸을 모두 입력하세요.');
         } else if (result.message === 'SUCCESS') {
@@ -75,8 +78,12 @@ const SigninPage = () => {
   return (
     <div className="existingCustomers" onSubmit={handleSubmit}>
       <h2>기존 고객</h2>
-      <p>{errorMessage.userInputId}</p>
-      <p>{errorMessage.userInputPw}</p>
+      {errorMessage.userInputId && (
+        <p className="error">{errorMessage.userInputId}</p>
+      )}
+      {errorMessage.userInputPw && (
+        <p className="error">{errorMessage.userInputPw}</p>
+      )}
       <input
         name="userInputId"
         onChange={handleInputChange}
@@ -97,7 +104,8 @@ const SigninPage = () => {
         주시고,
         <a href="#">여기를 클릭하세요.</a>
       </div>
-      <button className="loginBtn" onClick={goToSignIn}>
+      {!isSubmit ? submitForm() : goToSignIn()}
+      <button className="loginBtn" onClick={handleSubmit}>
         로그인
       </button>
     </div>
