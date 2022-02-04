@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useHistory } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import MediaAsset from './MediaAsset/MediaAsset';
 import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
@@ -34,8 +34,7 @@ function Main() {
 
   return (
     <main className="main">
-      <div className="nav"></div>
-
+ 
       <div className="mainVideo">
         <div className="text">
           <h1 className="title">Celebrating the Rose</h1>
