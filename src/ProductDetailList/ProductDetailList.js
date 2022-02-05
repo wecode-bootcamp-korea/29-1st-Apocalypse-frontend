@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import ProductList from './ProductList/ProductList';
 import './ProductDetailList.scss';
+
 const ProductDetailList = () => {
   const [productList, setProductList] = useState([]);
   const [filterList, setFilterList] = useState([]);
