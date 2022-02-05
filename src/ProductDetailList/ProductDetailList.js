@@ -99,7 +99,7 @@ const ProductDetailList = () => {
         <div className="filters">
           <div className="filter">
             <button className="leftFilter" onClick={OpenFilterBox}>
-              <div>필터: 카테고리</div>
+              <div>필터:카테고리</div>
               <i
                 className={
                   filterBox ? 'fas fa-sort-down rotate' : 'fas fa-sort-down'
