@@ -2,9 +2,7 @@
 
 .myPage {
   height: 100%;
-  @include flexCenter;
-  font-family: $sub-font;
-  
+  @include flexCenter;  
   .wrapper {
     width: 70%;
     height: 100vh;

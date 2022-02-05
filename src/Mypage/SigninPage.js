@@ -13,6 +13,7 @@ const SigninPage = () => {
     setErrorMessage(validate(userInputText));
     goToSignIn();
   };
+
   const handleInputChange = e => {
     const { name, value } = e.target;
     setUserInputText({ ...userInputText, [name]: value });
@@ -35,11 +36,19 @@ const SigninPage = () => {
 
   const validate = userInputText => {
     const errorMessage = {};
+    const regexId = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
+    const regexPw =
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*d)(?=.*[$@$!%*#?&])[A-Za-zd$@$!%*#?&]{8,}$/;
+
     if (!userInputText.userInputId) {
       errorMessage.userInputId = '이메일을 입력하세요.';
+    } else if (!regexId.test(userInputText.userInputId)) {
+      errorMessage.userInputId = '이메일형식이 아닙니다.';
     }
     if (!userInputText.userInputPw) {
       errorMessage.userInputPw = '비밀번호를 입력하세요.';
+    } else if (!regexPw.test(userInputText.userInputPw)) {
+      errorMessage.userInputPw = '비밀번호 형식이 아닙니다.';
     }
     return errorMessage;
   };

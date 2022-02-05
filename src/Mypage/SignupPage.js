@@ -41,14 +41,21 @@ const SignupPage = () => {
 
   const validate = values => {
     const errorMessage = {};
+    const regexId = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
+    const regexPw =
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*d)(?=.*[$@$!%*#?&])[A-Za-zd$@$!%*#?&]{8,}$/;
     if (!userInputText.userName) {
       errorMessage.userName = '이름을 입력하세요.';
     }
     if (!userInputText.signUpuserInputId) {
       errorMessage.signUpuserInputId = '이메일을 입력하세요.';
+    } else if (!regexId.test(userInputText.signUpuserInputId)) {
+      errorMessage.signUpuserInputId = '이메일형식이 아닙니다.';
     }
     if (!userInputText.signUpuserInputPw) {
       errorMessage.signUpuserInputPw = '비밀번호를 입력하세요.';
+    } else if (!regexPw.test(userInputText.signUpuserInputPw)) {
+      errorMessage.signUpuserInputPw = '비밀번호형식이 아닙니다.';
     }
     return errorMessage;
   };
