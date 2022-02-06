@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useHistory } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import MediaAsset from './MediaAsset/MediaAsset';
 import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
@@ -31,8 +31,6 @@ function Main() {
 
   return (
     <main className="main">
-      <div className="nav"></div>
-
       <div className="mainVideo">
         <div className="text">
           <h1 className="title">Celebrating the Rose</h1>
@@ -40,7 +38,7 @@ function Main() {
         </div>
       </div>
 
-      <div className="section1">
+      <section className="section1">
         <div className="productBox">
           <img
             className="productImg"
@@ -55,9 +53,9 @@ function Main() {
           alt="img"
           src="https://images.unsplash.com/photo-1500252185289-40ca85eb23a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80"
         />
-      </div>
+      </section>
 
-      <div className="section2">
+      <section className="section2">
         <img
           className="seciton2Img"
           alt="img"
@@ -67,14 +65,14 @@ function Main() {
           <h1 className="title">벨벳 로즈 앤 오드 리미티드 코롱 인텐스</h1>
           <MoreText />
         </div>
-      </div>
+      </section>
 
-      <div className="section3">
+      <section className="section3">
         <MediaAsset />
         <MediaAsset />
-      </div>
+      </section>
 
-      <div className="section4">
+      <section className="section4">
         <h1 className="title">완벽한 선물</h1>
         <div className="productList">
           <button className="arrow" onClick={handleLeftClick}>
@@ -87,23 +85,23 @@ function Main() {
               })}
           </div>
           <button className="arrow" onClick={handleRightClick}>
-            <i class="fas fa-chevron-right" />
+            <i className="fas fa-chevron-right" />
           </button>
         </div>
-      </div>
+      </section>
 
-      <div className="section5">
+      <section className="section5">
         <MediaAsset />
         <MediaAsset />
-      </div>
+      </section>
 
-      <div className="section6">
+      <section className="section6">
         <Benefit />
         <div className="line" />
         <Benefit />
         <div className="line" />
         <Benefit />
-      </div>
+      </section>
     </main>
   );
 }
