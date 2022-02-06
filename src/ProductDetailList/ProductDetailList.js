@@ -34,7 +34,7 @@ const ProductDetailList = () => {
           setProductList(result.Product);
         });
     } else {
-      let filterProducts = [...filterProduct].join();
+      const filterProducts = [...filterProduct].join();
       fetch(`http://192.168.0.55:8000/products?category=${filterProducts}`)
         .then(res => res.json())
         .then(result => {
@@ -52,6 +52,7 @@ const ProductDetailList = () => {
       setFilterProduct(filterProduct);
     }
   };
+
   const OpenRangeBox = () => {
     setRangeBox(rangeBox => !rangeBox);
   };
