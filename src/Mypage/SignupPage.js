@@ -43,7 +43,7 @@ const SignupPage = () => {
     const errorMessage = {};
     const regexId = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
     const regexPw =
-      /^(?=.*[A-Z])(?=.*[a-z])(?=.*d)(?=.*[$@$!%*#?&])[A-Za-zd$@$!%*#?&]{8,}$/;
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}/;
     if (!userInputText.userName) {
       errorMessage.userName = '이름을 입력하세요.';
     }
