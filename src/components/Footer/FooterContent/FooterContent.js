@@ -1,18 +1,21 @@
 import React from 'react';
 import './FooterContent.scss';
 
-function FooterContent() {
+function FooterContent({ footerContent }) {
+  const { title, list1, list1_link, list2, list2_link, list3, list3_link } =
+    footerContent;
+
   return (
     <div className="footerContent">
-      <p className="footerContentTitle">회사 소개</p>
-      <a className="footerContentItem" href="/">
-        법인 정보
+      <p className="footerContentTitle">{title}</p>
+      <a className="footerContentItem" href={list1_link}>
+        {list1}
       </a>
-      <a className="footerContentItem" href="/">
-        법인 판매
+      <a className="footerContentItem" href={list2_link}>
+        {list2}
       </a>
-      <a className="footerContentItem" href="/">
-        커리어
+      <a className="footerContentItem" href={list3_link}>
+        {list3}
       </a>
     </div>
   );
