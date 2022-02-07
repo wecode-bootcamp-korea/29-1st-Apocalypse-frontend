@@ -1,12 +1,9 @@
 import React from 'react';
 import Bookmark from '../Bookmark/Bookmark';
 import AddCartBtn from '../AddCartBtn/AddCartBtn';
-import UseLocalStorage from '../UseLocalStorage';
 import './Modal.scss';
 
 function Modal({ productList, open, close }) {
-  const [addCart, setAddCart] = UseLocalStorage(`id${productList.id}`, false);
-
   return (
     <div className="modal">
       <div className={open && 'openModal modal'}>
@@ -31,7 +28,7 @@ function Modal({ productList, open, close }) {
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </p>
-              <AddCartBtn onClick={() => setAddCart(!addCart)} />
+              <AddCartBtn />
               <div className="wishList">
                 <Bookmark productList={productList} />
                 <p className="wishListText">위시리스트</p>
