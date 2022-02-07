@@ -19,14 +19,11 @@ function Modal({ productList, open, close }) {
             <div className="previewInfo">
               <p className="classify">신제품</p>
               <h2 className="previewTitle">{productList.korean_name}</h2>
-              <p className="explain">
-                빛나는 매그놀리아와 장미가 만발하는 매혹적인 플로랄한 향의
-                이중주.
-              </p>
+              <p className="explain">{productList.description}</p>
               <p className="price">₩143,000</p>
               <button className="addCart">장바구니 담기</button>
               <div className="wishList">
-                <Bookmark />
+                <Bookmark productList={productList} />
                 <p className="wishListText">위시리스트</p>
               </div>
             </div>

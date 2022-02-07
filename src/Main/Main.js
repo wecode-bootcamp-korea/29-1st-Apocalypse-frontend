@@ -10,10 +10,10 @@ function Main() {
   const carousel = useRef(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/mainData.json')
+    fetch('http://10.58.4.77:8000/products?category=무기')
       .then(res => res.json())
       .then(data => {
-        setProduct(data.list);
+        setProduct(data.Product);
       });
   }, []);
 
@@ -45,7 +45,7 @@ function Main() {
             alt="img"
             src="https://www.jomalone.co.kr/media/export/cms/homepage/220117/jo_sku_LFFN01_DT_750x415.png"
           />
-          <h2 className="title">로즈 앤 매그놀리아 리미티드 코롱</h2>
+          <h2 className="title">{product[0].korean_name}</h2>
           <MoreText />
         </div>
         <img
@@ -62,7 +62,7 @@ function Main() {
           src="https://images.unsplash.com/photo-1561323577-5b76286cb15f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3574&q=80"
         />
         <div className="text">
-          <h1 className="title">벨벳 로즈 앤 오드 리미티드 코롱 인텐스</h1>
+          <h1 className="title">Celebrating the Rose</h1>
           <MoreText />
         </div>
       </section>
