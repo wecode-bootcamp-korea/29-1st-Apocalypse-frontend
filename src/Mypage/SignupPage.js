@@ -61,7 +61,7 @@ const SignupPage = () => {
   };
 
   const goToSignUp = () => {
-    fetch('http://192.168.0.6:8000/users/signup', {
+    fetch('http://10.58.4.77:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         name: userInputText.userName,
@@ -73,12 +73,8 @@ const SignupPage = () => {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'INVALID PASSWORD') {
-          alert('비밀번호 형식이 올바르지 않습니다.');
-        } else if (result.message === 'INVALID EMAIL') {
-          alert('이메일이 형식이 올바르지 않습니다.');
-        } else if (result.message === 'ALREADY EXIST EMAIL') {
-          alert('입력하신 이메일 주소로 이미 회원등록이 되어 있습니다. ');
+        if (result.message === 'ALREADY EXIST EMAIL') {
+          alert('입력하신 이메일 주소로 이미 회원등록이 되어 있습니다.');
         } else if (result.message === 'CREATED') {
           sessionStorage.setItem('token', result.JWT);
           alert('환영합니다.');
@@ -89,7 +85,7 @@ const SignupPage = () => {
           userInputText.signUpuserInputId,
           userInputText.signUpuserInputPw
         );
-      });
+      }, []);
   };
 
   return (
@@ -271,7 +267,7 @@ const SignupPage = () => {
           (만 19세 이상부터 회원가입이 가능합니다.)
         </div>
       </div>
-      {!isSubmit ? submitForm() : goToSignUp()}
+
       <button onClick={handleSubmit} className="joinMemberShip">
         회원가입
       </button>

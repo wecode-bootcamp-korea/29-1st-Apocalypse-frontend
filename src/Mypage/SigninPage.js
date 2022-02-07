@@ -30,7 +30,6 @@ const SigninPage = () => {
 
   const enter = e => {
     if (e.key === 'Enter') {
-      goToSignIn();
     }
   };
 
@@ -54,7 +53,7 @@ const SigninPage = () => {
   };
 
   const goToSignIn = () => {
-    fetch('http://192.168.0.6:8000/users/signin', {
+    fetch('http://10.58.4.77:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         name: 'park',
@@ -66,13 +65,7 @@ const SigninPage = () => {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'INVALID PASSWORD1') {
-          alert('비밀번호가 형식이 올바르지 않습니다.');
-        } else if (result.message === 'INVALID EMAIL') {
-          alert('이메일이  형식이 올바르지 않습니다.');
-        } else if (result.message === 'DOES NOT EXIST USER') {
-          alert('빈칸을 모두 입력하세요.');
-        } else if (result.message === 'SUCCESS') {
+        if (result.message === 'SUCCESS') {
           sessionStorage.setItem('token', result.JWT);
           goToLoginMyPage();
         }
@@ -81,7 +74,7 @@ const SigninPage = () => {
           userInputText.userInputId,
           userInputText.userInputPw
         );
-      });
+      }, []);
   };
 
   return (
@@ -93,6 +86,7 @@ const SigninPage = () => {
       {errorMessage.userInputPw && (
         <p className="error">{errorMessage.userInputPw}</p>
       )}
+
       <input
         name="userInputId"
         onChange={handleInputChange}
@@ -113,7 +107,7 @@ const SigninPage = () => {
         주시고,
         <a href="#">여기를 클릭하세요.</a>
       </div>
-      {!isSubmit ? submitForm() : goToSignIn()}
+
       <button className="loginBtn" onClick={handleSubmit}>
         로그인
       </button>
