@@ -1,0 +1,156 @@
+{
+  "message": "SUCCESS",
+  "result": [
+    {
+      "category_name": "무기",
+      "id": 1,
+      "subcategory_list": [
+        {
+          "id": 1,
+          "name": "근접 무기",
+          "product_list": [
+            {
+              "id": 1,
+              "name": "전기톱"
+            },
+            {
+              "id": 2,
+              "name": "빠루"
+            },
+            {
+              "id": 5,
+              "name": "마체테"
+            },
+            {
+              "id": 7,
+              "name": "낫"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "원거리 무기",
+          "product_list": [
+            {
+              "id": 3,
+              "name": "AK-47"
+            },
+            {
+              "id": 4,
+              "name": "K2"
+            },
+            {
+              "id": 6,
+              "name": "M416"
+            },
+            {
+              "id": 8,
+              "name": "AK-47 한정판"
+            },
+            {
+              "id": 9,
+              "name": "K2 한정판"
+            },
+            {
+              "id": 10,
+              "name": "ump45"
+            },
+            {
+              "id": 11,
+              "name": "ump45 한정판"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "보조기기",
+          "product_list": [
+            {
+              "id": 14,
+              "name": "망원경"
+            },
+            {
+              "id": 15,
+              "name": "야간투시경"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "생필품",
+      "id": 2,
+      "subcategory_list": [
+        {
+          "id": 7,
+          "name": "식량",
+          "product_list": []
+        },
+        {
+          "id": 9,
+          "name": "의류",
+          "product_list": []
+        }
+      ]
+    },
+    {
+      "category_name": "방어구",
+      "id": 3,
+      "subcategory_list": [
+        {
+          "id": 4,
+          "name": "방탄모",
+          "product_list": [
+            {
+              "id": 16,
+              "name": "방탄모"
+            },
+            {
+              "id": 17,
+              "name": "스페츠나츠 헬멧"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "방탄복",
+          "product_list": [
+            {
+              "id": 18,
+              "name": "방탄복"
+            },
+            {
+              "id": 19,
+              "name": "특수방탄복"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "구급품",
+      "id": 4,
+      "subcategory_list": [
+        {
+          "id": 3,
+          "name": "치료",
+          "product_list": [
+            {
+              "id": 12,
+              "name": "에너지드링크"
+            },
+            {
+              "id": 13,
+              "name": "진통제"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "해독제",
+          "product_list": []
+        }
+      ]
+    }
+  ]
+}

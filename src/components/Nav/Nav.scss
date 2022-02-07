@@ -1,0 +1,159 @@
+@import '../../styles/variables.scss';
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #fcfeef;
+  z-index: 1000;
+
+  .mainNav {
+    position: relative;
+    display: flex;
+    padding: 10px 30px;
+    align-items: center;
+    justify-content: space-between;
+
+    .modalHide {
+      display: none;
+    }
+
+    .modal {
+      position: fixed;
+      top: 78px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .leftNavBox {
+      @include flexCenter;
+
+      div {
+        margin-right: 30px;
+        padding-bottom: 5px;
+      }
+
+      .shoppingOn {
+        font-weight: bolder;
+        border-bottom: 1px solid black;
+      }
+
+      .tendencyOn {
+        font-weight: bolder;
+        border-bottom: 1px solid black;
+      }
+    }
+
+    .centerNavBox {
+      text-align: center;
+
+      .mainTitle {
+        font-family: $title-font;
+        font-size: $fontsize1;
+        font-weight: bolder;
+        margin-bottom: 10px;
+      }
+    }
+
+    .rightNavBox {
+      @include flexCenter;
+
+      i {
+        margin-left: 30px;
+        padding-bottom: 5px;
+        font-size: $fontsize2;
+        &:hover {
+          font-weight: bolder;
+          border-bottom: 1px solid black;
+        }
+      }
+    }
+  }
+
+  .leftSubNav {
+    .subNav {
+      .shoppingHide {
+        display: none;
+      }
+
+      .shopping {
+        position: absolute;
+        width: 100%;
+        top: 78px;
+        z-index: 1000;
+        background-color: #fcfeef;
+      }
+
+      .tendencyHide {
+        display: none;
+        opacity: 0;
+      }
+
+      .tendency {
+        @include flexCenter;
+        position: absolute;
+        width: 100%;
+        height: 400px;
+        top: 78px;
+        z-index: 1000;
+        background-color: #fcfeef;
+      }
+    }
+  }
+
+  .rightSubNav {
+    .searchHide {
+      display: none;
+    }
+
+    .search {
+      position: absolute;
+      width: 100%;
+      top: 78px;
+      height: 400px;
+      z-index: 1000;
+      background-color: #fcfeef;
+    }
+
+    .myPageHide {
+      display: none;
+    }
+
+    .myPage {
+      position: absolute;
+      width: 400px;
+      top: 78px;
+      right: 0;
+      z-index: 1000;
+      background-color: #fcfeef;
+    }
+
+    .wishListHide {
+      display: none;
+    }
+
+    .wishList {
+      position: absolute;
+      width: 400px;
+      top: 78px;
+      right: 0;
+      z-index: 1000;
+      background-color: #fcfeef;
+    }
+
+    .shoppingBasketHide {
+      display: none;
+    }
+
+    .shoppingBasket {
+      position: absolute;
+      width: 400px;
+      top: 78px;
+      right: 0;
+      z-index: 1000;
+      background-color: #fcfeef;
+    }
+  }
+}

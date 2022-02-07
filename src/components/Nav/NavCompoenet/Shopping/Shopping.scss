@@ -1,0 +1,18 @@
+.shoppingNav {
+  padding: 30px;
+  max-height: 400px;
+  overflow: scroll;
+
+  .mainTitle {
+    font-weight: bolder;
+
+    .goProductDetailList {
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+    }
+  }
+  .test {
+    display: flex;
+  }
+}

@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+
+.productDetailInfo {
+  width: 1158px;
+  $borderColor: #e2e1d7;
+  border-top: 1px solid $borderColor;
+  border-bottom: 1px solid $borderColor;
+  &:hover {
+    cursor: pointer;
+  }
+
+  .infoHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 46px 0px;
+  }
+
+  .productInfoBtn {
+    background: none;
+    border: none;
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: $fontsize2;
+    font-family: $title-font;
+  }
+
+  .info {
+    padding: 12px 0px 46px 0px;
+    font-size: $fontsize3;
+    line-height: 20px;
+  }
+}
