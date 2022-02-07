@@ -2,18 +2,20 @@ import React from 'react';
 
 import './CartProductList.scss';
 
-const CartProductList = () => {
+const CartProductList = ({ item, removeCart }) => {
   return (
     <div className="cartItem">
       <div className="itemImg">
         <img src="https://www.jomalone.co.kr/media/export/cms/products/100x100/jo_sku_L26L01_100x100_0.png" />
       </div>
       <div className="itemName">
-        <p>잉글리쉬</p>
-        <p>english</p>
+        <p>{item.english_name}</p>
+        <p>{item.korean_name}</p>
       </div>
       <div className="itemPrice">
-        <span>₩199,900</span>
+        <span>
+          ₩{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+        </span>
       </div>
       <div className="itemQuantity">
         <select name="">
@@ -29,7 +31,16 @@ const CartProductList = () => {
           <option value="10">10</option>
         </select>
       </div>
-      <div className="itemTotal">₩199,900</div>
+      <div className="itemTotal">
+        <p>₩199,000</p>
+        <button
+          onClick={() => {
+            removeCart(item.id);
+          }}
+        >
+          삭제
+        </button>
+      </div>
     </div>
   );
 };

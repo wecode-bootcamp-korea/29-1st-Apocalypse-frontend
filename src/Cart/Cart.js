@@ -1,23 +1,29 @@
 import React, { useEffect, useState } from 'react';
 
 import './Cart.scss';
+import CartProductList from './CartProductList/CartProductList';
 
 function Cart() {
   const [cartItem, setCartItem] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/cartData.json')
+    fetch('http://localhost:3000/data/cartItem.json')
       .then(res => res.json())
       .then(data => {
         setCartItem(data);
       });
   }, []);
 
+  const removeCart = id => {
+    setCartItem(cartItem.filter(item => item.id !== id));
+  };
+
   return (
     <div className="cartWrapper">
       <div className="cartContent">
         <div className="cartHeader">
           <h1>장바구니</h1>
+          <p>({cartItem.length}개의 제품/장바구니에 담긴 제품 수량)</p>
         </div>
         <div className="cartProduct">
           <div className="cartLabel">
@@ -25,6 +31,21 @@ function Cart() {
             <h5 className="price">가격</h5>
             <h5 className="quantity">수량</h5>
             <h5 className="totalPrice">총합계</h5>
+          </div>
+          <div className="cartItemList">
+            {cartItem.map(item => (
+              <CartProductList
+                english_name={item.english_name}
+                id={item.id}
+                image={item.image}
+                korean_name={item.korean_name}
+                price={item.price}
+                quantity={item.quantity}
+                item={item}
+                key={item.id}
+                removeCart={removeCart}
+              />
+            ))}
           </div>
         </div>
         <div className="cartTotal">
@@ -56,7 +77,7 @@ function Cart() {
         </div>
         <div className="billSummary">
           <h3>주문요약</h3>
-          <p>장바구니에 담겨진 수량 10</p>
+          <p>장바구니에 담겨진 수량 {cartItem.length}</p>
 
           <div className="billPrice">
             <span>합계</span>

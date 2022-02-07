@@ -3,9 +3,6 @@
   flex-direction: row;
   align-items: center;
 
-  .itemImg {
-  }
-
   .itemName {
     width: 250px;
   }
@@ -28,7 +25,16 @@
 
   .itemTotal {
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: flex-end;
-    width: 130px;
+    width: 140px;
+
+    button {
+      margin-top: 10px;
+      border: none;
+      background-color: transparent;
+      text-decoration: underline;
+    }
   }
 }
