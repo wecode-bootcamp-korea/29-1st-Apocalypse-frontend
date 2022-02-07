@@ -146,14 +146,6 @@ function Nav() {
           </div>
         </div>
       </div>
-      {/* 모달 뒷 배경색 변경 시도중 */}
-      {/* <div
-        className={
-          subNav.myPageNav || subNav.wishListNav || subNav.shoppingBasketNav
-            ? 'backgrounddShow'
-            : 'background'
-        }
-      /> */}
       <div className="rightSubNav">
         <div
           className={subNav.searchNav ? 'search' : 'searchHide'}

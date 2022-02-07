@@ -4,13 +4,7 @@ import { Link } from 'react-router-dom';
 const ProductDetail = ({ productList }) => {
   return (
     <div className="products">
-      <Link
-        to={{
-          pathname: '/ProductDetailPage',
-          state: { name: productList.name },
-        }}
-        className="openProductList"
-      >
+      <Link to="/ProductDetailPage" className="openProductList">
         {productList.name}
       </Link>
     </div>

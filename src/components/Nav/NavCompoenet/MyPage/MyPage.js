@@ -18,7 +18,7 @@ const MyPage = () => {
     });
   };
 
-  const goToMain = e => {
+  const goToMain = () => {
     fetch('http://10.58.5.61:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
@@ -39,11 +39,6 @@ const MyPage = () => {
           alert('아이디 및 비밀번호를 확인해주세요');
         }
       });
-    // if (inputValues.id.indexOf('@') > -1 && inputValues.password.length >= 5) {
-    //   navigate('/MyPage');
-    // } else {
-    //   alert('아이디 및 비밀번호를 확인해주세요');
-    // }
   };
 
   const doEnter = e => {

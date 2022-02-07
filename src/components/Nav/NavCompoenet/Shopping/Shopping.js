@@ -25,7 +25,7 @@ const Shopping = () => {
           상품목록
         </Link>
       </div>
-      <div className="test">
+      <div className="category">
         {productList &&
           productList.map(categoryName => {
             return (

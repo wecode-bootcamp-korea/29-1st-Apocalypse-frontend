@@ -16,13 +16,14 @@ const Search = () => {
     setSearchingInput(e.target.value);
   };
 
-  let searchResult = searching.filter(product =>
+  const searchResult = searching.filter(product =>
     product.korean_name.includes(searchingInput)
   );
 
   const doHelp = () => {
     alert('저희는 그렇게 친절하지않습니다.');
   };
+
   return (
     <div className="searchNav">
       <input
@@ -30,10 +31,11 @@ const Search = () => {
         placeholder="찾으시는 상품을 입력하여주세요"
         onChange={searchProduct}
       />
-      <div className="searchingBox">
-        <MiddleSearch searchResult={searchResult} />
-      </div>
-
+      {searchingInput !== '' && (
+        <div className="searchingBox">
+          <MiddleSearch searchResult={searchResult} />
+        </div>
+      )}
       <div className="helpBox">
         <div className="help" onClick={doHelp}>
           도움이 필요하세요?

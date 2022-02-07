@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TendencyTest from './TendencyTest';
+import * as Thousand from '../../../../styles/thousand';
 import './Tendency.scss';
 
 const Tendency = () => {
@@ -95,9 +96,7 @@ const Tendency = () => {
         <img alt="KoreaName" src="/images/test.jpg" />
         <div className="koreaName">koreaName</div>
         <div className="englishName">englishName</div>
-        <div className="price">{`${parseInt(10000)
-          .toString()
-          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}원`}</div>
+        <div className="price">{Thousand.thousand(10000)}</div>
       </div>
     </div>
   );
