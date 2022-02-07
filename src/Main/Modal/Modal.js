@@ -1,8 +1,12 @@
 import React from 'react';
 import Bookmark from '../Bookmark/Bookmark';
+import AddCartBtn from '../AddCartBtn/AddCartBtn';
+import UseLocalStorage from '../UseLocalStorage';
 import './Modal.scss';
 
 function Modal({ productList, open, close }) {
+  const [addCart, setAddCart] = UseLocalStorage(`id${productList.id}`, false);
+
   return (
     <div className="modal">
       <div className={open && 'openModal modal'}>
@@ -20,8 +24,14 @@ function Modal({ productList, open, close }) {
               <p className="classify">신제품</p>
               <h2 className="previewTitle">{productList.korean_name}</h2>
               <p className="explain">{productList.description}</p>
-              <p className="price">₩143,000</p>
-              <button className="addCart">장바구니 담기</button>
+              <p className="price">
+                {' '}
+                ₩
+                {parseInt(productList.price)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              </p>
+              <AddCartBtn onClick={() => setAddCart(!addCart)} />
               <div className="wishList">
                 <Bookmark productList={productList} />
                 <p className="wishListText">위시리스트</p>
