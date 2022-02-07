@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
-// import UseLocalStorage from '../UseLocalStorage';
+import React from 'react';
+import UseLocalStorage from './UseLocalStorage';
 import './Bookmark.scss';
 
 function Bookmark({ productList }) {
-  const [bookmark, setBookmark] = useState(false);
-
-  const test = () => {
-    setBookmark(bookmark => !bookmark);
-    sessionStorage.setItem(
-      `korean_name${productList.id}`,
-      productList.korean_name
-    );
-  };
+  const [bookmark, setBookmark] = UseLocalStorage(`id${productList.id}`, false);
 
   return (
     <div className="bookmark">
-      <div className="bookmarkIcon" onClick={test}>
+      <div className="bookmarkIcon" onClick={() => setBookmark(!bookmark)}>
         {bookmark ? (
           <i class="fas fa-bookmark" />
         ) : (
