@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+
+.mainSlider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 808px;
+  border: 1px solid red;
+}
+
+.slide {
+  min-width: 100%;
+  height: 808px;
+  border: 1px solid blue;
+  transition: 0.5s;
+}
+
+%btnStyles {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.goLeft {
+  @extend %btnStyles;
+  left: 40px;
+}
+
+.goRight {
+  @extend %btnStyles;
+  right: 40px;
+}

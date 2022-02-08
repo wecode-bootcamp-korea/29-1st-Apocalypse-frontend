@@ -3,19 +3,20 @@ import MediaAsset from './MediaAsset/MediaAsset';
 import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
 import Benefit from './Benefit/Benefit';
+import MainSlider from './MainSlider/MainSlider';
 import './Main.scss';
 
 function Main() {
   const [product, setProduct] = useState([]);
   const carousel = useRef(null);
 
-  // useEffect(() => {
-  //   fetch('http://10.58.4.77:8000/products?category=무기')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setProduct(data.Product);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch('http://10.58.4.77:8000/products?category=무기')
+      .then(res => res.json())
+      .then(data => {
+        setProduct(data.Product);
+      });
+  }, []);
 
   const handleLeftClick = e => {
     e.preventDefault();
@@ -31,6 +32,7 @@ function Main() {
 
   return (
     <main className="main">
+      <MainSlider />
       <div className="mainVideo">
         <div className="text">
           <h1 className="title">Celebrating the Rose</h1>
