@@ -9,13 +9,13 @@ function Main() {
   const [product, setProduct] = useState([]);
   const carousel = useRef(null);
 
-  useEffect(() => {
-    fetch('http://10.58.4.77:8000/products?category=무기')
-      .then(res => res.json())
-      .then(data => {
-        setProduct(data.Product);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://10.58.4.77:8000/products?category=무기')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setProduct(data.Product);
+  //     });
+  // }, []);
 
   const handleLeftClick = e => {
     e.preventDefault();
