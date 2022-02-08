@@ -4,9 +4,14 @@ import './SigninPage.scss';
 
 const SigninPage = () => {
   const initialValues = { userInputId: '', userInputPw: '' };
-  const [isSubmit, setIsSubmit] = useState(false);
+
   const [userInputText, setUserInputText] = useState(initialValues);
+  const [notPassWord, setNotPassWord] = useState(false);
   const [errorMessage, setErrorMessage] = useState({});
+
+  const password = () => {
+    setNotPassWord(notPassWord => !notPassWord);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -19,10 +24,6 @@ const SigninPage = () => {
     setUserInputText({ ...userInputText, [name]: value });
   };
 
-  const submitForm = () => {
-    setIsSubmit(true);
-  };
-
   const toLoginNavigate = useNavigate();
   const goToLoginMyPage = () => {
     toLoginNavigate('/loginMyPage');
@@ -30,6 +31,9 @@ const SigninPage = () => {
 
   const enter = e => {
     if (e.key === 'Enter') {
+      e.preventDefault();
+      setErrorMessage(validate(userInputText));
+      goToSignIn();
     }
   };
 
@@ -56,7 +60,7 @@ const SigninPage = () => {
     fetch('http://10.58.4.77:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        name: 'park',
+        name: '',
         email: userInputText.userInputId,
         password: userInputText.userInputPw,
         phone_number: '01023233232',
@@ -65,8 +69,10 @@ const SigninPage = () => {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'SUCCESS') {
-          sessionStorage.setItem('token', result.JWT);
+        if (result.message === 'INVALID_PASSWORD') {
+          password();
+        } else if (result.message === 'SUCCESS') {
+          sessionStorage.setItem('LoginToken', result.JWT);
           goToLoginMyPage();
         }
         console.log(
@@ -86,7 +92,9 @@ const SigninPage = () => {
       {errorMessage.userInputPw && (
         <p className="error">{errorMessage.userInputPw}</p>
       )}
-
+      <p className={notPassWord ? 'error' : 'errorHide'}>
+        비밀번호가 올바르지 않습니다.
+      </p>
       <input
         name="userInputId"
         onChange={handleInputChange}

@@ -12,12 +12,17 @@ const SignupPage = () => {
   };
   const [userInputText, setUserInputText] = useState(initialValues);
   const [errorMessage, setErrorMessage] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+  const [already, setAlready] = useState(false);
   const [signUpNumber, setSignUpNumber] = useState(0);
+
+  const alreadyMessage = () => {
+    setAlready(already => !already);
+  };
 
   const handleInputChange = e => {
     const { name, value } = e.target;
     setUserInputText({ ...userInputText, [name]: value });
+    setAlready(false);
   };
 
   const handleSubmit = e => {
@@ -28,10 +33,6 @@ const SignupPage = () => {
 
   const handleSetNumber = e => {
     setSignUpNumber(e.target.value);
-  };
-
-  const submitForm = () => {
-    setIsSubmit(true);
   };
 
   const toMainNavigate = useNavigate();
@@ -74,9 +75,9 @@ const SignupPage = () => {
       .then(response => response.json())
       .then(result => {
         if (result.message === 'ALREADY EXIST EMAIL') {
-          alert('입력하신 이메일 주소로 이미 회원등록이 되어 있습니다.');
+          alreadyMessage();
         } else if (result.message === 'CREATED') {
-          sessionStorage.setItem('token', result.JWT);
+          sessionStorage.setItem('LoginToken', result.JWT);
           alert('환영합니다.');
           goToMain();
         }
@@ -100,6 +101,9 @@ const SignupPage = () => {
       {errorMessage.signUpuserInputPw && (
         <p className="error">{errorMessage.signUpuserInputPw}</p>
       )}
+      <p className={already ? 'error' : 'errorHide'}>
+        이미 가입된 아이디 입니다.
+      </p>
       <input
         name="userName"
         className="inputText"
@@ -267,7 +271,6 @@ const SignupPage = () => {
           (만 19세 이상부터 회원가입이 가능합니다.)
         </div>
       </div>
-
       <button onClick={handleSubmit} className="joinMemberShip">
         회원가입
       </button>
