@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ProductDetailInfo.scss';
 
-function ProductDetailInfo() {
+function ProductDetailInfo({ productDetail }) {
   const [viewInfo, setViewInfo] = useState(false);
 
   return (
@@ -12,13 +12,11 @@ function ProductDetailInfo() {
       }}
     >
       <div className="infoHeader">
-        <h2 className="title">성분</h2>
+        <h2 className="title">{productDetail.how_to_use}</h2>
         <button className="productInfoBtn">
-          {viewInfo ? (
-            <i class="fas fa-chevron-down" />
-          ) : (
-            <i class="fas fa-chevron-up" />
-          )}
+          <i
+            className={viewInfo ? 'fas fa-chevron-down' : 'fas fa-chevron-up'}
+          />
         </button>
       </div>
       {viewInfo && (

@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductDetailItem.scss';
 
-function ProductDetailItem() {
+function ProductDetailItem({ productDetail }) {
   return (
     <div className="productDetailItem">
       <img
@@ -10,7 +10,7 @@ function ProductDetailItem() {
         src="https://www.jomalone.co.kr/media/export/cms/spp/tasing_notes/desktop/Damask_Rose_Desktop.png"
       />
       <div className="notes">
-        <p className="text">하트 노트</p>
+        <p className="text">{productDetail.name}</p>
         <p className="text">다마스크 로즈</p>
         <p className="text">
           꽃향기가 절정인 새벽녘에 장미를 따서 증류합니다. 향기가 펼쳐지면서

@@ -8,14 +8,23 @@ import ProductDetailItem from './ProductDetailItem/ProductDetailItem';
 import './ProductDetailPage.scss';
 
 function ProductDetailPage() {
-  const [productList, setProductList] = useState([]);
+  const [product, setProduct] = useState([]);
+  const [productDetail, setProductDetail] = useState([]);
   const carousel = useRef(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/mainData.json')
+    fetch('http://10.58.4.77:8000/products?category=무기')
       .then(res => res.json())
       .then(data => {
-        setProductList(data.list);
+        setProduct(data.Product);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('http://10.58.4.77:8000/products/1')
+      .then(res => res.json())
+      .then(data => {
+        setProductDetail(data.product);
       });
   }, []);
 
@@ -29,11 +38,10 @@ function ProductDetailPage() {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
   };
 
-  if (!productList || !productList.length) return null;
+  // if (!product || !product.length) return null;
 
   return (
     <div className="productDetailPage">
-      <button className="nav">nav</button>
       <img
         className="headerImg"
         alt="img"
@@ -50,16 +58,15 @@ function ProductDetailPage() {
         </Link>
       </div>
       <div className="productFull">
-        <ProductDetailTop />
-        <ProductDetailInfo />
-        <ProductDetailInfo />
+        <ProductDetailTop productDetail={productDetail} />
+        <ProductDetailInfo productDetail={productDetail} />
       </div>
 
       <div className="productItemList">
-        <ProductDetailItem />
-        <ProductDetailItem />
-        <ProductDetailItem />
+        <ProductDetailItem productDetail={productDetail} />
+        <ProductDetailItem productDetail={productDetail} />
       </div>
+
       <div className="line" />
       <img
         className="lazyImg"
@@ -69,16 +76,16 @@ function ProductDetailPage() {
 
       <div className="productList">
         <button className="arrow" onClick={handleLeftClick}>
-          <i class="fas fa-chevron-left" />
+          <i className="fas fa-chevron-left" />
         </button>
         <div className="carousel" ref={carousel}>
-          {productList.length > 0 &&
-            productList.map(com => {
+          {product.length > 0 &&
+            product.map(com => {
               return <Product productList={com} key={com.id} />;
             })}
         </div>
         <button className="arrow" onClick={handleRightClick}>
-          <i class="fas fa-chevron-right" />
+          <i className="fas fa-chevron-right" />
         </button>
       </div>
 
@@ -88,10 +95,6 @@ function ProductDetailPage() {
         <Benefit />
         <div className="line" />
         <Benefit />
-      </div>
-
-      <div className="review">
-        <h2 className="title">리뷰</h2>
       </div>
     </div>
   );

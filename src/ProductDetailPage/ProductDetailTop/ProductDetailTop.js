@@ -3,7 +3,7 @@ import Bookmark from '../Bookmark/Bookmark';
 import AddCartBtn from '../AddCartBtn/AddCartBtn';
 import './ProductDetailTop.scss';
 
-function ProductDetailTop({ productList }) {
+function ProductDetailTop({ productDetail }) {
   return (
     <div className="productDetailTop">
       <div className="leftColumn">
@@ -15,15 +15,19 @@ function ProductDetailTop({ productList }) {
       </div>
       <div className="rightColumn">
         <p className="classify">신제품</p>
-        <h2 className="korName">벨벳 로즈 앤 오드 리미티드 코롱 인텐스</h2>
-        <h2 className="engName">Velvet Rose & Oud Limited Cologne Intense</h2>
-        <p className="price">₩143,000</p>
+        <h2 className="korName">{productDetail.korean_name}</h2>
+        <h2 className="engName">{productDetail.english_name}</h2>
+        <p className="price">
+          {' '}
+          ₩
+          {parseInt(productDetail.price)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+        </p>
         <a className="addReview" href="#">
           첫 리뷰 쓰기
         </a>
-        <p className="explain">
-          빛나는 매그놀리아와 장미가 만발하는 매혹적인 플로랄한 향의 이중주.
-        </p>
+        <p className="explain">{productDetail.description}</p>
         <div className="productSizeBox">
           <div className="productSize">
             <img
@@ -36,7 +40,7 @@ function ProductDetailTop({ productList }) {
         </div>
         <AddCartBtn />
         <div className="wishList">
-          <Bookmark />
+          <Bookmark productDetail={productDetail} />
           <p className="wishListText">위시리스트</p>
         </div>
       </div>
