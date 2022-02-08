@@ -1,9 +1,9 @@
 import React from 'react';
-import UseLocalStorage from './UseLocalStorage';
+import UseLocalStorage from '../UseLocalStorage';
 import './Bookmark.scss';
 
-function Bookmark({ productList }) {
-  const [bookmark, setBookmark] = UseLocalStorage(`id$productList.id`, false);
+function Bookmark({ productList, productDetail }) {
+  const [bookmark, setBookmark] = UseLocalStorage(`id$productDetail.id`, false);
 
   return (
     <div className="bookmark">

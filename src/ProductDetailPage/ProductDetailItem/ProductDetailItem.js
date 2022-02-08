@@ -2,6 +2,8 @@ import React from 'react';
 import './ProductDetailItem.scss';
 
 function ProductDetailItem({ productDetail }) {
+  const components = productDetail.components;
+
   return (
     <div className="productDetailItem">
       <img
