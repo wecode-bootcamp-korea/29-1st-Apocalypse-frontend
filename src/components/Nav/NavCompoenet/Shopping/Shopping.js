@@ -7,9 +7,11 @@ const Shopping = () => {
   const [productList, setProductList] = useState('');
 
   useEffect(() => {
-    fetch('/data/commentData.json')
+    fetch('http://13.125.234.40:8080/products/categories')
       .then(res => res.json())
-      .then(result => setProductList(result.result));
+      .then(result => {
+        setProductList(result.Category);
+      });
   }, []);
 
   return (
@@ -25,7 +27,7 @@ const Shopping = () => {
           상품목록
         </Link>
       </div>
-      <div className="test">
+      <div className="category">
         {productList &&
           productList.map(categoryName => {
             return (
