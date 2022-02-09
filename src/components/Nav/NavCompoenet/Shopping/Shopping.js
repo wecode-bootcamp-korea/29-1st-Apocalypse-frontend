@@ -7,9 +7,11 @@ const Shopping = () => {
   const [productList, setProductList] = useState('');
 
   useEffect(() => {
-    fetch('/data/commentData.json')
+    fetch('http://10.58.4.77:8000/products/categories')
       .then(res => res.json())
-      .then(result => setProductList(result.result));
+      .then(result => {
+        setProductList(result.Category);
+      });
   }, []);
 
   return (

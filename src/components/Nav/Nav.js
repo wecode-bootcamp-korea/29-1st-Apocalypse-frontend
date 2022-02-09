@@ -8,14 +8,7 @@ import ShoppingBasket from './NavCompoenet/ShoppingBasket/ShoppingBasket';
 import './Nav.scss';
 
 function Nav() {
-  const [subNav, setSubNav] = useState({
-    shoppingNav: false,
-    tendency: false,
-    searchNav: false,
-    myPageNav: false,
-    wishListNav: false,
-    shoppingBasketNav: false,
-  });
+  const [subNav, setSubNav] = useState(false);
 
   const CloseSubNav = () => {
     setSubNav(false);

@@ -7,7 +7,7 @@ const Search = () => {
   const [searchingInput, setSearchingInput] = useState('');
 
   useEffect(() => {
-    fetch('/data/commentDataList.json')
+    fetch('http://10.58.4.77:8000/products')
       .then(res => res.json())
       .then(result => setSearching(result.Product));
   }, []);
