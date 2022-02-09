@@ -5,7 +5,8 @@ import './MainSliderComp.scss';
 function MainSliderComp({ src, title }) {
   const mainImgStyles = {
     width: 100 + '%',
-    // height: 808 + 'px',
+    height: 808 + 'px',
+    objectFit: 'cover',
   };
   return (
     <div className="mainSliderComp">

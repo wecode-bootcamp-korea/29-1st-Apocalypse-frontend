@@ -4,7 +4,7 @@ import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
 import Benefit from './Benefit/Benefit';
 import MainSlider from './MainSlider/MainSlider';
-import Footer from '../components/Footer/Footer';
+// import Footer from '../components/Footer/Footer';
 import './Main.scss';
 
 function Main() {
@@ -76,7 +76,7 @@ function Main() {
       </section>
 
       <section className="section4">
-        <h1 className="title">완벽한 선물</h1>
+        <h1 className="title">완벽한 무기</h1>
         <div className="productList">
           <button className="arrow" onClick={handleLeftClick}>
             <i className="fas fa-chevron-left" />
@@ -105,7 +105,7 @@ function Main() {
         <div className="line" />
         <Benefit />
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

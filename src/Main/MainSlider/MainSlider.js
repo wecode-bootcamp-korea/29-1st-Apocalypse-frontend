@@ -15,12 +15,10 @@ function MainSlider() {
 
   const goLeft = () => {
     x === 0 ? setX(-100 * (sliderArr.length - 1)) : setX(x + 100);
-    console.log(x);
   };
 
   const goRight = () => {
     x === -100 * (sliderArr.length - 1) ? setX(0) : setX(x - 100);
-    console.log(x);
   };
 
   return (
