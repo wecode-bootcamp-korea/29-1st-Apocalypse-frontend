@@ -7,9 +7,9 @@ import './MainSlider.scss';
 
 function MainSlider() {
   const sliderArr = [
-    <MainSliderComp src={i1} title="뱅뱅뱅" />,
-    <MainSliderComp src={i2} title="빵야빵야" />,
-    <MainSliderComp src={i3} title="탕탕탕" />,
+    <MainSliderComp src={i1} title="뱅뱅뱅" key={1} />,
+    <MainSliderComp src={i2} title="빵야빵야" key={2} />,
+    <MainSliderComp src={i3} title="탕탕탕" key={3} />,
   ];
   const [x, setX] = useState(0);
 
