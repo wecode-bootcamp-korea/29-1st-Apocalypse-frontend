@@ -51,7 +51,7 @@ function Main() {
             src="https://www.jomalone.co.kr/media/export/cms/homepage/220117/jo_sku_LFFN01_DT_750x415.png"
           />
           <h2 className="title">{product[0].korean_name}</h2>
-          <MoreText onClick={() => goProductDetailPage(product[0])} />
+          <MoreText />
         </div>
         <img
           className="section1Img"
@@ -108,7 +108,10 @@ function Main() {
         <div className="line" />
         <Benefit title="체험" explain="종말론의 새로운 무기를 경험해보세요." />
         <div className="line" />
-        <Benefit title="무료 배송" explain="전달해드립니다." />
+        <Benefit
+          title="무료 배송"
+          explain="파괴력 있는 무기를 전달해 드립니다."
+        />
       </section>
       <Footer />
     </main>
