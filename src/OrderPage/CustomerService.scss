@@ -1,0 +1,25 @@
+@import './src/styles/variables.scss';
+
+.customService {
+  border: 1px solid #ccc;
+  padding: 24px 12px 30px 12px;
+  width: 320px;
+  
+
+  p {
+    padding: 20px;
+    line-height: 24px;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    font-family: $title-font;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .serviceContent {
+    word-wrap: break-word;
+  }
+}

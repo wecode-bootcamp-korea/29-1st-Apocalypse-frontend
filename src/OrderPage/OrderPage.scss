@@ -1,0 +1,226 @@
+@import './src/styles/variables.scss';
+
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin inputStyle {
+  width: 60%;
+  height: 35px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+} 
+
+.orderWrapper {
+  display: flex;
+  margin-left: 40px;
+
+  .orderContent {
+    height: 100%;
+    margin: 100px 40px 0 40px;
+
+    .orderHeader {
+      display: flex;
+      justify-content: center;
+      width: 710px;
+      padding-bottom: 30px;
+
+      h1 {
+        font-family: $title-font;
+        font-size: $fontsize1;
+      }
+    }
+    
+    
+    .adressAndGift {
+      margin-top: 50px;
+      padding: 5px;
+      
+      h3 {
+        font-weight: bold;
+      }
+      
+      .userName {
+        margin-top: 20px;
+        margin-bottom: 5px;
+      }
+      
+      .inputUsername {
+        @include inputStyle;
+      }
+      
+      .inputUserPost {
+        width: 30%;
+        height: 35px;
+        font-size: 20px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+      
+      .postBtn {
+        width: 30%;
+        height: 35px;
+        font-size: 18px;
+        outline: none;
+        background-color: #000;
+        color: #fff;
+      }
+      
+      .inputUserAdress {
+        @include inputStyle;
+      }
+      
+      .inputUserDetail {
+        @include inputStyle;
+      }
+      
+      .delivery {
+        margin-top: 40px;
+      }
+      .deliveryOrder {
+        display: block;
+        width: 60%;
+        height: 100px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+      .payment {
+        width: 100px;
+        height: 50px;
+        font-size: 15px;
+        background-color: #000;
+        color: #fff;
+        margin-top: 60px;
+      }
+    }
+
+
+    .cartProduct {
+      .cartLabel {
+        display: flex;
+        padding: 20px 0 20px 0;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+
+        .product {
+          width: 350px;
+        }
+
+        .price {
+          width: 100px;
+        }
+
+        .quantity {
+          width: 80px;
+        }
+
+        .totalPrice {
+          display: flex;
+          justify-content: flex-end;
+          width: 130px;
+        }
+      }
+
+      .cartItem {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .itemImg {
+        }
+
+        .itemName {
+          width: 250px;
+        }
+
+        .itemPrice {
+          width: 100px;
+        }
+
+        .itemQuantity {
+          width: 70px;
+          height: 70px;
+
+          select {
+            width: 70px;
+            height: 49px;
+            text-align: center;
+            outline: none;
+          }
+        }
+
+        .itemTotal {
+          display: flex;
+          justify-content: flex-end;
+          width: 130px;
+        }
+      }
+    }
+
+    .cartTotal {
+      display: flex;
+      justify-content: end;
+      margin-top: 20px;
+
+      span {
+        margin-left: 10px;
+      }
+    }
+
+    .cartFooter {
+      @include flex;
+      width: 710px;
+      margin-top: 40px;
+
+      a {
+        color: black;
+      }
+
+      button {
+        width: 200px;
+        height: 50px;
+        background-color: black;
+        color: #fff;
+      }
+    }
+  }
+
+  .orderSide {
+    margin: 100px 40px 0 40px;
+
+    .billSummary {
+      width: 320px;
+      margin-top: 30px;
+      padding: 24px 12px 30px 12px;
+      border: 1px solid #ccc;
+
+      h3 {
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .billPrice {
+        @include flex;
+        margin: 30px 0 30px 0;
+        font-weight: 700;
+      }
+
+      .deliveryFee {
+        @include flex;
+        margin: 30px 0 30px 0;
+        font-weight: 700;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+      }
+
+      .billTotal {
+        @include flex;
+        margin: 30px 0 30px 0;
+        font-weight: 700;
+      }
+    }
+  }
+}
