@@ -4,7 +4,7 @@ import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
 import Benefit from './Benefit/Benefit';
 import MainSlider from './MainSlider/MainSlider';
-// import Footer from '../components/Footer/Footer';
+import Footer from '../components/Footer/Footer';
 import './Main.scss';
 
 function Main() {
@@ -105,7 +105,7 @@ function Main() {
         <div className="line" />
         <Benefit />
       </section>
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 }
