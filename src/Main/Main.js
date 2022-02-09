@@ -8,7 +8,6 @@ import './Main.scss';
 import Nav from '../components/Nav/Nav';
 
 function Main() {
-
   const [product, setProduct] = useState([]);
   const carousel = useRef(null);
 
@@ -34,7 +33,6 @@ function Main() {
 
   return (
     <main className="main">
- 
       <div className="mainVideo">
         <div className="text">
           <h1 className="title">Celebrating the Rose</h1>
