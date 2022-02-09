@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import './CartProductList.scss';
 
-const CartProductList = ({ cart, setCartItem, setTotalPrice, total_price }) => {
+const CartProductList = ({ cart, setCartItem, setTotalPrice }) => {
   const sum = cart.price * cart.quantity;
 
   const onChangeCartQuantity = e => {
-    fetch(`http://10.58.4.77:8000/users/cart/${e.currentTarget.id}`, {
+    fetch(`http://13.125.234.40:8080/users/cart/${e.currentTarget.id}`, {
       method: 'PATCH',
       headers: {
         Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.yp45-DVxcHYTfq0-UHBJp9rHnGtuKtolSwPEjCiXLS0',
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMH0.JjNCEJ0NmaTH_HnbLfDkJawTeXuO6ZXwKmlKWbJoDP8',
       },
       body: JSON.stringify({
         quantity: e.currentTarget.value,
@@ -19,11 +19,11 @@ const CartProductList = ({ cart, setCartItem, setTotalPrice, total_price }) => {
       .then(res => res.json())
       .then(result => {
         if (result.message === 'CHANGED_QUANTITY') {
-          fetch('http://10.58.4.77:8000/users/cart', {
+          fetch('http://13.125.234.40:8080/users/cart', {
             method: 'GET',
             headers: {
               Authorization:
-                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.yp45-DVxcHYTfq0-UHBJp9rHnGtuKtolSwPEjCiXLS0',
+                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMH0.JjNCEJ0NmaTH_HnbLfDkJawTeXuO6ZXwKmlKWbJoDP8',
             },
           })
             .then(res => res.json())
@@ -36,21 +36,21 @@ const CartProductList = ({ cart, setCartItem, setTotalPrice, total_price }) => {
   };
 
   const removeCart = id => {
-    fetch(`http://10.58.4.77:8000/users/cart/${id}`, {
+    fetch(`http://13.125.234.40:8080/users/cart/${id}`, {
       method: 'DELETE',
       headers: {
         Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.yp45-DVxcHYTfq0-UHBJp9rHnGtuKtolSwPEjCiXLS0',
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMH0.JjNCEJ0NmaTH_HnbLfDkJawTeXuO6ZXwKmlKWbJoDP8',
       },
     })
       .then(res => res.json())
       .then(result => {
         if (result.message === 'DELETE_CART') {
-          fetch('http://10.58.4.77:8000/users/cart', {
+          fetch('http://13.125.234.40:8080/users/cart', {
             method: 'GET',
             headers: {
               Authorization:
-                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.yp45-DVxcHYTfq0-UHBJp9rHnGtuKtolSwPEjCiXLS0',
+                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMH0.JjNCEJ0NmaTH_HnbLfDkJawTeXuO6ZXwKmlKWbJoDP8',
             },
           })
             .then(res => res.json())
@@ -65,7 +65,7 @@ const CartProductList = ({ cart, setCartItem, setTotalPrice, total_price }) => {
   return (
     <div className="cartItem">
       <div className="itemImg">
-        <img src="https://www.jomalone.co.kr/media/export/cms/products/100x100/jo_sku_L26L01_100x100_0.png" />
+        <img src="{cart.images}" alt={cart.korean_name} />
       </div>
       <div className="itemName">
         <p>{cart.english_name}</p>
@@ -91,6 +91,9 @@ const CartProductList = ({ cart, setCartItem, setTotalPrice, total_price }) => {
           <option>4</option>
           <option>5</option>
           <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
         </select>
       </div>
       <div className="itemTotal">

@@ -1,32 +1,36 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import CartProductList from './CartProductList/CartProductList';
 
 import './Cart.scss';
 
 function Cart() {
+  const navigate = useNavigate();
   const [cartItem, setCartItem] = useState([]);
   const [totalPrice, setTotalPrice] = useState();
 
   useEffect(() => {
-    fetch('http://10.58.4.77:8000/users/cart', {
+    fetch('http://13.125.234.40:8080/users/cart', {
       method: 'GET',
       headers: {
         Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.yp45-DVxcHYTfq0-UHBJp9rHnGtuKtolSwPEjCiXLS0',
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMH0.JjNCEJ0NmaTH_HnbLfDkJawTeXuO6ZXwKmlKWbJoDP8',
       },
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
-        console.log(result.carts);
-        console.log(result.carts[0]);
-
         setCartItem(result.carts[0].cart);
         setTotalPrice(result.carts[0].total_price.total_price);
       });
   }, []);
 
+  const checkPrice =
+    cartItem.length === 0
+      ? 0
+      : parseInt(totalPrice)
+          .toString()
+          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
   return (
     <div className="cartWrapper">
       <div className="cartContent">
@@ -55,16 +59,15 @@ function Cart() {
         </div>
         <div className="cartTotal">
           <span>합계</span>
-          <span>
-            ₩
-            {parseInt(totalPrice)
-              .toString()
-              .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
-          </span>
+          <span>₩{checkPrice}</span>
         </div>
         <div className="cartFooter">
-          <a href="#">쇼핑계속하기</a>
-          <button>결제하기</button>
+          <button className="goToMain" onClick={() => navigate('/')}>
+            쇼핑계속하기
+          </button>
+          <button className="goToPay" onClick={() => navigate('')}>
+            결제하기
+          </button>
         </div>
       </div>
 
@@ -76,7 +79,7 @@ function Cart() {
               "문의 사항이 있으시거나 고객관리지원팀과 상담을 원하실 경우 다음
               링크"
               <br />
-              <a href="#">customeCare@customCare</a>
+              <a href="https://www.google.co.kr/">customeCare@customCare</a>
               "를 눌러 이메일 문의 서비스로 보내주시면 응대를 도와드리겠습니다."
               <br />
               "현재 전화연결은 어려운 점 양해 부탁 드립니다."
@@ -91,12 +94,7 @@ function Cart() {
 
           <div className="billPrice">
             <span>합계</span>
-            <span>
-              ₩
-              {parseInt(totalPrice)
-                .toString()
-                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
-            </span>
+            <span>₩{checkPrice}</span>
           </div>
           <div className="deliveryFee">
             <span>배송비</span>
@@ -104,12 +102,7 @@ function Cart() {
           </div>
           <div className="billTotal">
             <span>총 합계</span>
-            <span>
-              ₩
-              {parseInt(totalPrice)
-                .toString()
-                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
-            </span>
+            <span>₩{checkPrice}</span>
           </div>
         </div>
       </div>

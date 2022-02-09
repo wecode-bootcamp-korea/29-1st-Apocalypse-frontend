@@ -100,11 +100,13 @@
       width: 710px;
       margin-top: 40px;
 
-      a {
-        color: black;
+      .goToMain {
+        background-color: transparent;
+        border: none;
+        text-decoration: underline;
       }
 
-      button {
+      .goToPay {
         width: 200px;
         height: 50px;
         background-color: black;
