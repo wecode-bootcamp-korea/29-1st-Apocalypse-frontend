@@ -7,7 +7,7 @@ const Search = () => {
   const [searchingInput, setSearchingInput] = useState('');
 
   useEffect(() => {
-    fetch('http://10.58.4.77:8000/products')
+    fetch('http://13.125.234.40:8080/products')
       .then(res => res.json())
       .then(result => setSearching(result.Product));
   }, []);

@@ -4,7 +4,7 @@ import './BasketList.scss';
 
 const BaketList = ({ basket, basketList, setBasketList, setTotalPrice }) => {
   const deleteBasket = id => {
-    fetch(`http://10.58.4.77:8000/users/cart/${id}`, {
+    fetch(`http://13.125.234.40:8080/users/cart/${id}`, {
       method: 'DELETE',
       headers: { Authorization: sessionStorage.getItem('LoginToken') },
     })
@@ -12,7 +12,7 @@ const BaketList = ({ basket, basketList, setBasketList, setTotalPrice }) => {
       .then(result => {
         if (result.message === 'DELETE_CART') {
           // setBasketList(basketList.filter(com => com.cart_id !== id));
-          fetch('http://10.58.4.77:8000/users/cart', {
+          fetch('http://13.125.234.40:8080/users/cart', {
             method: 'get',
             headers: { Authorization: sessionStorage.getItem('LoginToken') },
           })

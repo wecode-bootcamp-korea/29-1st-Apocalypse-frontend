@@ -14,7 +14,7 @@ const ShoppingBasket = () => {
   // }, []);
 
   useEffect(() => {
-    fetch('http://10.58.4.77:8000/users/cart', {
+    fetch('http://13.125.234.40:8080/users/cart', {
       method: 'get',
       headers: { Authorization: sessionStorage.getItem('LoginToken') },
     })

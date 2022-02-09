@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import TendecyProduct from './TendecyProduct';
 import TendencyTest from './TendencyTest';
-import * as Thousand from '../../../../styles/thousand';
 import './Tendency.scss';
 
 const Tendency = () => {
@@ -8,6 +8,8 @@ const Tendency = () => {
   const [resetButton, setResetButton] = useState(false);
   const [resultInfoBox, setResultInfoBox] = useState(false);
   const [resultProduct, setResultProduct] = useState(false);
+  const [testinfo, setTestInfo] = useState([]);
+  const [resultProductDetail, setResultProductDetail] = useState([]);
 
   const doTest = e => {
     setStartTest(startTest => !startTest);
@@ -19,9 +21,11 @@ const Tendency = () => {
     const parentNodebox = e.target.parentNode.parentNode.parentNode;
     const nextresultbox = e.target.parentNode.parentNode.parentNode.nextSibling;
     if (e.target.name === parentNodebox.parentNode.lastChild.className) {
+      testinfo.push(e.target.value);
       parentNodebox.style.display = 'none';
       setResultInfoBox(resultInfoBox => !resultInfoBox);
     } else {
+      testinfo.push(e.target.value);
       parentNodebox.style.display = 'none';
       nextresultbox.style.display = 'block';
     }
@@ -32,6 +36,7 @@ const Tendency = () => {
     setResetButton(resetButton => !resetButton);
     setResultInfoBox(false);
     setResultProduct(false);
+    setTestInfo(new Set());
     const testBox = e.target.parentNode.firstChild.nextSibling.children;
     for (let i = 0; i < testBox.length; i++) {
       testBox[i].style.display = 'none';
@@ -41,7 +46,21 @@ const Tendency = () => {
   const OpenResult = () => {
     setResultInfoBox(resultInfoBox => !resultInfoBox);
     setResultProduct(resultProduct => !resultProduct);
+    console.log([...testinfo].join());
+    console.log(product);
   };
+
+  const product = resultProductDetail.filter(
+    com => com.result === '근거리,아니요,아니요,예'
+  )[0];
+
+  useEffect(() => {
+    fetch('/data/commentDataList.json')
+      .then(res => res.json())
+      .then(result => {
+        setResultProductDetail(result.Product);
+      });
+  }, []);
 
   return (
     <div className="tendencyDetail">
@@ -93,10 +112,7 @@ const Tendency = () => {
         X
       </button>
       <div className={resultProduct ? 'resultProduct' : 'resultProductHide'}>
-        <img alt="KoreaName" src="/images/test.jpg" />
-        <div className="koreaName">koreaName</div>
-        <div className="englishName">englishName</div>
-        <div className="price">{Thousand.thousand(10000)}</div>
+        {product && <TendecyProduct product={product} />}
       </div>
     </div>
   );
