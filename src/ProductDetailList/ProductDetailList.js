@@ -64,29 +64,15 @@ const ProductDetailList = () => {
     OpenRangeBox();
   };
 
-  const DoHighPrice = () => {
+  const doSort = sort => {
+    const num = sort === 'high' ? -1 : 1;
     setProductList(
       productList.sort((a, b) => {
         if (parseInt(a.price) > parseInt(b.price)) {
-          return -1;
+          return 1 * num;
         }
         if (parseInt(a.price) < parseInt(b.price)) {
-          return 1;
-        }
-        return 0;
-      })
-    );
-    OpenRangeBox();
-  };
-
-  const DoLowPrice = () => {
-    setProductList(
-      productList.sort((a, b) => {
-        if (parseInt(a.price) > parseInt(b.price)) {
-          return 1;
-        }
-        if (parseInt(a.price) < parseInt(b.price)) {
-          return -1;
+          return -1 * num;
         }
         return 0;
       })
@@ -118,8 +104,8 @@ const ProductDetailList = () => {
           </button>
           <div className={rangeBox ? 'range' : 'rangeHide'}>
             <div onClick={ResetRange}>원래대로</div>
-            <div onClick={DoHighPrice}>높은 가격순</div>
-            <div onClick={DoLowPrice}>낮은 가격순</div>
+            <div onClick={() => doSort('high')}>높은 가격순</div>
+            <div onClick={() => doSort('low')}>낮은 가격순</div>
           </div>
         </div>
         <div className={filterBox ? 'filterDetail' : 'filterDetailHide'}>
