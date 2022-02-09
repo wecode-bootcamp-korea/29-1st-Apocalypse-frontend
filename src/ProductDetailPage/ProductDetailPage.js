@@ -82,7 +82,6 @@ function ProductDetailPage() {
               />
             );
           })}
-        {/* <ProductDetailItem productDetail={productDetail} /> */}
       </div>
 
       <div className="line" />
