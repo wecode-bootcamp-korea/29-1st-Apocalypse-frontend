@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './BillSummary.scss';
 
 export default function BillSummary() {
+  const [data, setData] = useState([]);
+  const [cartItem, setCartItem] = [];
+  const [totalPrice, setTotalPrice] = useState([]);
+
+  useEffect(() => {
+    fetch('https://13.125.234.40:8080/users/cart', {
+      method: 'get',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMH0.JjNCEJ0NmaTH_HnbLfDkJawTeXuO6ZXwKmlKWbJoDP8',
+      },
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+        setTotalPrice(result.carts[0].total_price.total_price);
+      });
+  }, []);
+
   return (
     <div>
       <div className="billSummary">
@@ -10,7 +29,7 @@ export default function BillSummary() {
 
         <div className="billPrice">
           <span>합계</span>
-          <span>₩540,000</span>
+          <span>₩{totalPrice}</span>
         </div>
         <div className="deliveryFee">
           <span>배송비</span>
@@ -18,7 +37,7 @@ export default function BillSummary() {
         </div>
         <div className="billTotal">
           <span>총 합계</span>
-          <span>₩542,000</span>
+          <span>₩{totalPrice}</span>
         </div>
       </div>
     </div>
