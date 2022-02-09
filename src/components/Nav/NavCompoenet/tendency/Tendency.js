@@ -36,7 +36,7 @@ const Tendency = () => {
     setResetButton(resetButton => !resetButton);
     setResultInfoBox(false);
     setResultProduct(false);
-    setTestInfo(new Set());
+    setTestInfo([]);
     const testBox = e.target.parentNode.firstChild.nextSibling.children;
     for (let i = 0; i < testBox.length; i++) {
       testBox[i].style.display = 'none';
@@ -46,12 +46,10 @@ const Tendency = () => {
   const OpenResult = () => {
     setResultInfoBox(resultInfoBox => !resultInfoBox);
     setResultProduct(resultProduct => !resultProduct);
-    console.log([...testinfo].join());
-    console.log(product);
   };
 
   const product = resultProductDetail.filter(
-    com => com.result === '근거리,아니요,아니요,예'
+    com => com.result === testinfo.join()
   )[0];
 
   useEffect(() => {

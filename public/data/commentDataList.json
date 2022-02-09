@@ -17,6 +17,24 @@
       "price": 150000,
       "image": "test2.jpg",
       "description": "어떤 상황에서도 믿음직한 해결사",
+      "result": "근거리,아니요,아니요,예"
+    },
+    {
+      "id": 5,
+      "korean_name": "마체테",
+      "english_name": "Machete",
+      "price": 200000,
+      "image": "test5.jpg",
+      "description": "뼈 자르는 덴 이만한 게 없지! 아, 사람 말고...",
+      "result": "근거리,예,예,예"
+    },
+    {
+      "id": 7,
+      "korean_name": "낫",
+      "english_name": "Sickle",
+      "price": 100000,
+      "image": "test7.jpg",
+      "description": "면도에 딱!",
       "result": "근거리,예,아니요,예"
     },
     {
@@ -29,24 +47,6 @@
       "result": "원거리,예,아니요,예"
     },
     {
-      "id": 4,
-      "korean_name": "K2",
-      "english_name": "K2",
-      "price": 1100000,
-      "image": "test4.jpg",
-      "description": "대한민국 국군의 제식 소총",
-      "result": "원거리,아니요,예,예"
-    },
-    {
-      "id": 5,
-      "korean_name": "마체테",
-      "english_name": "Machete",
-      "price": 200000,
-      "image": "test5.jpg",
-      "description": "뼈 자르는 덴 이만한 게 없지! 아, 사람 말고...",
-      "result": "근거리,예,아니요,예"
-    },
-    {
       "id": 6,
       "korean_name": "M416",
       "english_name": "M416",
@@ -56,14 +56,24 @@
       "result": "원거리,예,예,예"
     },
     {
-      "id": 7,
-      "korean_name": "낫",
-      "english_name": "Sickle",
-      "price": 100000,
-      "image": "test7.jpg",
-      "description": "면도에 딱!",
-      "result": "근거리,예,아니요,예"
+      "id": 10,
+      "korean_name": "ump45",
+      "english_name": "Ump45",
+      "price": 900000,
+      "image": "test10.jpg",
+      "description": "현대식 기관단총",
+      "result": "원거리,아니요,예,예"
     },
+    {
+      "id": 4,
+      "korean_name": "K2",
+      "english_name": "K2",
+      "price": 1100000,
+      "image": "test4.jpg",
+      "description": "대한민국 국군의 제식 소총",
+      "result": "원거리,아니요,아니요,예"
+    },
+
     {
       "id": 8,
       "korean_name": "AK-47 한정판",
@@ -82,15 +92,7 @@
       "description": "대한민국 국군의 제식 소총의 재탄생",
       "result": "예, 예, 예, 네"
     },
-    {
-      "id": 10,
-      "korean_name": "ump45",
-      "english_name": "Ump45",
-      "price": 900000,
-      "image": "test10.jpg",
-      "description": "현대식 기관단총",
-      "result": "원거리,아니요,예,예"
-    },
+
     {
       "id": 11,
       "korean_name": "ump45 한정판",
