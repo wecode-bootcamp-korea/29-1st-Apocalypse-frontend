@@ -5,6 +5,7 @@ import Product from './Product/Product';
 import Benefit from './Benefit/Benefit';
 import MainSlider from './MainSlider/MainSlider';
 import Footer from '../components/Footer/Footer';
+import Nav from '../components/Nav/Nav';
 import './Main.scss';
 
 function Main() {
@@ -33,13 +34,8 @@ function Main() {
 
   return (
     <main className="main">
+      <Nav />
       <MainSlider />
-      {/* <div className="mainVideo">
-        <div className="text">
-          <h1 className="title">Celebrating the Rose</h1>
-          <MoreText />
-        </div>
-      </div> */}
 
       <section className="section1">
         <div className="productBox">
@@ -65,7 +61,7 @@ function Main() {
           src="https://images.unsplash.com/photo-1561323577-5b76286cb15f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3574&q=80"
         />
         <div className="text">
-          <h1 className="title">Celebrating the Rose</h1>
+          <h1 className="title">혁명동지들을 위한 한정판</h1>
           <MoreText />
         </div>
       </section>
@@ -99,11 +95,14 @@ function Main() {
       </section>
 
       <section className="section6">
-        <Benefit />
+        <Benefit
+          title="무기 포장"
+          explain="시그니처 박스에 정성스럽게 포장해 드립니다."
+        />
         <div className="line" />
-        <Benefit />
+        <Benefit title="체험" explain="종말론의 새로운 무기를 경험해보세요." />
         <div className="line" />
-        <Benefit />
+        <Benefit title="무료 배송" explain="전달해드립니다." />
       </section>
       <Footer />
     </main>

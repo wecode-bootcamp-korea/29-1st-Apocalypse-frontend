@@ -7,15 +7,13 @@ import './MainSlider.scss';
 
 function MainSlider() {
   let sliderArr = [
-    <MainSliderComp src={i1} title="뱅뱅뱅" key={1} />,
-    <MainSliderComp src={i2} title="빵야빵야" key={2} />,
-    <MainSliderComp src={i3} title="탕탕탕" key={3} />,
-  ];
-
-  const text = [
-    <MainSliderComp src={i1} title="뱅뱅뱅" key={1} />,
-    <MainSliderComp src={i2} title="빵야빵야" key={2} />,
-    <MainSliderComp src={i3} title="탕탕탕" key={3} />,
+    <MainSliderComp
+      src={i1}
+      title="대한민국 국군의 제식 소총의 재탄생"
+      key={1}
+    />,
+    <MainSliderComp src={i2} title="마음의 고향 같은 소총" key={2} />,
+    <MainSliderComp src={i3} title="숨고싶을 때는 이것을" key={3} />,
   ];
 
   const [x, setX] = useState(0);
@@ -26,7 +24,6 @@ function MainSlider() {
 
   const goRight = () => {
     x === -100 * (sliderArr.length - 1) ? setX(0) : setX(x - 100);
-    console.log(text.length);
   };
 
   return (

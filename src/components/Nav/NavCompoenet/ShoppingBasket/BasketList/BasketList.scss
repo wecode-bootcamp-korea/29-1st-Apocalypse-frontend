@@ -1,0 +1,38 @@
+.basketList {
+  position: relative;
+  display: flex;
+  margin: 30px 30px 0px 30px;
+  padding-bottom: 30px;
+  align-items: center;
+  border-bottom: 1px solid gray;
+
+  img {
+    width: 100px;
+    height: fit-content;
+    margin-right: 30px;
+  }
+
+  .productInfo {
+    .koreanName {
+      margin-bottom: 10px;
+    }
+
+    .quantity {
+      margin-bottom: 10px;
+    }
+  }
+
+  button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: #fcfeef;
+    cursor: pointer;
+  }
+  .test {
+    top: 50px;
+  }
+}
