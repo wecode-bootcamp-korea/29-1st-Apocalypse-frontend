@@ -63,7 +63,7 @@ function ProductDetailPage() {
 
         <p className="delimiter">/</p>
         <Link to="/" className="breadCrumbsItem" href="#">
-          코롱
+          전체
         </Link>
       </div>
       <div className="productFull">
