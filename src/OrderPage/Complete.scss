@@ -1,3 +1,5 @@
+@import './src/styles/variables.scss';
+
 @mixin flexCenter {
   display: flex;
   align-items: center;
@@ -12,10 +14,53 @@
           color: #eee;
 }
 
+@mixin stateCheckBox {
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  margin: 10px auto;
+}
+
 .complete {
   @include flexCenter;
   height: 100vh;
   position: relative;
+  .reviewHeader{
+    display: flex;
+    justify-content: center;
+    width: 710px;
+    padding-bottom: 30px;
+
+    h1 {
+      font-family: $title-font;
+      font-size: $fontsize1;
+    }
+  }
+
+  .completeStatus {
+    display: flex;
+    
+    .statusSpace {
+      justify-items: center;
+      align-items: center;
+      width: 25%;
+      text-align: center;
+      
+      .statusCheckbox1 {
+        @include stateCheckBox;
+        background-color: #000;
+      }
+      
+      .statusCheckbox2 {
+        @include stateCheckBox;
+        background-color: #ccc;
+      }
+      
+      .nonState {
+        color: #ccc;
+      }
+    }
+  }
   .compContainer {
     width: 600px;
     height: 600px;  
