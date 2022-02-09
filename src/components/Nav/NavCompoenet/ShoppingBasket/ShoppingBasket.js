@@ -20,8 +20,8 @@ const ShoppingBasket = () => {
     })
       .then(res => res.json())
       .then(result => {
-        setBasketList(result.cart[0].cart);
-        setTotalPrice(result.cart[0].total_price.total_price);
+        setBasketList(result.carts[0].cart);
+        setTotalPrice(result.carts[0].total_price.total_price);
       });
   }, []);
 
@@ -34,29 +34,33 @@ const ShoppingBasket = () => {
   return (
     <div className="shoppingBasketNav">
       <div className="title">장바구니</div>
-      {basketList.length > 0 ? (
-        <>
-          <div className="totalbasketList">
-            {basketList.map(com => {
-              return (
-                <BaketList
-                  key={com.cart_id}
-                  basket={com}
-                  basketList={basketList}
-                  setBasketList={setBasketList}
-                  setTotalPrice={setTotalPrice}
-                />
-              );
-            })}
-          </div>
-          <div className="totoalBaket">
-            <div className="totalQuantity">총 수량: {totalQuantity()}</div>
-            <div className="totalPrice">
-              총 합계: {Thousand.thousand(totalPrice)}
+      {sessionStorage.getItem('LoginToken') ? (
+        basketList.length > 0 ? (
+          <>
+            <div className="totalbasketList">
+              {basketList.map(com => {
+                return (
+                  <BaketList
+                    key={com.cart_id}
+                    basket={com}
+                    basketList={basketList}
+                    setBasketList={setBasketList}
+                    setTotalPrice={setTotalPrice}
+                  />
+                );
+              })}
             </div>
-            <button>결제하기</button>
-          </div>
-        </>
+            <div className="totoalBaket">
+              <div className="totalQuantity">총 수량: {totalQuantity()}</div>
+              <div className="totalPrice">
+                총 합계: {Thousand.thousand(totalPrice)}
+              </div>
+              <button>결제하기</button>
+            </div>
+          </>
+        ) : (
+          <div className="content">장바구니가 비었습니다.</div>
+        )
       ) : (
         <div className="content">장바구니가 비었습니다.</div>
       )}
