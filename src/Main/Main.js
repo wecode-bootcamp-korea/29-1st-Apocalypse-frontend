@@ -1,16 +1,10 @@
-<<<<<<< HEAD
-import React from 'react';
-function Main() {
-  return <div />;
-=======
 import React, { useEffect, useState, useRef } from 'react';
 import MediaAsset from './MediaAsset/MediaAsset';
 import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
 import Benefit from './Benefit/Benefit';
-import './Main.scss';
-
 import Nav from '../components/Nav/Nav';
+import './Main.scss';
 
 function Main() {
   const [product, setProduct] = useState([]);
@@ -111,7 +105,6 @@ function Main() {
       </div>
     </main>
   );
->>>>>>> master
 }
 
 export default Main;
