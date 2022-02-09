@@ -1,0 +1,26 @@
+.mainSliderComp {
+  display: flex;
+  justify-content: center;
+
+  .mainImg {
+    position: relative;
+  }
+
+  .content {
+    position: absolute;
+    bottom: 60px;
+    text-align: center;
+    color: white;
+
+    .moreText {
+      margin: 0px;
+      height: 63px;
+    }
+
+    .title {
+      font-size: 36px;
+      margin: 0px;
+      height: 77px;
+    }
+  }
+}

@@ -1,0 +1,128 @@
+@import './src/styles/variables.scss';
+
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin widthHeight {
+  width: 310px;
+  height: 251px;
+}
+
+.mypageHeader {
+  border-bottom: 1px solid #ccc;
+  width: 800px;
+  margin-right: 180px;
+  padding-bottom: 24px;
+
+  h2 {
+    font-size: $fontsize2;
+    font-family: $title-font;
+  }
+
+  .mypageTitle {
+    display: flex;
+  }
+}
+
+.welcomeMsg {
+  margin: 25px 0 25px 0;
+}
+
+.myInfoContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: $title-font;
+  }
+
+  .firstLine {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 40px;
+  }
+
+  .secondLine {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 40px;
+  }
+
+  .myInfo {
+    @include widthHeight;
+    margin: 10px 50px 50px 0;
+
+    p {
+      padding-bottom: 11px;
+    }
+
+    .myInfoTitle {
+      @include flex;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .myInfoName {
+      padding-top: 15px;
+    }
+  }
+
+  .order {
+    @include widthHeight;
+    margin: 5px 0 5px 0;
+
+    .orderHeader {
+      @include flex;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+    }
+
+    .orderContent {
+      margin-top: 15px;
+    }
+  }
+
+  .adress {
+    @include widthHeight;
+    margin-right: 50px;
+
+    p {
+      padding-bottom: 15px;
+    }
+
+    .adressHeader {
+      @include flex;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .adressInfo {
+      padding: 20px 0px 0px 0px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .delivery {
+    @include widthHeight;
+
+    p {
+      padding-bottom: 15px;
+    }
+
+    .deliveryHeader {
+      @include flex;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .deliveryInfo {
+      padding: 20px 0px 0px 0px;
+      margin-bottom: 10px;
+    }
+  }
+}

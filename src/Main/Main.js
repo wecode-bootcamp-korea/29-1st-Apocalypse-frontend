@@ -33,12 +33,12 @@ function Main() {
   return (
     <main className="main">
       <MainSlider />
-      <div className="mainVideo">
+      {/* <div className="mainVideo">
         <div className="text">
           <h1 className="title">Celebrating the Rose</h1>
           <MoreText />
         </div>
-      </div>
+      </div> */}
 
       <section className="section1">
         <div className="productBox">
@@ -78,7 +78,7 @@ function Main() {
         <h1 className="title">완벽한 선물</h1>
         <div className="productList">
           <button className="arrow" onClick={handleLeftClick}>
-            <i class="fas fa-chevron-left" />
+            <i className="fas fa-chevron-left" />
           </button>
           <div className="carousel" ref={carousel}>
             {product.length > 0 &&
