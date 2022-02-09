@@ -8,15 +8,18 @@ const ProductDetailList = () => {
   const [filterBox, setFilterBox] = useState(false);
   const [filterProduct, setFilterProduct] = useState(new Set());
   const [rangeBox, setRangeBox] = useState(false);
+  const [rangeBoxText, setRangeBoxText] = useState('정렬하기');
 
   useEffect(() => {
-    fetch('/data/commentData.json')
+    fetch('http://10.58.4.77:8000/products/categories')
       .then(res => res.json())
-      .then(result => setFilterList(result.result));
+      .then(result => {
+        setFilterList(result.Category);
+      });
   }, []);
 
   useEffect(() => {
-    fetch('/data/commentDataList.json')
+    fetch('http://10.58.4.77:8000/products')
       .then(res => res.json())
       .then(result => setProductList(result.Product));
   }, []);
@@ -28,14 +31,14 @@ const ProductDetailList = () => {
   const checkHandler = e => {
     doFilterProduct(e.target.checked, e.target.value);
     if (filterProduct.size === 0) {
-      fetch(`http://192.168.0.55:8000/products`)
+      fetch(`http://10.58.4.77:8000/products`)
         .then(res => res.json())
         .then(result => {
           setProductList(result.Product);
         });
     } else {
       const filterProducts = [...filterProduct].join();
-      fetch(`http://192.168.0.55:8000/products?category=${filterProducts}`)
+      fetch(`http://10.58.4.77:8000/products?category=${filterProducts}`)
         .then(res => res.json())
         .then(result => {
           setProductList(result.Product);
@@ -61,6 +64,7 @@ const ProductDetailList = () => {
     fetch('/data/commentDataList.json')
       .then(res => res.json())
       .then(result => setProductList(result.Product));
+    setRangeBoxText('정렬하기');
     OpenRangeBox();
   };
 
@@ -77,6 +81,11 @@ const ProductDetailList = () => {
         return 0;
       })
     );
+    if (sort === 'high') {
+      setRangeBoxText('높은 가격순');
+    } else {
+      setRangeBoxText('낮은 가격순');
+    }
     OpenRangeBox();
   };
 
@@ -95,7 +104,7 @@ const ProductDetailList = () => {
             </button>
           </div>
           <button className="ranges" onClick={OpenRangeBox}>
-            <div>정렬하기</div>
+            <div>{rangeBoxText}</div>
             <i
               className={
                 rangeBox ? 'fas fa-sort-down rotate' : 'fas fa-sort-down'
