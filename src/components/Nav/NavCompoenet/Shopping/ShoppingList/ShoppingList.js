@@ -3,7 +3,6 @@ import Product from './Product';
 import './ShoppingList.scss';
 
 const ShoppingList = ({ categoryName }) => {
-  // const [subTitle, setSubTitle] = useState(categoryName);
   return (
     <div className="shoppingList">
       <img alt="testIMG" src="/images/test.jpg" />

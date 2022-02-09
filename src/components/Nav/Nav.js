@@ -8,83 +8,23 @@ import ShoppingBasket from './NavCompoenet/ShoppingBasket/ShoppingBasket';
 import './Nav.scss';
 
 function Nav() {
-  const [subNav, setSubNav] = useState({
-    shoppingNav: false,
-    tendency: false,
-    searchNav: false,
-    myPageNav: false,
-    wishListNav: false,
-    shoppingBasketNav: false,
-  });
+  const [subNav, setSubNav] = useState(false);
 
   const CloseSubNav = () => {
     setSubNav(false);
   };
 
-  const OpenShopping = () => {
-    setSubNav({
-      shoppingNav: true,
-      tendency: false,
-      searchNav: false,
-      myPageNav: false,
-      wishListNav: false,
-      shoppingBasketNav: false,
-    });
-  };
-
-  const OpenTendency = () => {
-    setSubNav({
-      shoppingNav: false,
-      tendency: true,
-      searchNav: false,
-      myPageNav: false,
-      wishListNav: false,
-      shoppingBasketNav: false,
-    });
-  };
-
-  const OpenSearch = () => {
-    setSubNav({
-      shoppingNav: false,
-      tendency: false,
-      searchNav: true,
-      myPageNav: false,
-      wishListNav: false,
-      shoppingBasketNav: false,
-    });
-  };
-
-  const OpenMypage = () => {
-    setSubNav({
-      shoppingNav: false,
-      tendency: false,
-      searchNav: false,
-      myPageNav: true,
-      wishListNav: false,
-      shoppingBasketNav: false,
-    });
-  };
-
-  const OpenWishList = () => {
-    setSubNav({
-      shoppingNav: false,
-      tendency: false,
-      searchNav: false,
-      myPageNav: false,
-      wishListNav: true,
-      shoppingBasketNav: false,
-    });
-  };
-
-  const OpenShoppingBasket = () => {
-    setSubNav({
+  const OpenSuvNav = subName => {
+    let obj = {
       shoppingNav: false,
       tendency: false,
       searchNav: false,
       myPageNav: false,
       wishListNav: false,
-      shoppingBasketNav: true,
-    });
+      shoppingBasketNav: false,
+    };
+    obj[subName] = true;
+    setSubNav(obj);
   };
 
   return (
@@ -104,13 +44,13 @@ function Nav() {
         />
         <div className="leftNavBox">
           <div
-            onMouseOver={OpenShopping}
+            onMouseOver={() => OpenSuvNav('shoppingNav')}
             className={subNav.shoppingNav ? 'shoppingOn' : 'shopping'}
           >
             쇼핑하기
           </div>
           <div
-            onMouseOver={OpenTendency}
+            onMouseOver={() => OpenSuvNav('tendency')}
             className={subNav.tendency ? 'tendencyOn' : 'tendency'}
           >
             성향분석
@@ -121,12 +61,21 @@ function Nav() {
           <div className="subTitle">WECODE</div>
         </div>
         <div className="rightNavBox">
-          <i className="fas fa-search" onMouseOver={OpenSearch} />
-          <i className="far fa-user" onMouseOver={OpenMypage} />
-          <i className="far fa-bookmark" onMouseOver={OpenWishList} />
+          <i
+            className="fas fa-search"
+            onMouseOver={() => OpenSuvNav('searchNav')}
+          />
+          <i
+            className="far fa-user"
+            onMouseOver={() => OpenSuvNav('myPageNav')}
+          />
+          <i
+            className="far fa-bookmark"
+            onMouseOver={() => OpenSuvNav('wishListNav')}
+          />
           <i
             className="fas fa-shopping-basket"
-            onMouseOver={OpenShoppingBasket}
+            onMouseOver={() => OpenSuvNav('shoppingBasketNav')}
           />
         </div>
       </div>
@@ -146,14 +95,6 @@ function Nav() {
           </div>
         </div>
       </div>
-      {/* 모달 뒷 배경색 변경 시도중 */}
-      {/* <div
-        className={
-          subNav.myPageNav || subNav.wishListNav || subNav.shoppingBasketNav
-            ? 'backgrounddShow'
-            : 'background'
-        }
-      /> */}
       <div className="rightSubNav">
         <div
           className={subNav.searchNav ? 'search' : 'searchHide'}
