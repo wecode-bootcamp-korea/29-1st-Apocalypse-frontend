@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Benefit from './Benefit/Benefit';
 import Product from './Product/Product';
 import ProductDetailTop from './ProductDetailTop/ProductDetailTop';
@@ -11,9 +11,10 @@ function ProductDetailPage() {
   const [product, setProduct] = useState([]);
   const [productDetail, setProductDetail] = useState([]);
   const carousel = useRef(null);
+  // const params = useParams('');
 
   useEffect(() => {
-    fetch('http://10.58.4.77:8000/products?category=무기')
+    fetch('http://13.125.234.40:8080/products?category=무기')
       .then(res => res.json())
       .then(data => {
         setProduct(data.Product);
@@ -21,12 +22,20 @@ function ProductDetailPage() {
   }, []);
 
   useEffect(() => {
-    fetch('http://10.58.4.77:8000/products/1')
+    fetch('http://13.125.234.40:8080/products/1')
       .then(res => res.json())
       .then(data => {
         setProductDetail(data.product);
       });
   }, []);
+
+  // useEffect(() => {
+  //   fetch(`http://10.58.4.77:8000/products/${params.productid}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setProductDetail(data.product);
+  //     });
+  // }, []);
 
   const handleLeftClick = e => {
     e.preventDefault();
@@ -63,8 +72,17 @@ function ProductDetailPage() {
       </div>
 
       <div className="productItemList">
-        <ProductDetailItem productDetail={productDetail} />
-        <ProductDetailItem productDetail={productDetail} />
+        {productDetail.id &&
+          productDetail.components.map(com => {
+            return (
+              <ProductDetailItem
+                productDetail={com}
+                data={productDetail}
+                key={com.id}
+              />
+            );
+          })}
+        {/* <ProductDetailItem productDetail={productDetail} /> */}
       </div>
 
       <div className="line" />
@@ -90,11 +108,17 @@ function ProductDetailPage() {
       </div>
 
       <div className="benefitList">
-        <Benefit />
+        <Benefit
+          title="무기 포장"
+          explain="시그니처 박스에 정성스럽게 포장해 드립니다."
+        />
         <div className="line" />
-        <Benefit />
+        <Benefit title="체험" explain="종말론의 새로운 무기를 경험해보세요." />
         <div className="line" />
-        <Benefit />
+        <Benefit
+          title="무료 배송"
+          explain="파괴력 있는 무기를 전달해드립니다."
+        />
       </div>
     </div>
   );

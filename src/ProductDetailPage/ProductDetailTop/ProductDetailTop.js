@@ -1,14 +1,9 @@
 import React from 'react';
 import Bookmark from '../Bookmark/Bookmark';
 import AddCartBtn from '../AddCartBtn/AddCartBtn';
-import UseLocalStorage from '../UseLocalStorage';
 import './ProductDetailTop.scss';
 
 function ProductDetailTop({ productDetail }) {
-  const [addCart, setAddCart] = UseLocalStorage(`id${productDetail.id}`, false);
-
-  const test = () => setAddCart(addCart => !addCart);
-
   return (
     <div className="productDetailTop">
       <div className="leftColumn">
@@ -43,9 +38,9 @@ function ProductDetailTop({ productDetail }) {
             <p className="sizeText">One Size</p>
           </div>
         </div>
-        <AddCartBtn onClick={test} productDetail={productDetail} />
+        <AddCartBtn product={productDetail} />
         <div className="wishList">
-          <Bookmark productDetail={productDetail} />
+          <Bookmark product={productDetail} />
           <p className="wishListText">위시리스트</p>
         </div>
       </div>

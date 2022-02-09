@@ -24,7 +24,7 @@ function Product({ productList }) {
       onMouseLeave={() => setProductHover(false)}
     >
       <div className="productBox">
-        {ProductHover ? <Bookmark productList={productList} /> : ''}
+        {ProductHover ? <Bookmark product={productList} /> : ''}
         <img
           className="productImg"
           alt="img"

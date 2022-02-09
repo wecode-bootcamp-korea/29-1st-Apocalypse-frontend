@@ -91,11 +91,11 @@
   .productList {
     padding-top: 80px;
     @include flex-center;
-    max-width: 1244px;
+    max-width: 1214px;
 
     .carousel {
       display: flex;
-      justify-content: center;
+      justify-content: start;
       overflow-x: auto;
       scroll-behavior: smooth;
       transition: transform 1s;
