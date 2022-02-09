@@ -1,0 +1,33 @@
+.shoppingBasketNav {
+  .title {
+    margin: 30px;
+    font-weight: bolder;
+  }
+
+  .content {
+    margin: 30px;
+    margin-top: 0;
+  }
+
+  .totalbasketList {
+    max-height: 300px;
+    overflow: scroll;
+  }
+
+  .totoalBaket {
+    text-align: center;
+    margin: 0 30px;
+
+    div {
+      padding: 30px;
+      align-items: center;
+      border-bottom: 1px solid gray;
+    }
+
+    button {
+      margin: 15px auto;
+      width: 100%;
+      height: 30px;
+    }
+  }
+}

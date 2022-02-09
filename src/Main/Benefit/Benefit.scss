@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.benefitLink {
+  width: 576px;
+  height: 71px;
+  text-align: center;
+  text-decoration-line: none;
+  color: inherit;
+
+  .benefitTitle {
+    font-family: $title-font;
+    font-size: $fontsize2;
+    margin: 0px 0px 30px 0px;
+  }
+}

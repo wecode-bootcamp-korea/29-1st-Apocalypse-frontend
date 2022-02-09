@@ -116,7 +116,7 @@ function ProductDetailPage() {
         <div className="line" />
         <Benefit
           title="무료 배송"
-          explain="파괴력 있는 무기를 전달해드립니다."
+          explain="파괴력 있는 무기를 전달해 드립니다."
         />
       </div>
     </div>
