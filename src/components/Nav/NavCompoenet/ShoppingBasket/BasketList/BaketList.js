@@ -11,7 +11,7 @@ const BaketList = ({ basket, basketList, setBasketList, setTotalPrice }) => {
       .then(res => res.json())
       .then(result => {
         if (result.message === 'DELETE_CART') {
-          setBasketList(basketList.filter(com => com.cart_id !== id));
+          // setBasketList(basketList.filter(com => com.cart_id !== id));
           fetch('http://10.58.4.77:8000/users/cart', {
             method: 'get',
             headers: { Authorization: sessionStorage.getItem('LoginToken') },
@@ -36,9 +36,6 @@ const BaketList = ({ basket, basketList, setBasketList, setTotalPrice }) => {
         </div>
       </div>
       <button onClick={() => deleteBasket(basket.cart_id)}>X</button>
-      {/* <button className="test" value="4" id={basket.cart_id} onClick={test}>
-        4
-      </button> */}
     </div>
   );
 };

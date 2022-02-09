@@ -30,7 +30,6 @@ function Nav() {
       wishListNav: false,
       shoppingBasketNav: false,
     };
-
     obj[subName] = true;
     setSubNav(obj);
   };
