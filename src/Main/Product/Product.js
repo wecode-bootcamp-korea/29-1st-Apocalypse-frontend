@@ -17,6 +17,7 @@ function Product({ productList }) {
   const closeModal = () => {
     setModalOpen(false);
     document.body.style.overflow = 'unset';
+    setProductHover(false);
   };
 
   const goProductDetailPage = id => {

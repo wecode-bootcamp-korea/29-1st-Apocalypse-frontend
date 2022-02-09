@@ -12,7 +12,7 @@ function Main() {
   const carousel = useRef(null);
 
   useEffect(() => {
-    fetch('http://10.58.4.77:8000/products?category=무기')
+    fetch('http://13.125.234.40:8080/products?category=무기')
       .then(res => res.json())
       .then(data => {
         setProduct(data.Product);
