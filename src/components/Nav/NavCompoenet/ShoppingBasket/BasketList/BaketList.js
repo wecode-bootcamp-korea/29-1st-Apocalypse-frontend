@@ -2,18 +2,31 @@ import React from 'react';
 import * as Thousand from '../../../../../styles/thousand';
 import './BasketList.scss';
 
-const BaketList = ({ basket, basketList, setBasketList }) => {
+const BaketList = ({ basket, basketList, setBasketList, setTotalPrice }) => {
   const deleteBasket = id => {
-    setBasketList(basketList.filter(com => com.id !== id));
+    fetch('http://10.58.4.77:8000/users/cart', {
+      method: 'DELETE',
+      headers: { Authorization: sessionStorage.getItem('LoginToken') },
+      body: JSON.stringify({
+        cart_id: id,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === 'DELETE_CART') {
+          setBasketList(basketList.filter(com => com.cart_id !== id));
+          fetch('http://10.58.4.77:8000/users/cart', {
+            method: 'get',
+            headers: { Authorization: sessionStorage.getItem('LoginToken') },
+          })
+            .then(res => res.json())
+            .then(result => {
+              setBasketList(result.cart[0].cart);
+              setTotalPrice(result.cart[0].total_price.total_price);
+            });
+        }
+      });
   };
-
-  // const test = e => {
-  //   const test1 = e.target.id - 1;
-  //   basketList[test1].quantity = parseInt(e.target.value);
-  //   setBasketList(basketList => {
-  //     return basketList;
-  //   });
-  // };
 
   return (
     <div className="basketList">
@@ -25,8 +38,8 @@ const BaketList = ({ basket, basketList, setBasketList }) => {
           {Thousand.thousand(basket.price * basket.quantity)}
         </div>
       </div>
-      <button onClick={() => deleteBasket(basket.id)}>X</button>
-      {/* <button className="test" value="4" id={basket.id} onClick={test}>
+      <button onClick={() => deleteBasket(basket.cart_id)}>X</button>
+      {/* <button className="test" value="4" id={basket.cart_id} onClick={test}>
         4
       </button> */}
     </div>

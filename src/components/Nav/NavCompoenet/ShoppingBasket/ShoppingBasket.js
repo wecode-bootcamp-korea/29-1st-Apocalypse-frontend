@@ -5,23 +5,30 @@ import './ShoppingBasket.scss';
 
 const ShoppingBasket = () => {
   const [basketList, setBasketList] = useState([]);
+  const [totalPrice, setTotalPrice] = useState([]);
+
+  // useEffect(() => {
+  //   fetch('/data/commentDataListBasket.json')
+  //     .then(res => res.json())
+  //     .then(result => setBasketList(result.Product));
+  // }, []);
 
   useEffect(() => {
-    fetch('/data/commentDataListBasket.json')
+    fetch('http://10.58.4.77:8000/users/cart', {
+      method: 'get',
+      headers: { Authorization: sessionStorage.getItem('LoginToken') },
+    })
       .then(res => res.json())
-      .then(result => setBasketList(result.Product));
+      .then(result => {
+        setBasketList(result.cart[0].cart);
+        setTotalPrice(result.cart[0].total_price.total_price);
+      });
   }, []);
 
   const totalQuantity = () => {
     let totalQuantityResult = 0;
     basketList.map(com => (totalQuantityResult += com.quantity));
     return totalQuantityResult;
-  };
-
-  const totalPrice = () => {
-    let totalPriceResult = 0;
-    basketList.map(com => (totalPriceResult += com.price * com.quantity));
-    return totalPriceResult;
   };
 
   return (
@@ -33,10 +40,11 @@ const ShoppingBasket = () => {
             {basketList.map(com => {
               return (
                 <BaketList
-                  key={com.id}
+                  key={com.cart_id}
                   basket={com}
                   basketList={basketList}
                   setBasketList={setBasketList}
+                  setTotalPrice={setTotalPrice}
                 />
               );
             })}
@@ -44,7 +52,7 @@ const ShoppingBasket = () => {
           <div className="totoalBaket">
             <div className="totalQuantity">총 수량: {totalQuantity()}</div>
             <div className="totalPrice">
-              총 합계: {Thousand.thousand(totalPrice())}
+              총 합계: {Thousand.thousand(totalPrice)}
             </div>
             <button>결제하기</button>
           </div>

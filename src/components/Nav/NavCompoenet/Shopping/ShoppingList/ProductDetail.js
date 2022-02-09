@@ -1,12 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ProductDetail = ({ productList }) => {
+  const navigate = useNavigate('');
+
+  const goProductDetailPage = id => {
+    navigate(`/ProductDetailPage/${id}`);
+  };
+
   return (
-    <div className="products">
-      <Link to="/ProductDetailPage" className="openProductList">
-        {productList.name}
-      </Link>
+    <div
+      className="products"
+      onClick={() => goProductDetailPage(productList.id)}
+    >
+      {productList.name}
     </div>
   );
 };
