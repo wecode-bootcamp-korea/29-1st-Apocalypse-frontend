@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MediaAsset from './MediaAsset/MediaAsset';
 import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
@@ -11,6 +12,7 @@ import './Main.scss';
 function Main() {
   const [product, setProduct] = useState([]);
   const carousel = useRef(null);
+  const navigate = useNavigate('');
 
   useEffect(() => {
     fetch('http://13.125.234.40:8080/products?category=무기')
@@ -32,6 +34,10 @@ function Main() {
 
   if (!product || !product.length) return null;
 
+  const goProductDetailPage = id => {
+    navigate(`/ProductDetailPage/${id}`);
+  };
+
   return (
     <main className="main">
       <Nav />
@@ -45,7 +51,7 @@ function Main() {
             src="https://www.jomalone.co.kr/media/export/cms/homepage/220117/jo_sku_LFFN01_DT_750x415.png"
           />
           <h2 className="title">{product[0].korean_name}</h2>
-          <MoreText />
+          <MoreText onClick={() => goProductDetailPage(product[0])} />
         </div>
         <img
           className="section1Img"

@@ -7,7 +7,10 @@ import './Modal.scss';
 function Modal({ productList, open, close }) {
   const [addCart, setAddCart] = UseLocalStorage(`id${productList.id}`, false);
 
-  const clickCart = () => setAddCart(addCart => !addCart);
+  const clickCart = () => {
+    setAddCart(addCart => !addCart);
+    alert('상품이 장바구니에 담겼습니다.');
+  };
 
   return (
     <div className="modal">
