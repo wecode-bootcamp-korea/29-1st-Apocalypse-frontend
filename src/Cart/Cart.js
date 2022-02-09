@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from 'react';
 
-import './Cart.scss';
 import CartProductList from './CartProductList/CartProductList';
+
+import './Cart.scss';
 
 function Cart() {
   const [cartItem, setCartItem] = useState([]);
+  const [totalPrice, setTotalPrice] = useState();
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/cartItem.json')
+    fetch('http://10.58.4.77:8000/users/cart', {
+      method: 'GET',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.yp45-DVxcHYTfq0-UHBJp9rHnGtuKtolSwPEjCiXLS0',
+      },
+    })
       .then(res => res.json())
-      .then(data => {
-        setCartItem(data);
+      .then(result => {
+        console.log(result);
+        console.log(result.carts);
+        console.log(result.carts[0]);
+
+        setCartItem(result.carts[0].cart);
+        setTotalPrice(result.carts[0].total_price.total_price);
       });
   }, []);
-
-  const removeCart = id => {
-    setCartItem(cartItem.filter(item => item.id !== id));
-  };
 
   return (
     <div className="cartWrapper">
@@ -33,24 +42,25 @@ function Cart() {
             <h5 className="totalPrice">총합계</h5>
           </div>
           <div className="cartItemList">
-            {cartItem.map(item => (
+            {cartItem.map(cart => (
               <CartProductList
-                english_name={item.english_name}
-                id={item.id}
-                image={item.image}
-                korean_name={item.korean_name}
-                price={item.price}
-                quantity={item.quantity}
-                item={item}
-                key={item.id}
-                removeCart={removeCart}
+                cart={cart}
+                key={cart.cart_id}
+                totalPrice={totalPrice}
+                setCartItem={setCartItem}
+                setTotalPrice={setTotalPrice}
               />
             ))}
           </div>
         </div>
         <div className="cartTotal">
           <span>합계</span>
-          <span>₩300,000</span>
+          <span>
+            ₩
+            {parseInt(totalPrice)
+              .toString()
+              .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+          </span>
         </div>
         <div className="cartFooter">
           <a href="#">쇼핑계속하기</a>
@@ -81,7 +91,12 @@ function Cart() {
 
           <div className="billPrice">
             <span>합계</span>
-            <span>₩540,000</span>
+            <span>
+              ₩
+              {parseInt(totalPrice)
+                .toString()
+                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+            </span>
           </div>
           <div className="deliveryFee">
             <span>배송비</span>
@@ -89,7 +104,12 @@ function Cart() {
           </div>
           <div className="billTotal">
             <span>총 합계</span>
-            <span>₩542,000</span>
+            <span>
+              ₩
+              {parseInt(totalPrice)
+                .toString()
+                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+            </span>
           </div>
         </div>
       </div>
