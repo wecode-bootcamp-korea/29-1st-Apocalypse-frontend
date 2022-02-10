@@ -13,10 +13,7 @@ function Cart() {
   useEffect(() => {
     fetch('http://13.125.234.40:8080/users/cart', {
       method: 'GET',
-      headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMH0.JjNCEJ0NmaTH_HnbLfDkJawTeXuO6ZXwKmlKWbJoDP8',
-      },
+      headers: { Authorization: sessionStorage.getItem('LoginToken') },
     })
       .then(res => res.json())
       .then(result => {

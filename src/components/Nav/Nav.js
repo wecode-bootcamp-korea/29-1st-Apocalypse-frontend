@@ -103,7 +103,7 @@ function Nav() {
           <Search />
         </div>
         <div
-          className={subNav.myPageNav ? 'myPage' : 'myPageHide'}
+          className={subNav.myPageNav ? 'myPageNavBar' : 'myPageHide'}
           onMouseLeave={CloseSubNav}
         >
           <MyPage />

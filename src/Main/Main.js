@@ -5,8 +5,6 @@ import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
 import Benefit from './Benefit/Benefit';
 import MainSlider from './MainSlider/MainSlider';
-import Footer from '../components/Footer/Footer';
-import Nav from '../components/Nav/Nav';
 import './Main.scss';
 
 function Main() {
@@ -40,9 +38,7 @@ function Main() {
 
   return (
     <main className="main">
-      <Nav />
       <MainSlider />
-
       <section className="section1">
         <div className="productBox">
           <img
@@ -59,7 +55,6 @@ function Main() {
           src="https://images.unsplash.com/photo-1500252185289-40ca85eb23a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80"
         />
       </section>
-
       <section className="section2">
         <img
           className="seciton2Img"
@@ -113,7 +108,6 @@ function Main() {
           explain="파괴력 있는 무기를 전달해 드립니다."
         />
       </section>
-      <Footer />
     </main>
   );
 }

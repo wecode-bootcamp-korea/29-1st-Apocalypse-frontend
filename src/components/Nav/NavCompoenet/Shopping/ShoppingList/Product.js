@@ -9,7 +9,7 @@ const Product = ({ subcategoryList }) => {
   };
 
   return (
-    <div className="product">
+    <div className="productShopping">
       <div className="productSub" onClick={OpenProduct}>
         {subcategoryList.name}
       </div>

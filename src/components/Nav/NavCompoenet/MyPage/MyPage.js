@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './MyPage.scss';
 
 const MyPage = () => {
-  const navigate = useNavigate('');
-
   const [inputValues, setInputValues] = useState({
     id: '',
     password: '',
@@ -47,7 +45,7 @@ const MyPage = () => {
     <div className="myPageNav">
       {!sessionStorage.getItem('LoginToken') ? (
         <div className="myPageLogin">
-          <div className="title">로그인</div>
+          <div className="titleMyPage">로그인</div>
           <div className="loginBox">
             <input
               name="id"

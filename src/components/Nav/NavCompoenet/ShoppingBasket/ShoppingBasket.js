@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import BaketList from './BasketList/BaketList';
 import * as Thousand from '../../../../styles/thousand';
 import './ShoppingBasket.scss';
 
 const ShoppingBasket = () => {
+  const navigate = useNavigate();
   const [basketList, setBasketList] = useState([]);
   const [totalPrice, setTotalPrice] = useState([]);
-
-  // useEffect(() => {
-  //   fetch('/data/commentDataListBasket.json')
-  //     .then(res => res.json())
-  //     .then(result => setBasketList(result.Product));
-  // }, []);
 
   useEffect(() => {
     fetch('http://13.125.234.40:8080/users/cart', {
@@ -31,9 +27,13 @@ const ShoppingBasket = () => {
     return totalQuantityResult;
   };
 
+  const goToCart = () => {
+    navigate('/Cart');
+  };
+
   return (
     <div className="shoppingBasketNav">
-      <div className="title">장바구니</div>
+      <div className="titleShoppingBasket">장바구니</div>
       {sessionStorage.getItem('LoginToken') ? (
         basketList.length > 0 ? (
           <>
@@ -55,7 +55,7 @@ const ShoppingBasket = () => {
               <div className="totalPrice">
                 총 합계: {Thousand.thousand(totalPrice)}
               </div>
-              <button>결제하기</button>
+              <button onClick={goToCart}>결제하기</button>
             </div>
           </>
         ) : (

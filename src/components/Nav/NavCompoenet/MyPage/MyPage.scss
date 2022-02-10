@@ -1,59 +1,61 @@
-.myPageNav {
-  .myPageLogin {
-    .title {
-      margin: 30px;
-      font-weight: bolder;
-    }
+.myPageNavBar {
+  .myPageNav {
+    .myPageLogin {
+      .titleMyPage {
+        margin: 30px;
+        font-weight: bolder;
+      }
 
-    .loginBox {
-      display: flex;
-      margin: 30px;
-      margin-bottom: 0px;
-      flex-direction: column;
+      .loginBox {
+        display: flex;
+        margin: 30px;
+        margin-bottom: 0px;
+        flex-direction: column;
 
-      input {
-        margin-bottom: 20px;
-        padding: 10px;
+        input {
+          margin-bottom: 20px;
+          padding: 10px;
+          height: 40px;
+          border: 0.5px solid gray;
+        }
+      }
+
+      .findPassWord {
+        margin: 30px;
+        margin-top: 0px;
+        text-decoration: underline;
+      }
+
+      button {
+        margin: 30px;
+        margin-top: 0;
         height: 40px;
-        border: 0.5px solid gray;
+        width: 85%;
+        color: white;
+        background-color: black;
+      }
+
+      .under {
+        display: flex;
+        margin: 30px;
+        margin-top: 0px;
+        justify-content: space-between;
+
+        .join {
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }
     }
 
-    .findPassWord {
-      margin: 30px;
-      margin-top: 0px;
-      text-decoration: underline;
-    }
-
-    button {
-      margin: 30px;
-      margin-top: 0;
-      height: 40px;
-      width: 85%;
-      color: white;
-      background-color: black;
-    }
-
-    .under {
-      display: flex;
-      margin: 30px;
-      margin-top: 0px;
-      justify-content: space-between;
-
-      .join {
+    .myPageLoginComplete {
+      div {
+        margin: 30px;
         text-decoration: underline;
+        font-weight: bolder;
+        color: black;
         cursor: pointer;
       }
-    }
-  }
-
-  .myPageLoginComplete {
-    div {
-      margin: 30px;
-      text-decoration: underline;
-      font-weight: bolder;
-      color: black;
-      cursor: pointer;
     }
   }
 }
