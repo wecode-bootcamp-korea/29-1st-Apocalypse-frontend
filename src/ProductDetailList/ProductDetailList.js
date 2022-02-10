@@ -22,7 +22,6 @@ const ProductDetailList = () => {
     fetch('http://3.34.199.69:8080/products')
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         setProductList(result.Product);
       });
   }, []);

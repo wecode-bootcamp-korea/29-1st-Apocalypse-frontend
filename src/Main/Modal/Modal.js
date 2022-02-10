@@ -18,7 +18,6 @@ function Modal({ productList, open, close }) {
       })
         .then(res => res.json())
         .then(result => {
-          console.log(result);
           if (result.message === 'ADD_CART') {
             document.body.style.overflow = 'unset';
             navigate('/Cart');

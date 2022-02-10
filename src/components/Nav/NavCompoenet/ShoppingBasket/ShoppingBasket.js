@@ -8,7 +8,6 @@ const ShoppingBasket = () => {
   const navigate = useNavigate();
   const [basketList, setBasketList] = useState([]);
   const [totalPrice, setTotalPrice] = useState([]);
-  const [deleteCom, setDeleteCom] = useState('');
 
   useEffect(() => {
     fetch('http://3.34.199.69:8080/users/cart', {
@@ -17,7 +16,6 @@ const ShoppingBasket = () => {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(basketList);
         setBasketList(result.carts[0].cart);
         setTotalPrice(result.carts[0].total_price.total_price);
       });
@@ -48,7 +46,6 @@ const ShoppingBasket = () => {
                     basketList={basketList}
                     setBasketList={setBasketList}
                     setTotalPrice={setTotalPrice}
-                    setDeleteCom={setDeleteCom}
                   />
                 );
               })}
