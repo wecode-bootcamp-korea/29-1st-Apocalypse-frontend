@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.productDetailItem {
+  $borderColor: #e2e1d7;
+  display: flex;
+
+  align-items: center;
+
+  .productItemImg {
+    width: 139px;
+    height: 184px;
+    object-fit: cover;
+    font-size: $fontsize3;
+  }
+
+  .notes {
+    margin: 24px 0px 24px 24px;
+    width: 225px;
+  }
+}

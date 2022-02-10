@@ -1,0 +1,143 @@
+@import '../styles/variables.scss';
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productDetailPage {
+  flex-direction: column;
+  @include flex-center;
+  $borderColor: #e2e1d7;
+
+  .headerImg {
+    width: 100%;
+    height: 134px;
+  }
+
+  .productFull {
+    padding: 66px 0px;
+
+    .productDetailTop {
+      margin-bottom: 86px;
+    }
+  }
+
+  .breadCrumbs {
+    display: flex;
+    position: absolute;
+    top: 200px;
+    left: 50px;
+    font-size: $fontsize3;
+
+    .breadCrumbsItem {
+      padding: 0px 10px;
+      color: inherit;
+      text-decoration-line: none;
+
+      &:first-child {
+        padding: 0px 10px 0px 0px;
+      }
+    }
+  }
+
+  .imgWrapper {
+    display: flex;
+    justify-content: center;
+    height: 502px;
+  }
+
+  .productImg {
+    width: 472px;
+    height: fit-content;
+    object-fit: cover;
+  }
+
+  .share {
+    position: absolute;
+    bottom: 0px;
+    font-size: $fontsize3;
+  }
+
+  .line {
+    margin-top: 40px;
+    width: 1166px;
+    border-bottom: 1px solid $borderColor;
+  }
+
+  .lazyImg {
+    padding-top: 40px;
+    width: 1166px;
+    height: 500px;
+    object-fit: cover;
+  }
+
+  .productItemList {
+    display: flex;
+    padding-top: 40px;
+  }
+
+  .productDetailItem:first-child {
+    margin-right: 24px;
+  }
+
+  .review {
+    margin-top: 80px;
+
+    .title {
+      margin-bottom: 40px;
+      font-size: 28px;
+      font-family: $title-font;
+    }
+  }
+
+  .productList {
+    padding-top: 80px;
+    @include flex-center;
+    max-width: 1214px;
+
+    .carousel {
+      display: flex;
+      justify-content: start;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      transition: transform 1s;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .arrow {
+      background: none;
+      border: none;
+    }
+
+    .fa-chevron-left,
+    .fa-chevron-right {
+      font-size: 16px;
+    }
+  }
+
+  .benefitList {
+    display: flex;
+    padding-top: 40px;
+    margin-bottom: 80px;
+    height: 320px;
+    align-items: center;
+
+    .benefit {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .line {
+      margin: 0px;
+      width: 0px;
+      height: 71px;
+      border-right: 1px solid $borderColor;
+    }
+  }
+}

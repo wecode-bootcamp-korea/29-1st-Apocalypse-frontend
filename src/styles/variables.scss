@@ -5,9 +5,14 @@
   justify-content: center;
 }
 
+@mixin fontDefalut {
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
 $fontsize1: 32px;
 $fontsize2: 24px;
-$fontsize3: 14px;
-$fontsize4: 12px;
+$fontsize3: 12px;
+$fontsize4: 10px;
 
 $title-font: 'Nanum Myeongjo', serif;
