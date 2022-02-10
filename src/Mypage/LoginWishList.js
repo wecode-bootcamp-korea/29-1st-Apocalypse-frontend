@@ -26,7 +26,6 @@ function LoginWishList() {
         <div className="forwardCart">
           <form>
             <button className="goToCart">장바구니 담기</button>
-            {/* <button>삭제</button> */}
           </form>
         </div>
       </div>
