@@ -1,9 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-
-function Footer() {
-  return <div />;
-=======
 import FooterContent from './FooterContent/FooterContent';
 import FOOTER_DATA from './footerData';
 import './Footer.scss';
@@ -18,7 +13,6 @@ function Footer() {
       </div>
     </footer>
   );
->>>>>>> master
 }
 
 export default Footer;
