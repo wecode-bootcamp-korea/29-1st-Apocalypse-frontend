@@ -1,0 +1,50 @@
+@import './src/styles/variables.scss';
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin btnStyle {
+  width: 30%;
+  height: 50px;
+  font-size: 20px;
+  border: none;
+  background-color: #000;
+  color: #eee;
+}
+
+.complete {
+  @include flexCenter;
+  height: 100vh;
+  position: relative;
+  
+  .compContainer {
+    width: 600px;
+    height: 600px;
+    
+    .contentWrap {
+      align-items: center;
+      height: 50%;
+      margin-top: 40%;
+      
+      .compMessage {
+        font-size: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      
+      .toMain {
+        @include btnStyle;
+        margin-right: 10px;
+        margin-left: 100px;
+        
+      }
+      
+      .orderInfoCheck {
+        @include btnStyle;
+      }
+    }
+  }
+}

@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Main from './Main/Main';
 import Mypage from './Mypage/Mypage';
-import LoginMypage from './Mypage/LoginMyPage/LoginMypage';
+import LoginMypage from './Mypage/LoginMypage';
 import OrderPage from './OrderPage/OrderPage';
+import OrderReview from './OrderPage/OrderReview';
+import Complete from './OrderPage/Complete';
 import ProductDetailList from './ProductDetailList/ProductDetailList';
 import ProductDetailPage from './ProductDetailPage/ProductDetailPage';
 import Cart from './Cart/Cart';
@@ -26,9 +28,11 @@ const Router = () => {
           element={<ProductDetailPage />}
         />
         <Route path="/OrderPage" element={<OrderPage />} />
+        <Route path="/OrderReview" element={<OrderReview />} />
+        <Route path="/Complete" element={<Complete />} />
         <Route path="/Cart" element={<Cart />} />
       </Routes>
-      <Footer />"
+      <Footer />
     </BrowserRouter>
   );
 };
