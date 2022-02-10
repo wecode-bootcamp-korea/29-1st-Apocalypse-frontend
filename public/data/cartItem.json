@@ -1,0 +1,34 @@
+[
+  {
+    "english_name": "Crow Bar",
+    "id": 2,
+    "image": "test2.jpg",
+    "korean_name": "빠루",
+    "price": "150000.00",
+    "quantity": 30
+  },
+  {
+    "english_name": "AK-47",
+    "id": 3,
+    "image": "test3.jpg",
+    "korean_name": "AK-47",
+    "price": "1000000.00",
+    "quantity": 30
+  },
+  {
+    "english_name": "K2",
+    "id": 4,
+    "image": "test4.jpg",
+    "korean_name": "K2",
+    "price": "1100000.00",
+    "quantity": 30
+  },
+  {
+    "english_name": "Machete",
+    "id": 5,
+    "image": "test5.jpg",
+    "korean_name": "마체테",
+    "price": "200000.00",
+    "quantity": 30
+  }
+]

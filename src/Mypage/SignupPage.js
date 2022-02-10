@@ -12,12 +12,17 @@ const SignupPage = () => {
   };
   const [userInputText, setUserInputText] = useState(initialValues);
   const [errorMessage, setErrorMessage] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+  const [already, setAlready] = useState(false);
   const [signUpNumber, setSignUpNumber] = useState(0);
+
+  const alreadyMessage = () => {
+    setAlready(already => !already);
+  };
 
   const handleInputChange = e => {
     const { name, value } = e.target;
     setUserInputText({ ...userInputText, [name]: value });
+    setAlready(false);
   };
 
   const handleSubmit = e => {
@@ -30,10 +35,6 @@ const SignupPage = () => {
     setSignUpNumber(e.target.value);
   };
 
-  const submitForm = () => {
-    setIsSubmit(true);
-  };
-
   const toMainNavigate = useNavigate();
   const goToMain = () => {
     toMainNavigate('/');
@@ -41,20 +42,27 @@ const SignupPage = () => {
 
   const validate = values => {
     const errorMessage = {};
+    const regexId = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
+    const regexPw =
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}/;
     if (!userInputText.userName) {
       errorMessage.userName = '이름을 입력하세요.';
     }
     if (!userInputText.signUpuserInputId) {
       errorMessage.signUpuserInputId = '이메일을 입력하세요.';
+    } else if (!regexId.test(userInputText.signUpuserInputId)) {
+      errorMessage.signUpuserInputId = '이메일형식이 아닙니다.';
     }
     if (!userInputText.signUpuserInputPw) {
       errorMessage.signUpuserInputPw = '비밀번호를 입력하세요.';
+    } else if (!regexPw.test(userInputText.signUpuserInputPw)) {
+      errorMessage.signUpuserInputPw = '비밀번호형식이 아닙니다.';
     }
     return errorMessage;
   };
 
   const goToSignUp = () => {
-    fetch('http://192.168.0.6:8000/users/signup', {
+    fetch('http://13.125.234.40:8080/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         name: userInputText.userName,
@@ -66,14 +74,10 @@ const SignupPage = () => {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'INVALID PASSWORD') {
-          alert('비밀번호 형식이 올바르지 않습니다.');
-        } else if (result.message === 'INVALID EMAIL') {
-          alert('이메일이 형식이 올바르지 않습니다.');
-        } else if (result.message === 'ALREADY EXIST EMAIL') {
-          alert('입력하신 이메일 주소로 이미 회원등록이 되어 있습니다. ');
+        if (result.message === 'ALREADY EXIST EMAIL') {
+          alreadyMessage();
         } else if (result.message === 'CREATED') {
-          sessionStorage.setItem('token', result.JWT);
+          sessionStorage.setItem('LoginToken', result.JWT);
           alert('환영합니다.');
           goToMain();
         }
@@ -82,7 +86,7 @@ const SignupPage = () => {
           userInputText.signUpuserInputId,
           userInputText.signUpuserInputPw
         );
-      });
+      }, []);
   };
 
   return (
@@ -97,6 +101,9 @@ const SignupPage = () => {
       {errorMessage.signUpuserInputPw && (
         <p className="error">{errorMessage.signUpuserInputPw}</p>
       )}
+      <p className={already ? 'error' : 'errorHide'}>
+        이미 가입된 아이디 입니다.
+      </p>
       <input
         name="userName"
         className="inputText"
@@ -264,7 +271,6 @@ const SignupPage = () => {
           (만 19세 이상부터 회원가입이 가능합니다.)
         </div>
       </div>
-      {!isSubmit ? submitForm() : goToSignUp()}
       <button onClick={handleSubmit} className="joinMemberShip">
         회원가입
       </button>
