@@ -17,12 +17,7 @@
 
     .product {
       margin-top: 20px;
-
-      .openProductList {
-        text-decoration: none;
-        color: black;
-        cursor: pointer;
-      }
+      cursor: pointer;
 
       .productSub {
         margin-top: 20px;
@@ -40,6 +35,7 @@
         .products {
           margin-bottom: 10px;
           color: black;
+          cursor: pointer;
         }
       }
     }

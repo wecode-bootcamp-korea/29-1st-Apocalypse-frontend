@@ -1,22 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MediaAsset from './MediaAsset/MediaAsset';
 import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
 import Benefit from './Benefit/Benefit';
+import MainSlider from './MainSlider/MainSlider';
+import Footer from '../components/Footer/Footer';
+import Nav from '../components/Nav/Nav';
 import './Main.scss';
 
-import Nav from '../components/Nav/Nav';
-
 function Main() {
-
   const [product, setProduct] = useState([]);
   const carousel = useRef(null);
+  const navigate = useNavigate('');
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/mainData.json')
+    fetch('http://13.125.234.40:8080/products?category=무기')
       .then(res => res.json())
       .then(data => {
-        setProduct(data.list);
+        setProduct(data.Product);
       });
   }, []);
 
@@ -32,24 +34,23 @@ function Main() {
 
   if (!product || !product.length) return null;
 
+  const goProductDetailPage = id => {
+    navigate(`/ProductDetailPage/${id}`);
+  };
+
   return (
     <main className="main">
- 
-      <div className="mainVideo">
-        <div className="text">
-          <h1 className="title">Celebrating the Rose</h1>
-          <MoreText />
-        </div>
-      </div>
+      <Nav />
+      <MainSlider />
 
-      <div className="section1">
+      <section className="section1">
         <div className="productBox">
           <img
             className="productImg"
             alt="img"
             src="https://www.jomalone.co.kr/media/export/cms/homepage/220117/jo_sku_LFFN01_DT_750x415.png"
           />
-          <h2 className="title">로즈 앤 매그놀리아 리미티드 코롱</h2>
+          <h2 className="title">{product[0].korean_name}</h2>
           <MoreText />
         </div>
         <img
@@ -57,30 +58,30 @@ function Main() {
           alt="img"
           src="https://images.unsplash.com/photo-1500252185289-40ca85eb23a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80"
         />
-      </div>
+      </section>
 
-      <div className="section2">
+      <section className="section2">
         <img
           className="seciton2Img"
           alt="img"
           src="https://images.unsplash.com/photo-1561323577-5b76286cb15f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3574&q=80"
         />
         <div className="text">
-          <h1 className="title">벨벳 로즈 앤 오드 리미티드 코롱 인텐스</h1>
+          <h1 className="title">혁명동지들을 위한 한정판</h1>
           <MoreText />
         </div>
-      </div>
+      </section>
 
-      <div className="section3">
+      <section className="section3">
         <MediaAsset />
         <MediaAsset />
-      </div>
+      </section>
 
-      <div className="section4">
-        <h1 className="title">완벽한 선물</h1>
+      <section className="section4">
+        <h1 className="title">완벽한 무기</h1>
         <div className="productList">
           <button className="arrow" onClick={handleLeftClick}>
-            <i class="fas fa-chevron-left" />
+            <i className="fas fa-chevron-left" />
           </button>
           <div className="carousel" ref={carousel}>
             {product.length > 0 &&
@@ -89,23 +90,30 @@ function Main() {
               })}
           </div>
           <button className="arrow" onClick={handleRightClick}>
-            <i class="fas fa-chevron-right" />
+            <i className="fas fa-chevron-right" />
           </button>
         </div>
-      </div>
+      </section>
 
-      <div className="section5">
+      <section className="section5">
         <MediaAsset />
         <MediaAsset />
-      </div>
+      </section>
 
-      <div className="section6">
-        <Benefit />
+      <section className="section6">
+        <Benefit
+          title="무기 포장"
+          explain="시그니처 박스에 정성스럽게 포장해 드립니다."
+        />
         <div className="line" />
-        <Benefit />
+        <Benefit title="체험" explain="종말론의 새로운 무기를 경험해보세요." />
         <div className="line" />
-        <Benefit />
-      </div>
+        <Benefit
+          title="무료 배송"
+          explain="파괴력 있는 무기를 전달해 드립니다."
+        />
+      </section>
+      <Footer />
     </main>
   );
 }

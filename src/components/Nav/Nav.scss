@@ -9,6 +9,7 @@
   .mainNav {
     position: relative;
     display: flex;
+    height: 70px;
     padding: 10px 30px;
     align-items: center;
     justify-content: space-between;
@@ -19,12 +20,12 @@
 
     .modal {
       position: fixed;
-      top: 78px;
+      top: 70px;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 1;
       background-color: rgba(0, 0, 0, 0.3);
+      z-index: 1;
     }
 
     .leftNavBox {
@@ -50,10 +51,10 @@
       text-align: center;
 
       .mainTitle {
+        margin-bottom: 10px;
         font-family: $title-font;
         font-size: $fontsize1;
         font-weight: bolder;
-        margin-bottom: 10px;
       }
     }
 
@@ -81,14 +82,13 @@
       .shopping {
         position: absolute;
         width: 100%;
-        top: 78px;
-        z-index: 1000;
+        top: 70px;
         background-color: #fcfeef;
+        z-index: 1000;
       }
 
       .tendencyHide {
         display: none;
-        opacity: 0;
       }
 
       .tendency {
@@ -96,9 +96,9 @@
         position: absolute;
         width: 100%;
         height: 400px;
-        top: 78px;
-        z-index: 1000;
+        top: 70px;
         background-color: #fcfeef;
+        z-index: 1000;
       }
     }
   }
@@ -111,10 +111,9 @@
     .search {
       position: absolute;
       width: 100%;
-      top: 78px;
-      height: 400px;
-      z-index: 1000;
+      top: 70px;
       background-color: #fcfeef;
+      z-index: 1000;
     }
 
     .myPageHide {
@@ -124,10 +123,10 @@
     .myPage {
       position: absolute;
       width: 400px;
-      top: 78px;
+      top: 70px;
       right: 0;
-      z-index: 1000;
       background-color: #fcfeef;
+      z-index: 1000;
     }
 
     .wishListHide {
@@ -137,10 +136,10 @@
     .wishList {
       position: absolute;
       width: 400px;
-      top: 78px;
+      top: 70px;
       right: 0;
-      z-index: 1000;
       background-color: #fcfeef;
+      z-index: 1000;
     }
 
     .shoppingBasketHide {
@@ -150,10 +149,10 @@
     .shoppingBasket {
       position: absolute;
       width: 400px;
-      top: 78px;
+      top: 70px;
       right: 0;
-      z-index: 1000;
       background-color: #fcfeef;
+      z-index: 1000;
     }
   }
 }
