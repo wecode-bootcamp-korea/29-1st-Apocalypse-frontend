@@ -10,7 +10,7 @@ function Modal({ productList, open, close }) {
         {open && (
           <div className="preview">
             <button className="close" onClick={close}>
-              <i class="fas fa-times" />
+              <i className="fas fa-times" />
             </button>
             <img
               className="previewImg"
@@ -20,14 +20,17 @@ function Modal({ productList, open, close }) {
             <div className="previewInfo">
               <p className="classify">신제품</p>
               <h2 className="previewTitle">{productList.korean_name}</h2>
-              <p className="explain">
-                빛나는 매그놀리아와 장미가 만발하는 매혹적인 플로랄한 향의
-                이중주.
+              <p className="explain">{productList.description}</p>
+              <p className="price">
+                {' '}
+                ₩
+                {parseInt(productList.price)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </p>
-              <p className="price">₩143,000</p>
-              <AddCartBtn />
+              <AddCartBtn product={productList} />
               <div className="wishList">
-                <Bookmark />
+                <Bookmark product={productList} />
                 <p className="wishListText">위시리스트</p>
               </div>
             </div>

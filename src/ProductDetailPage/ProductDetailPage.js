@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Benefit from './Benefit/Benefit';
 import Product from './Product/Product';
 import ProductDetailTop from './ProductDetailTop/ProductDetailTop';
@@ -8,16 +8,34 @@ import ProductDetailItem from './ProductDetailItem/ProductDetailItem';
 import './ProductDetailPage.scss';
 
 function ProductDetailPage() {
-  const [productList, setProductList] = useState([]);
+  const [product, setProduct] = useState([]);
+  const [productDetail, setProductDetail] = useState([]);
   const carousel = useRef(null);
+  // const params = useParams('');
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/mainData.json')
+    fetch('http://13.125.234.40:8080/products?category=무기')
       .then(res => res.json())
       .then(data => {
-        setProductList(data.list);
+        setProduct(data.Product);
       });
   }, []);
+
+  useEffect(() => {
+    fetch('http://13.125.234.40:8080/products/1')
+      .then(res => res.json())
+      .then(data => {
+        setProductDetail(data.product);
+      });
+  }, []);
+
+  // useEffect(() => {
+  //   fetch(`http://10.58.4.77:8000/products/${params.productid}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setProductDetail(data.product);
+  //     });
+  // }, []);
 
   const handleLeftClick = e => {
     e.preventDefault();
@@ -29,11 +47,10 @@ function ProductDetailPage() {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
   };
 
-  if (!productList || !productList.length) return null;
+  // if (!product || !product.length) return null;
 
   return (
     <div className="productDetailPage">
-      <button className="nav">nav</button>
       <img
         className="headerImg"
         alt="img"
@@ -46,20 +63,27 @@ function ProductDetailPage() {
 
         <p className="delimiter">/</p>
         <Link to="/" className="breadCrumbsItem" href="#">
-          코롱
+          전체
         </Link>
       </div>
       <div className="productFull">
-        <ProductDetailTop />
-        <ProductDetailInfo />
-        <ProductDetailInfo />
+        <ProductDetailTop productDetail={productDetail} />
+        <ProductDetailInfo productDetail={productDetail} />
       </div>
 
       <div className="productItemList">
-        <ProductDetailItem />
-        <ProductDetailItem />
-        <ProductDetailItem />
+        {productDetail.id &&
+          productDetail.components.map(com => {
+            return (
+              <ProductDetailItem
+                productDetail={com}
+                data={productDetail}
+                key={com.id}
+              />
+            );
+          })}
       </div>
+
       <div className="line" />
       <img
         className="lazyImg"
@@ -69,29 +93,31 @@ function ProductDetailPage() {
 
       <div className="productList">
         <button className="arrow" onClick={handleLeftClick}>
-          <i class="fas fa-chevron-left" />
+          <i className="fas fa-chevron-left" />
         </button>
         <div className="carousel" ref={carousel}>
-          {productList.length > 0 &&
-            productList.map(com => {
+          {product.length > 0 &&
+            product.map(com => {
               return <Product productList={com} key={com.id} />;
             })}
         </div>
         <button className="arrow" onClick={handleRightClick}>
-          <i class="fas fa-chevron-right" />
+          <i className="fas fa-chevron-right" />
         </button>
       </div>
 
       <div className="benefitList">
-        <Benefit />
+        <Benefit
+          title="무기 포장"
+          explain="시그니처 박스에 정성스럽게 포장해 드립니다."
+        />
         <div className="line" />
-        <Benefit />
+        <Benefit title="체험" explain="종말론의 새로운 무기를 경험해보세요." />
         <div className="line" />
-        <Benefit />
-      </div>
-
-      <div className="review">
-        <h2 className="title">리뷰</h2>
+        <Benefit
+          title="무료 배송"
+          explain="파괴력 있는 무기를 전달해 드립니다."
+        />
       </div>
     </div>
   );
