@@ -2,11 +2,12 @@
 
 .myPage {
   height: 100%; 
+
   .wrapper {
     width: 70%;
     height: 100vh;
     margin-left: 60px;
-    
+
     .head {
       font-family: $title-font;
       width: 100%;
@@ -20,10 +21,9 @@
       border-bottom: 1px solid #ccc;
     }
 
-    .customerBox{
+    .customerBox {
       height: 100%;
       display: flex;
-
     }
   }
 }
