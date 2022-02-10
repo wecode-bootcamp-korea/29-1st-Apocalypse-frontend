@@ -7,6 +7,7 @@ const Product = ({ subcategoryList }) => {
   const OpenProduct = () => {
     setProductDetail(productDetail => !productDetail);
   };
+
   return (
     <div className="product">
       <div className="productSub" onClick={OpenProduct}>

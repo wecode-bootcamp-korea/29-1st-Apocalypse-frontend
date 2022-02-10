@@ -2,36 +2,18 @@ const TendenctTest = [
   {
     id: 1,
     className: 'first',
-    Question: '당신은 라인은 어디입니까?',
+    Question: '당신의 취향은?',
     Answer: [
       {
         id: 1,
-        Button: '탑',
-        Value: '탑',
+        Button: '근거리',
+        Value: '근거리',
         Name: 'first',
       },
       {
         id: 2,
-        Button: '정글',
-        Value: '정글',
-        Name: 'first',
-      },
-      {
-        id: 3,
-        Button: '미드',
-        Value: '미드',
-        Name: 'first',
-      },
-      {
-        id: 4,
-        Button: '원딜',
-        Value: '원거리무기',
-        Name: 'first',
-      },
-      {
-        id: 5,
-        Button: '서폿',
-        Value: '서폿',
+        Button: '원거리',
+        Value: '원거리',
         Name: 'first',
       },
     ],
@@ -39,18 +21,18 @@ const TendenctTest = [
   {
     id: 2,
     className: 'second',
-    Question: '당신은 이타적이십니까?',
+    Question: '당신은 옛날사람이십니까?',
     Answer: [
       {
         id: 1,
         Button: '예',
-        Value: 2,
+        Value: '예',
         Name: 'second',
       },
       {
         id: 2,
         Button: '아니요',
-        Value: 3,
+        Value: '아니요',
         Name: 'second',
       },
     ],
@@ -58,18 +40,18 @@ const TendenctTest = [
   {
     id: 3,
     className: 'third',
-    Question: '아 이거 질문 뭐 쓰냐?',
+    Question: '당신은 근력이 좋습니까?',
     Answer: [
       {
         id: 1,
         Button: '예',
-        Value: 4,
+        Value: '예',
         Name: 'third',
       },
       {
         id: 2,
         Button: '아니요',
-        Value: 5,
+        Value: '아니요',
         Name: 'third',
       },
     ],
@@ -77,38 +59,19 @@ const TendenctTest = [
   {
     id: 4,
     className: 'fourth',
-    Question: '더이상 생각나는게 없는걸?',
+    Question: '솔직히 더 이상 질문이 생각나는게 없으니 다 나가주세요',
     Answer: [
       {
         id: 1,
         Button: '예',
-        Value: 6,
+        Value: '예',
         Name: 'fourth',
       },
       {
         id: 2,
         Button: '아니요',
-        Value: 7,
+        Value: '예',
         Name: 'fourth',
-      },
-    ],
-  },
-  {
-    id: 5,
-    className: 'fifth',
-    Question: '뇌가 굳었네 굳었어',
-    Answer: [
-      {
-        id: 1,
-        Button: '예',
-        Value: 6,
-        Name: 'fifth',
-      },
-      {
-        id: 2,
-        Button: '아니요',
-        Value: 7,
-        Name: 'fifth',
       },
     ],
   },

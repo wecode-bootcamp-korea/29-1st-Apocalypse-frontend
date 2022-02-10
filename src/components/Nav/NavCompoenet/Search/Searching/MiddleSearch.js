@@ -1,11 +1,11 @@
 import React from 'react';
 import Searching from './Searching';
 
-const MiddleSearch = ({ searchResult }) => {
+const MiddleSearch = ({ searching }) => {
   return (
     <div className="middleSearch">
-      {searchResult.length > 0 &&
-        searchResult.map(com => {
+      {searching.length > 0 &&
+        searching.map(com => {
           return <Searching product={com} key={com.id} />;
         })}
     </div>
