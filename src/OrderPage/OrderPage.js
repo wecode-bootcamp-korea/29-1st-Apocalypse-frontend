@@ -47,7 +47,7 @@ const OrderPage = () => {
           <input
             className="inputUserAdress"
             type="text"
-            name="adress"
+            name="address"
             onChange={handleInfo}
           />
           <div className="userName">상세 주소</div>
