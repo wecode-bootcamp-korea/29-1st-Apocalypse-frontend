@@ -6,11 +6,11 @@ const SigninPage = () => {
   const initialValues = { userInputId: '', userInputPw: '' };
 
   const [userInputText, setUserInputText] = useState(initialValues);
-  const [notPassWord, setNotPassWord] = useState(false);
+  const [notId, setNotId] = useState(false);
   const [errorMessage, setErrorMessage] = useState({});
 
   const password = () => {
-    setNotPassWord(notPassWord => !notPassWord);
+    setNotId(notPassWord => !notPassWord);
   };
 
   const handleSubmit = e => {
@@ -92,8 +92,8 @@ const SigninPage = () => {
       {errorMessage.userInputPw && (
         <p className="error">{errorMessage.userInputPw}</p>
       )}
-      <p className={notPassWord ? 'error' : 'errorHide'}>
-        비밀번호가 올바르지 않습니다.
+      <p className={notId ? 'error' : 'errorHide'}>
+        아이디가 존재하지 않습니다.
       </p>
       <input
         name="userInputId"
