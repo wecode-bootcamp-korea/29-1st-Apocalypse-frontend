@@ -10,14 +10,14 @@ const LoginMypageMain = props => {
       </div>
       <div className="welcomeMsg">
         님, 환영합니다. 만약 이화종님이 아니라면,
-        <a href="">여기를 클릭하십시오.</a>
+        <a href="#">여기를 클릭하십시오.</a>
       </div>
       <div className="myInfoContainer">
         <div className="firstLine">
           <div className="myInfo">
             <div className="myInfoTitle">
               <h3>나의정보</h3>
-              <a href="">정보보기</a>
+              <a href="#">정보보기</a>
             </div>
             <div className="myInfoName">
               <p>이름 이화종</p>
@@ -34,11 +34,11 @@ const LoginMypageMain = props => {
           <div className="order">
             <div className="orderHeader">
               <h3>주문내역</h3>
-              <a href="">주문 내역 보기</a>
+              <a href="#">주문 내역 보기</a>
             </div>
             <div className="orderContent">
               <span>고객님이 주문내역이 없습니다</span>
-              <a href="">쇼핑하러 가기</a>
+              <a href="#">쇼핑하러 가기</a>
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@ const LoginMypageMain = props => {
           <div className="adress">
             <div className="adressHeader">
               <h3>주소</h3>
-              <a href="">전체보기</a>
+              <a href="#">전체보기</a>
             </div>
             <div className="adressInfo">
               <p>이화종</p>

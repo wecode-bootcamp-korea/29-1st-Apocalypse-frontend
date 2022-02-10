@@ -6,7 +6,7 @@ const CartProductList = ({ cart, setCartItem, setTotalPrice }) => {
   const sum = cart.price * cart.quantity;
 
   const onChangeCartQuantity = e => {
-    fetch(`http://13.125.234.40:8080/users/cart/${e.currentTarget.id}`, {
+    fetch(`http://3.34.199.69:8080/users/cart/${e.currentTarget.id}`, {
       method: 'PATCH',
       headers: { Authorization: sessionStorage.getItem('LoginToken') },
       body: JSON.stringify({
@@ -16,7 +16,7 @@ const CartProductList = ({ cart, setCartItem, setTotalPrice }) => {
       .then(res => res.json())
       .then(result => {
         if (result.message === 'CHANGED_QUANTITY') {
-          fetch('http://13.125.234.40:8080/users/cart', {
+          fetch('http://3.34.199.69:8080/users/cart', {
             method: 'GET',
             headers: { Authorization: sessionStorage.getItem('LoginToken') },
           })
@@ -30,14 +30,14 @@ const CartProductList = ({ cart, setCartItem, setTotalPrice }) => {
   };
 
   const removeCart = id => {
-    fetch(`http://13.125.234.40:8080/users/cart/${id}`, {
+    fetch(`http://3.34.199.69:8080/users/cart/${id}`, {
       method: 'DELETE',
       headers: { Authorization: sessionStorage.getItem('LoginToken') },
     })
       .then(res => res.json())
       .then(result => {
         if (result.message === 'DELETE_CART') {
-          fetch('http://13.125.234.40:8080/users/cart', {
+          fetch('http://3.34.199.69:8080/users/cart', {
             method: 'GET',
             headers: { Authorization: sessionStorage.getItem('LoginToken') },
           })
@@ -53,7 +53,7 @@ const CartProductList = ({ cart, setCartItem, setTotalPrice }) => {
   return (
     <div className="cartItem">
       <div className="itemImg">
-        <img src="{cart.images}" alt={cart.korean_name} />
+        <img src={cart.image} alt={cart.korean_name} />
       </div>
       <div className="itemName">
         <p>{cart.english_name}</p>

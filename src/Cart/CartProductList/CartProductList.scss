@@ -3,6 +3,15 @@
   flex-direction: row;
   align-items: center;
 
+  .itemImg {
+    margin-right: 30px;
+
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
+  }
   .itemName {
     width: 250px;
   }

@@ -11,7 +11,7 @@ function ProductDetailPage() {
   const [product, setProduct] = useState([]);
   const [productDetail, setProductDetail] = useState([]);
   const carousel = useRef(null);
-  // const params = useParams('');
+  const params = useParams('');
 
   useEffect(() => {
     fetch('http://13.125.234.40:8080/products?category=무기')
@@ -22,10 +22,10 @@ function ProductDetailPage() {
   }, []);
 
   useEffect(() => {
-    fetch('http://13.125.234.40:8080/products/1')
+    fetch(`http://13.125.234.40:8080/products/${params.productid}`)
       .then(res => res.json())
       .then(data => {
-        setProductDetail(data.product);
+        setProductDetail(data.Product);
       });
   }, []);
 

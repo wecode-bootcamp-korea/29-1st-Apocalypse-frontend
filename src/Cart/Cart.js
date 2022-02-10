@@ -11,7 +11,7 @@ function Cart() {
   const [totalPrice, setTotalPrice] = useState();
 
   useEffect(() => {
-    fetch('http://13.125.234.40:8080/users/cart', {
+    fetch('http://3.34.199.69:8080/users/cart', {
       method: 'GET',
       headers: { Authorization: sessionStorage.getItem('LoginToken') },
     })

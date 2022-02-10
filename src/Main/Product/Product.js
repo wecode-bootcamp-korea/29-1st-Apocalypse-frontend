@@ -35,7 +35,7 @@ function Product({ productList }) {
         <img
           className="productImg"
           alt="img"
-          src="https://www.jomalone.co.kr/media/export/cms/products/670x670/jo_sku_LFFN01_670x670_0.png"
+          src={productList.image}
           onClick={() => goProductDetailPage(productList.id)}
         />
       </div>

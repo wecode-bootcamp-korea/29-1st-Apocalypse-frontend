@@ -9,7 +9,7 @@ function ProductDetailTop({ productDetail }) {
       <div className="leftColumn">
         <img
           className="productImg"
-          src="https://www.jomalone.co.kr/media/export/cms/products/1000x1000/jo_sku_LFFN01_1000x1000_0.png"
+          src={productDetail.images[0].image_url}
           alt="img"
         />
       </div>
@@ -32,7 +32,7 @@ function ProductDetailTop({ productDetail }) {
           <div className="productSize">
             <img
               className="productSmallImg"
-              src="https://www.jomalone.co.kr/media/export/cms/products/1000x1000/jo_sku_LFFN01_1000x1000_0.png"
+              src={productDetail.images[1].image_url}
               alt="img"
             />
             <p className="sizeText">One Size</p>

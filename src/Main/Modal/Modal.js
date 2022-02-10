@@ -21,6 +21,8 @@ function Modal({ productList, open, close }) {
           if (result.message === 'ADD_CART') {
             document.body.style.overflow = 'unset';
             navigate('/Cart');
+          } else if (result.message === 'DOES_NOT_EXIST_IN_CART') {
+            alert('장바구니에 담는데 실패했음');
           } else {
             document.body.style.overflow = 'unset';
             navigate('/Cart');
@@ -39,11 +41,7 @@ function Modal({ productList, open, close }) {
             <button className="close" onClick={close}>
               <i class="fas fa-times" />
             </button>
-            <img
-              className="previewImg"
-              src="https://www.jomalone.co.kr/media/export/cms/products/1000x1000/jo_sku_LFFN01_1000x1000_0.png"
-              alt="img"
-            />
+            <img className="previewImg" src={productList.image} alt="img" />
             <div className="previewInfo">
               <p className="classify">필수품</p>
               <h2 className="previewTitle">{productList.korean_name}</h2>

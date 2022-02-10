@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MoreText.scss';
 
-function MoreText({ product }) {
+function MoreText() {
   const navigate = useNavigate();
   const goToMore = e => {
     if (e.target.parentNode.previousSibling.className === 'titleId1') {

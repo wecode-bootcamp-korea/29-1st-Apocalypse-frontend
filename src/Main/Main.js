@@ -35,14 +35,9 @@ function Main() {
   return (
     <main className="main">
       <MainSlider />
-
       <section className="section1">
         <div className="productBox">
-          <img
-            className="productImg"
-            alt="img"
-            src="https://www.jomalone.co.kr/media/export/cms/homepage/220117/jo_sku_LFFN01_DT_750x415.png"
-          />
+          <img className="productImg" alt="img" src={product[4].image} />
           <h2 className="titleId1">{product[4].korean_name}</h2>
           <MoreText product={product[4]} />
         </div>
