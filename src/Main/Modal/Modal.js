@@ -1,8 +1,17 @@
 import React from 'react';
 import Bookmark from '../Bookmark/Bookmark';
+import AddCartBtn from '../AddCartBtn/AddCartBtn';
+import UseLocalStorage from '../UseLocalStorage';
 import './Modal.scss';
 
 function Modal({ productList, open, close }) {
+  const [addCart, setAddCart] = UseLocalStorage(`id${productList.id}`, false);
+
+  const clickCart = () => {
+    setAddCart(addCart => !addCart);
+    alert('상품이 장바구니에 담겼습니다.');
+  };
+
   return (
     <div className="modal">
       <div className={open && 'openModal modal'}>
@@ -19,14 +28,17 @@ function Modal({ productList, open, close }) {
             <div className="previewInfo">
               <p className="classify">신제품</p>
               <h2 className="previewTitle">{productList.korean_name}</h2>
-              <p className="explain">
-                빛나는 매그놀리아와 장미가 만발하는 매혹적인 플로랄한 향의
-                이중주.
+              <p className="explain">{productList.description}</p>
+              <p className="price">
+                {' '}
+                ₩
+                {parseInt(productList.price)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </p>
-              <p className="price">₩143,000</p>
-              <button className="addCart">장바구니 담기</button>
+              <AddCartBtn onClick={clickCart} />
               <div className="wishList">
-                <Bookmark />
+                <Bookmark productList={productList} />
                 <p className="wishListText">위시리스트</p>
               </div>
             </div>
