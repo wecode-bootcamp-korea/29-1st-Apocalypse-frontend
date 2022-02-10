@@ -57,7 +57,7 @@ const SigninPage = () => {
   };
 
   const goToSignIn = () => {
-    fetch('http://10.58.4.77:8000/users/signin', {
+    fetch('http://13.125.234.40:8080/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         name: '',
