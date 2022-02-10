@@ -15,13 +15,6 @@
   color: #eee;
 }
 
-@mixin stateCheckBox {
-  width: 25px;
-  height: 25px;
-  border-radius: 25px;
-  margin: 10px auto;
-}
-
 .complete {
   @include flexCenter;
   height: 100vh;
@@ -31,30 +24,6 @@
     width: 600px;
     height: 600px;
     
-    .completeStatus {
-      display: flex;
-      
-      .statusSpace {
-        justify-items: center;
-        align-items: center;
-        width: 25%;
-        text-align: center;
-        
-        .statusCheckbox1 {
-          @include stateCheckBox;
-          background-color: #000;
-        }
-        
-        .statusCheckbox2 {
-          @include stateCheckBox;
-          background-color: #ccc;
-        }
-        
-        .nonState {
-          color: #ccc;
-        }
-      }
-    }
     .contentWrap {
       align-items: center;
       height: 50%;

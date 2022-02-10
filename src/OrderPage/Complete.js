@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+import CompleteStatusComponent from './CompleteStatusComponent';
 import './Complete.scss';
 
 const Complete = () => {
@@ -11,24 +12,7 @@ const Complete = () => {
   return (
     <div className="complete">
       <div className="compContainer">
-        <ol className="completeStatus">
-          <li className="statusSpace">
-            <div className="statusCheckbox2" />
-            <span className="nonState">주문서 작성</span>
-          </li>
-          <li className="statusSpace">
-            <div className="statusCheckbox2" />
-            <span className="nonState">주문 검토</span>
-          </li>
-          <li className="statusSpace">
-            <div className="statusCheckbox2" />
-            <span className="nonState">결제</span>
-          </li>
-          <li className="statusSpace">
-            <div className="statusCheckbox1" />
-            <span>주문 최종 확인</span>
-          </li>
-        </ol>
+        <CompleteStatusComponent />
         <div className="contentWrap">
           <div className="compMessage">주문이 완료되었습니다!</div>
           <button className="toMain" onClick={goToMain}>

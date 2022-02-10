@@ -13,13 +13,6 @@
   outline: none;
 } 
 
-@mixin stateCheckBox {
-  width: 25px;
-  height: 25px;
-  border-radius: 25px;
-  margin: 10px auto;
-}
-
 @mixin orderText {
   position: absolute;
   top:20px;
@@ -56,31 +49,6 @@
       h1 {
         font-family: $title-font;
         font-size: $fontsize1;
-      }
-    }
-
-    .orderStatus {
-      display: flex;
-      
-      .statusSpace {
-        justify-items: center;
-        align-items: center;
-        width: 25%;
-        text-align: center;
-        
-        .statusCheckbox1 {
-          @include stateCheckBox;
-          background-color: #000;
-        }
-        
-        .statusCheckbox2 {
-          @include stateCheckBox;
-          background-color: #ccc;
-        }
-        
-        .nonState {
-          color: #ccc;
-        }
       }
     }
 

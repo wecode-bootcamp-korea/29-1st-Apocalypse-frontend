@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import CustomerService from './CustomerService';
 import BillSummary from './BillSummary';
+import OrderReviewComponent from './OrderReviewComponent';
 import './OrderReview.scss';
 
 const OrderReview = () => {
@@ -18,24 +19,7 @@ const OrderReview = () => {
           <h1>주문검토</h1>
         </div>
         <div>
-          <ol className="orderStatus">
-            <li className="statusSpace">
-              <div className="statusCheckbox2" />
-              <span className="nonState">주문서 작성</span>
-            </li>
-            <li className="statusSpace">
-              <div className="statusCheckbox1" />
-              <span>주문 검토</span>
-            </li>
-            <li className="statusSpace">
-              <div className="statusCheckbox2" />
-              <span className="nonState">결제</span>
-            </li>
-            <li className="statusSpace">
-              <div className="statusCheckbox2" />
-              <span className="nonState">주문 최종 확인</span>
-            </li>
-          </ol>
+          <OrderReviewComponent />
         </div>
         <div className="orderWay">
           <form>
