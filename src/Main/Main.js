@@ -13,7 +13,7 @@ function Main() {
   const navigate = useNavigate('');
 
   useEffect(() => {
-    fetch('http://13.125.234.40:8080/products?category=무기')
+    fetch('http://3.34.199.69:8080/products?category=무기')
       .then(res => res.json())
       .then(data => {
         setProduct(data.Product);

@@ -18,7 +18,7 @@ const Search = () => {
 
   const goSearch = e => {
     if (e.key === 'Enter') {
-      fetch(`http://10.58.7.168:8000/products/search?keyword=${searchingInput}`)
+      fetch(`http://3.34.199.69:8080/products?keyword=${searchingInput}`)
         .then(res => res.json())
         .then(result => {
           setSearching(result.Product);

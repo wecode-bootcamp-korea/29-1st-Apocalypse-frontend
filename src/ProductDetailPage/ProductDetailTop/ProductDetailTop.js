@@ -7,11 +7,9 @@ function ProductDetailTop({ productDetail }) {
   return (
     <div className="productDetailTop">
       <div className="leftColumn">
-        <img
-          className="productImg"
-          src={productDetail.images[0].image_url}
-          alt="img"
-        />
+        {productDetail && (
+          <img className="productImg" src={productDetail.images} alt="img" />
+        )}
       </div>
       <div className="rightColumn">
         <p className="classify">신제품</p>
@@ -30,11 +28,13 @@ function ProductDetailTop({ productDetail }) {
         <p className="explain">{productDetail.description}</p>
         <div className="productSizeBox">
           <div className="productSize">
-            <img
-              className="productSmallImg"
-              src={productDetail.images[1].image_url}
-              alt="img"
-            />
+            {productDetail && (
+              <img
+                className="productSmallImg"
+                src={productDetail.images}
+                alt="img"
+              />
+            )}
             <p className="sizeText">One Size</p>
           </div>
         </div>

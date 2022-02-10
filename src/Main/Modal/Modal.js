@@ -9,7 +9,7 @@ function Modal({ productList, open, close }) {
 
   const clickCart = () => {
     if (sessionStorage.getItem('LoginToken')) {
-      fetch('http://13.125.234.40:8080/users/cart', {
+      fetch('http://3.34.199.69:8080/users/cart', {
         method: 'POST',
         headers: { Authorization: sessionStorage.getItem('LoginToken') },
         body: JSON.stringify({
@@ -18,6 +18,7 @@ function Modal({ productList, open, close }) {
       })
         .then(res => res.json())
         .then(result => {
+          console.log(result);
           if (result.message === 'ADD_CART') {
             document.body.style.overflow = 'unset';
             navigate('/Cart');

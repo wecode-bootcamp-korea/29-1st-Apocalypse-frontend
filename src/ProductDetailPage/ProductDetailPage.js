@@ -14,7 +14,7 @@ function ProductDetailPage() {
   const params = useParams('');
 
   useEffect(() => {
-    fetch('http://13.125.234.40:8080/products?category=무기')
+    fetch('http://3.34.199.69:8080/products?category=무기')
       .then(res => res.json())
       .then(data => {
         setProduct(data.Product);
@@ -22,20 +22,12 @@ function ProductDetailPage() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://13.125.234.40:8080/products/${params.productid}`)
+    fetch(`http://3.34.199.69:8080/products/${params.productid}`)
       .then(res => res.json())
       .then(data => {
-        setProductDetail(data.Product);
+        setProductDetail(data.product);
       });
-  }, []);
-
-  // useEffect(() => {
-  //   fetch(`http://10.58.4.77:8000/products/${params.productid}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setProductDetail(data.product);
-  //     });
-  // }, []);
+  }, [params]);
 
   const handleLeftClick = e => {
     e.preventDefault();
@@ -54,7 +46,7 @@ function ProductDetailPage() {
       <img
         className="headerImg"
         alt="img"
-        src="https://www.jomalone.co.kr/media/export/cms/campaigns/house_of_roses/spp/22B02_Roses_SPP-Banner-Velvet-Rose-Desktop.jpg"
+        src="https://images.unsplash.com/photo-1614278396392-7df3d46ce5f9?ixlib=rb-1.2.1&ixid=MnwxM[…]90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
       />
       <div className="breadCrumbs">
         <Link to="/" className="breadCrumbsItem">
@@ -67,7 +59,7 @@ function ProductDetailPage() {
         </Link>
       </div>
       <div className="productFull">
-        <ProductDetailTop productDetail={productDetail} />
+        {productDetail && <ProductDetailTop productDetail={productDetail} />}
         <ProductDetailInfo productDetail={productDetail} />
       </div>
 
@@ -88,7 +80,7 @@ function ProductDetailPage() {
       <img
         className="lazyImg"
         alt="img"
-        src="https://www.jomalone.co.kr/media/export/cms/campaigns/house_of_roses/spp/spp_tout_1920x824_DT.jpg"
+        src="https://images.unsplash.com/photo-1580741569354-08feedd159f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
       />
 
       <div className="productList">

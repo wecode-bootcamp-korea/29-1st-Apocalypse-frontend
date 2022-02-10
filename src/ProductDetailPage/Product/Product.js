@@ -21,6 +21,7 @@ function Product({ productList }) {
   };
 
   const goProductDetailPage = id => {
+    // window.location.replace(`/ProductDetailPage/${id}`);
     navigate(`/ProductDetailPage/${id}`);
   };
 

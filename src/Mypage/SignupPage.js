@@ -62,7 +62,7 @@ const SignupPage = () => {
   };
 
   const goToSignUp = () => {
-    fetch('http://13.125.234.40:8080/users/signup', {
+    fetch('http://3.34.199.69:8080/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         name: userInputText.userName,
@@ -77,9 +77,7 @@ const SignupPage = () => {
         if (result.message === 'ALREADY EXIST EMAIL') {
           alreadyMessage();
         } else if (result.message === 'CREATED') {
-          sessionStorage.setItem('LoginToken', result.JWT);
-          alert('환영합니다.');
-          goToMain();
+          alert('회원가입을 완료했습니다. 로그인 해주세요.');
         }
         console.log(
           result,

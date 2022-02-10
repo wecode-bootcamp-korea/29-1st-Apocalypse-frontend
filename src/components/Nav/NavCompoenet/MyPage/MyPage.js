@@ -17,7 +17,7 @@ const MyPage = () => {
   };
 
   const goToMain = () => {
-    fetch('http://13.125.234.40:8080/users/signin', {
+    fetch('http://3.34.199.69:8080/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: inputValues.id,

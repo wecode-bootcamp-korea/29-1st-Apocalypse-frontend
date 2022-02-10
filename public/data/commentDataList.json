@@ -6,7 +6,7 @@
       "korean_name": "전기톱",
       "english_name": "Electric Saw",
       "price": 750000,
-      "image": "test.jpg",
+      "image": "https://apocalypse-image.s3.ap-northeast-2.amazonaws.com/%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%80%E1%85%B5%E1%84%90%E1%85%A9%E1%86%B81.png",
       "description": "모터로 자잘한 톱날들이 달린 사슬을 돌려 절단하는 톱형 절삭 공구",
       "result": "근거리,아니요,예,예"
     },
@@ -15,7 +15,7 @@
       "korean_name": "빠루",
       "english_name": "Crow Bar",
       "price": 150000,
-      "image": "test2.jpg",
+      "image": "https://apocalypse-image.s3.ap-northeast-2.amazonaws.com/%E1%84%88%E1%85%A1%E1%84%85%E1%85%AE2.png",
       "description": "어떤 상황에서도 믿음직한 해결사",
       "result": "근거리,아니요,아니요,예"
     },
@@ -24,7 +24,7 @@
       "korean_name": "마체테",
       "english_name": "Machete",
       "price": 200000,
-      "image": "test5.jpg",
+      "image": "https://apocalypse-image.s3.ap-northeast-2.amazonaws.com/%E1%84%86%E1%85%A1%E1%84%8E%E1%85%A6%E1%84%90%E1%85%A6.png",
       "description": "뼈 자르는 덴 이만한 게 없지! 아, 사람 말고...",
       "result": "근거리,예,예,예"
     },
@@ -33,7 +33,7 @@
       "korean_name": "낫",
       "english_name": "Sickle",
       "price": 100000,
-      "image": "test7.jpg",
+      "image": "https://apocalypse-image.s3.ap-northeast-2.amazonaws.com/%E1%84%82%E1%85%A1%E1%86%BA.png",
       "description": "면도에 딱!",
       "result": "근거리,예,아니요,예"
     },
@@ -42,7 +42,7 @@
       "korean_name": "AK-47",
       "english_name": "AK-47",
       "price": 1000000,
-      "image": "test3.jpg",
+      "image": "https://apocalypse-image.s3.ap-northeast-2.amazonaws.com/AK1.png",
       "description": "혁명동지들에겐 마음의 고향 같은 소총",
       "result": "원거리,예,아니요,예"
     },
@@ -51,7 +51,7 @@
       "korean_name": "M416",
       "english_name": "M416",
       "price": 1200000,
-      "image": "test6.jpg",
+      "image": "https://apocalypse-image.s3.ap-northeast-2.amazonaws.com/M416_1.jpeg",
       "description": "역시 기술의 독일제!",
       "result": "원거리,예,예,예"
     },
@@ -61,7 +61,7 @@
       "english_name": "Ump45",
       "price": 900000,
       "image": "test10.jpg",
-      "description": "현대식 기관단총",
+      "description": "https://apocalypse-image.s3.ap-northeast-2.amazonaws.com/ump.png",
       "result": "원거리,아니요,예,예"
     },
     {
@@ -69,7 +69,7 @@
       "korean_name": "K2",
       "english_name": "K2",
       "price": 1100000,
-      "image": "test4.jpg",
+      "image": "https://apocalypse-image.s3.ap-northeast-2.amazonaws.com/K2.png",
       "description": "대한민국 국군의 제식 소총",
       "result": "원거리,아니요,아니요,예"
     },
@@ -79,7 +79,7 @@
       "korean_name": "AK-47 한정판",
       "english_name": "AK-47 Limited Edition",
       "price": 1200000,
-      "image": "test8.jpg",
+      "image": "https://apocalypse-image.s3.ap-northeast-2.amazonaws.com/AK47%E1%84%92%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%91%E1%85%A1%E1%86%AB.png",
       "description": "혁명동지들을 위한 한정판!",
       "result": "예, 예, 예, 예"
     },
@@ -88,7 +88,7 @@
       "korean_name": "K2 한정판",
       "english_name": "K2 Limited Edtion",
       "price": 1400000,
-      "image": "test9.jpg",
+      "image": "https://apocalypse-image.s3.ap-northeast-2.amazonaws.com/K2%E1%84%92%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%91%E1%85%A1%E1%86%AB1.jpeg",
       "description": "대한민국 국군의 제식 소총의 재탄생",
       "result": "예, 예, 예, 네"
     },
