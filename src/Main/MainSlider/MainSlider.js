@@ -18,19 +18,16 @@ function MainSlider() {
   ];
 
   const [x, setX] = useState(0);
-  const [current, setCurrent] = useState(0);
   const autoScroll = true;
   let slideInterval;
   const intervalTime = 5000;
 
   const goLeft = e => {
     x === 0 ? setX(-100 * (sliderArr.length - 1)) : setX(x + 100);
-    setCurrent(current === 0 ? sliderArr.length - 1 : current - 1);
   };
 
   const goRight = () => {
     x === -100 * (sliderArr.length - 1) ? setX(0) : setX(x - 100);
-    setCurrent(current === sliderArr.length - 1 ? 0 : current + 1);
   };
 
   const auto = () => {
