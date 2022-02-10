@@ -1,48 +1,42 @@
 @import './src/styles/variables.scss';
 
 .orderListContent {
-}
-
-.orderListHeader {
-  border-bottom: 1px solid #ccc;
   width: 800px;
-  margin-right: 180px;
-  padding-bottom: 24px;
-
-  .orderListTitle {
-    font-family: $title-font;
-    font-size: $fontsize1;
-  }
-}
-
-.orderListInfo {
   height: 700px;
-  margin-top: 20px;
 
-  .orderListButton {
-    width: 190px;
-    height: 50px;
-    margin-top: 50px;
-    border-radius: 0%;
-    background-color: black;
-    color: #ffffff;
+  .orderListHeader {
+    border-bottom: 1px solid #ccc;
+    margin-right: 180px;
+    padding-bottom: 24px;
+
+    .orderListTitle {
+      font-family: $title-font;
+      font-size: $fontsize1;
+    }
   }
 
-  .orderTable {
-    width: 700px;
-    height: 45px;
-    margin-top: 30px;
+  .orderListInfo {
+    margin-top: 20px;
 
-    .orderLabel {
-      height: 45px;
-      border-bottom: 1px solid #ccc;
-      line-height: 50px;
+    .orderListButton {
+      width: 190px;
+      height: 50px;
+      margin-top: 50px;
+      border-radius: 0%;
+      background-color: black;
+      color: #ffffff;
     }
 
-    .orderContent {
+    .orderTable {
+      width: 700px;
       height: 45px;
-      border-bottom: 1px solid #ccc;
-      line-height: 50px;
+      margin-top: 30px;
+
+      tr {
+        height: 45px;
+        border-bottom: 1px solid #ccc;
+        line-height: 50px;
+      }
     }
   }
 }
