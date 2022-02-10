@@ -4,22 +4,24 @@ import './SigninPage.scss';
 
 const SigninPage = () => {
   const initialValues = { userInputId: '', userInputPw: '' };
-  const [isSubmit, setIsSubmit] = useState(false);
+
   const [userInputText, setUserInputText] = useState(initialValues);
+  const [notId, setNotId] = useState(false);
   const [errorMessage, setErrorMessage] = useState({});
+
+  const password = () => {
+    setNotId(notPassWord => !notPassWord);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
     setErrorMessage(validate(userInputText));
     goToSignIn();
   };
+
   const handleInputChange = e => {
     const { name, value } = e.target;
     setUserInputText({ ...userInputText, [name]: value });
-  };
-
-  const submitForm = () => {
-    setIsSubmit(true);
   };
 
   const toLoginNavigate = useNavigate();
@@ -29,26 +31,36 @@ const SigninPage = () => {
 
   const enter = e => {
     if (e.key === 'Enter') {
+      e.preventDefault();
+      setErrorMessage(validate(userInputText));
       goToSignIn();
     }
   };
 
   const validate = userInputText => {
     const errorMessage = {};
+    const regexId = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
+    const regexPw =
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}/;
+
     if (!userInputText.userInputId) {
       errorMessage.userInputId = '이메일을 입력하세요.';
+    } else if (!regexId.test(userInputText.userInputId)) {
+      errorMessage.userInputId = '이메일형식이 아닙니다.';
     }
     if (!userInputText.userInputPw) {
       errorMessage.userInputPw = '비밀번호를 입력하세요.';
+    } else if (!regexPw.test(userInputText.userInputPw)) {
+      errorMessage.userInputPw = '비밀번호 형식이 아닙니다.';
     }
     return errorMessage;
   };
 
   const goToSignIn = () => {
-    fetch('http://192.168.0.6:8000/users/signin', {
+    fetch('http://13.125.234.40:8080/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        name: 'park',
+        name: '',
         email: userInputText.userInputId,
         password: userInputText.userInputPw,
         phone_number: '01023233232',
@@ -57,14 +69,10 @@ const SigninPage = () => {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'INVALID PASSWORD1') {
-          alert('비밀번호가 형식이 올바르지 않습니다.');
-        } else if (result.message === 'INVALID EMAIL') {
-          alert('이메일이  형식이 올바르지 않습니다.');
-        } else if (result.message === 'DOES NOT EXIST USER') {
-          alert('빈칸을 모두 입력하세요.');
+        if (result.message === 'INVALID_PASSWORD') {
+          password();
         } else if (result.message === 'SUCCESS') {
-          sessionStorage.setItem('token', result.JWT);
+          sessionStorage.setItem('LoginToken', result.JWT);
           goToLoginMyPage();
         }
         console.log(
@@ -72,7 +80,7 @@ const SigninPage = () => {
           userInputText.userInputId,
           userInputText.userInputPw
         );
-      });
+      }, []);
   };
 
   return (
@@ -84,6 +92,9 @@ const SigninPage = () => {
       {errorMessage.userInputPw && (
         <p className="error">{errorMessage.userInputPw}</p>
       )}
+      <p className={notId ? 'error' : 'errorHide'}>
+        아이디가 존재하지 않습니다.
+      </p>
       <input
         name="userInputId"
         onChange={handleInputChange}
@@ -104,7 +115,7 @@ const SigninPage = () => {
         주시고,
         <a href="#">여기를 클릭하세요.</a>
       </div>
-      {!isSubmit ? submitForm() : goToSignIn()}
+
       <button className="loginBtn" onClick={handleSubmit}>
         로그인
       </button>
