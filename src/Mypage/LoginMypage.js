@@ -5,14 +5,7 @@ import LoginMypageMain from './LoginMypageMain';
 import LoginOrderList from './LoginOrderList';
 import LoginWishList from './LoginWishList';
 
-<<<<<<< HEAD
-import LoginMypageMain from './LoginMypageMain';
-
 import './LoginMypage.scss';
-=======
-import './LoginMypage.scss';
-import './LoginOrderList.scss';
->>>>>>> master
 
 function LoginMypage() {
   return (
@@ -26,12 +19,6 @@ function LoginMypage() {
               </Link>
             </li>
 
-<<<<<<< HEAD
-        <div className="mypageContent">
-          <Routes>
-            <Route path="/" element={<LoginMypageMain />} />
-          </Routes>
-=======
             <Link className="textLinkLogin" to="">
               <li className="logout">
                 <div>로그아웃</div>
@@ -40,7 +27,7 @@ function LoginMypage() {
           </ul>
           <ul className="mainMenu">
             <li className="sidebarMenu">
-              <Link className="textLink" to="test">
+              <Link className="textLink" to="">
                 <span>회원정보 입력</span>
                 <i className="fas fa-angle-right" />
               </Link>
@@ -72,7 +59,7 @@ function LoginMypage() {
               "문의 사항이 있으시거나 고객관리지원팀과 상담을 원하실 경우 다음
               링크"
               <br />
-              <a href="#">customeCare@customCare</a>
+              <a href="https://www.google.com/">customeCare@customCare</a>
               "를 눌러 이메일 문의 서비스로 보내주시면 응대를 도와드리겠습니다."
               <br />
               "현재 전화연결은 어려운 점 양해 부탁 드립니다."
@@ -80,7 +67,6 @@ function LoginMypage() {
               "감사합니다."
             </p>
           </div>
->>>>>>> master
         </div>
       </div>
 
@@ -90,9 +76,6 @@ function LoginMypage() {
           <Route path="/LoginOrderList" element={<LoginOrderList />} />
           <Route path="/LoginWishList" element={<LoginWishList />} />
         </Routes>
-        {/* <Route path="/contact" element={<Contact />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="*" element={<NoMatch />} /> */}
       </div>
     </div>
   );

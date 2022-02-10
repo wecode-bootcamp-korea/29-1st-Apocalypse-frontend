@@ -10,7 +10,10 @@ function LoginWishList() {
       </div>
       <div className="LoginWishListProduct">
         <div className="productPic">
-          <img src="https://www.jomalone.co.kr/media/export/cms/products/100x100/jo_sku_L26L01_100x100_0.png" />
+          <img
+            src="https://www.jomalone.co.kr/media/export/cms/products/100x100/jo_sku_L26L01_100x100_0.png"
+            alt="productPicture"
+          />
         </div>
         <div className="productInfo">
           <p>English Pear & Freesia Cologne</p>
