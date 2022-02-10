@@ -11,10 +11,10 @@ function Main() {
   const carousel = useRef(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/mainData.json')
+    fetch('http://13.125.234.40:8080/products?category=무기')
       .then(res => res.json())
       .then(data => {
-        setProduct(data.list);
+        setProduct(data.Product);
       });
   }, []);
 

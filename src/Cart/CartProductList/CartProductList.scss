@@ -1,0 +1,40 @@
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .itemName {
+    width: 250px;
+  }
+
+  .itemPrice {
+    width: 100px;
+  }
+
+  .itemQuantity {
+    width: 70px;
+    height: 70px;
+
+    select {
+      width: 70px;
+      height: 49px;
+      text-align: center;
+      outline: none;
+    }
+  }
+
+  .itemTotal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 140px;
+
+    button {
+      margin-top: 10px;
+      border: none;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  }
+}
