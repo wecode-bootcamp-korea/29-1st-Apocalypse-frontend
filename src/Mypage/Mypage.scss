@@ -1,8 +1,7 @@
 @import '../styles/variables.scss';
 
 .myPage {
-  height: 100%;
-  @include flexCenter;  
+  height: 100%; 
   .wrapper {
     width: 70%;
     height: 100vh;
