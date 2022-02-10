@@ -24,7 +24,7 @@ function LoginOrderList() {
             <tr className="orderContent">
               <td>2022/01/26</td>
               <td>
-                1619688599 <a href="">자세히 보기</a>
+                1619688599 <a href="#">자세히 보기</a>
               </td>
               <td>취소완료</td>
               <td>H231231</td>
