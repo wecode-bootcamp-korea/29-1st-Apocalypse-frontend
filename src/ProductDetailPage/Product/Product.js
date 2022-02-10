@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Bookmark from '../Bookmark/Bookmark';
 import Modal from '../Modal/Modal';
 import './Product.scss';
@@ -6,6 +7,7 @@ import './Product.scss';
 function Product({ productList }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [ProductHover, setProductHover] = useState(false);
+  const navigate = useNavigate('');
 
   const openModal = () => {
     setModalOpen(true);
@@ -15,6 +17,11 @@ function Product({ productList }) {
   const closeModal = () => {
     setModalOpen(false);
     document.body.style.overflow = 'unset';
+    setProductHover(false);
+  };
+
+  const goProductDetailPage = id => {
+    navigate(`/ProductDetailPage/${id}`);
   };
 
   return (
@@ -24,11 +31,12 @@ function Product({ productList }) {
       onMouseLeave={() => setProductHover(false)}
     >
       <div className="productBox">
-        {ProductHover ? <Bookmark productList={productList} /> : ''}
+        {ProductHover ? <Bookmark product={productList} /> : ''}
         <img
           className="productImg"
           alt="img"
           src="https://www.jomalone.co.kr/media/export/cms/products/670x670/jo_sku_LFFN01_670x670_0.png"
+          onClick={() => goProductDetailPage(productList.id)}
         />
       </div>
       <p className="badge">신제품</p>
