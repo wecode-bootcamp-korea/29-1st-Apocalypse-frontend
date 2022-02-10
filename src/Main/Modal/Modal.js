@@ -1,15 +1,34 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import Bookmark from '../Bookmark/Bookmark';
 import AddCartBtn from '../AddCartBtn/AddCartBtn';
-import UseLocalStorage from '../UseLocalStorage';
 import './Modal.scss';
 
 function Modal({ productList, open, close }) {
-  const [addCart, setAddCart] = UseLocalStorage(`id${productList.id}`, false);
+  const navigate = useNavigate();
 
   const clickCart = () => {
-    setAddCart(addCart => !addCart);
-    alert('상품이 장바구니에 담겼습니다.');
+    if (sessionStorage.getItem('LoginToken')) {
+      fetch('http://13.125.234.40:8080/users/cart', {
+        method: 'POST',
+        headers: { Authorization: sessionStorage.getItem('LoginToken') },
+        body: JSON.stringify({
+          product_id: productList.id,
+        }),
+      })
+        .then(res => res.json())
+        .then(result => {
+          if (result.message === 'ADD_CART') {
+            document.body.style.overflow = 'unset';
+            navigate('/Cart');
+          } else {
+            document.body.style.overflow = 'unset';
+            navigate('/Cart');
+          }
+        });
+    } else {
+      navigate('/MyPage');
+    }
   };
 
   return (
@@ -26,7 +45,7 @@ function Modal({ productList, open, close }) {
               alt="img"
             />
             <div className="previewInfo">
-              <p className="classify">신제품</p>
+              <p className="classify">필수품</p>
               <h2 className="previewTitle">{productList.korean_name}</h2>
               <p className="explain">{productList.description}</p>
               <p className="price">

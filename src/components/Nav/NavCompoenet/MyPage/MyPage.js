@@ -73,13 +73,13 @@ const MyPage = () => {
       ) : (
         <div className="myPageLoginComplete">
           <div>
-            <Link to="/MyPage">마이페이지 보기</Link>
+            <Link to="/LoginMyPage">마이페이지 보기</Link>
           </div>
           <div>
-            <Link to="/MyPage">관심상품 보기</Link>
+            <Link to="/LoginMyPage/LoginWishList">관심상품 보기</Link>
           </div>
           <div>
-            <Link to="/MyPage">장바구니 보기</Link>
+            <Link to="/Cart">장바구니 보기</Link>
           </div>
         </div>
       )}

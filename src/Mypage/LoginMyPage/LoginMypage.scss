@@ -7,15 +7,18 @@
 
 .bodyContainer {
   display: flex;
+  margin-top: 70px;
+  padding-bottom: 120px;
   align-items: center;
   justify-content: center;
 }
 
 .sidebar {
   display: flex;
+  top: 70px;
   flex-direction: column;
   width: 170px;
-  margin-top: 50px;
+  margin-top: 70px;
   margin-left: 40px;
 
   .textLinkLogin {
@@ -34,6 +37,7 @@
 
     .logout {
       padding-left: 11px;
+      cursor: pointer;
     }
   }
 
@@ -80,9 +84,10 @@
 
 .mypageContent {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  top: 70px;
   margin: 45px 0 0;
   padding: 0px 0px 40px 90px;
   width: 80%;
+  flex-direction: column;
+  flex-wrap: wrap;
 }

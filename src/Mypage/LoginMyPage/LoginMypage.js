@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 
 import LoginMypageMain from './LoginMypageMain';
 import LoginOrderList from './LoginOrderList';
@@ -8,6 +8,12 @@ import LoginWishList from './LoginWishList';
 import './LoginMypage.scss';
 
 function LoginMypage() {
+  const navigate = useNavigate();
+
+  const doLogout = () => {
+    sessionStorage.removeItem('LoginToken');
+    navigate('/');
+  };
   return (
     <div className="bodyContainer">
       <div className="sidebar">
@@ -18,12 +24,9 @@ function LoginMypage() {
                 마이페이지
               </Link>
             </li>
-
-            <Link className="textLinkLogin" to="">
-              <li className="logout">
-                <div>로그아웃</div>
-              </li>
-            </Link>
+            <li className="logout">
+              <div onClick={doLogout}>로그아웃</div>
+            </li>
           </ul>
           <ul className="mainMenu">
             <li className="sidebarMenu">

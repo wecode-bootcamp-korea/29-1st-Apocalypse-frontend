@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Main from './Main/Main';
 import Mypage from './Mypage/Mypage';
-import LoginMypage from './Mypage/LoginMypage';
+import LoginMypage from './Mypage/LoginMyPage/LoginMypage';
 import OrderPage from './OrderPage/OrderPage';
 import ProductDetailList from './ProductDetailList/ProductDetailList';
 import ProductDetailPage from './ProductDetailPage/ProductDetailPage';
@@ -28,7 +28,7 @@ const Router = () => {
         <Route path="/OrderPage" element={<OrderPage />} />
         <Route path="/Cart" element={<Cart />} />
       </Routes>
-      <Footer />
+      <Footer />"
     </BrowserRouter>
   );
 };

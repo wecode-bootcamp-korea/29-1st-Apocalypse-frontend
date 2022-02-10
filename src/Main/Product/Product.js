@@ -39,7 +39,7 @@ function Product({ productList }) {
           onClick={() => goProductDetailPage(productList.id)}
         />
       </div>
-      <p className="badge">신제품</p>
+      <p className="badge">필수품</p>
       <div className="productInfo">
         <p className="korName">{productList.korean_name}</p>
         <p className="engName">{productList.english_name}</p>

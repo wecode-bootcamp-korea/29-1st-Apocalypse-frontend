@@ -19,10 +19,10 @@
   }
 
   .title {
-    font-size: $fontsize1;
-    font-family: $title-font;
     margin-top: 30px;
     padding-bottom: 12px;
+    font-size: $fontsize1;
+    font-family: $title-font;
   }
 
   .section1 {
@@ -37,13 +37,15 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-
       .productImg {
         width: 627px;
         height: fit-content;
       }
 
-      .title {
+      .titleId1 {
+        margin-top: 30px;
+        padding-bottom: 12px;
+        font-family: $title-font;
         font-size: $fontsize2;
       }
     }
@@ -116,6 +118,7 @@
 
   .section6 {
     display: flex;
+    justify-content: center;
     align-items: center;
     margin-bottom: 120px;
 
