@@ -39,22 +39,22 @@ const OrderReview = () => {
         </div>
         <div className="orderWay">
           <form>
-            <div className="checkSpace">
+            <label className="checkSpace">
               <input type="radio" />
               <p>신용카드</p>
-            </div>
-            <div className="checkSpace">
+            </label>
+            <label className="checkSpace">
               <input type="radio" />
               <p>무통장 입금</p>
-            </div>
-            <div className="checkSpace">
+            </label>
+            <label className="checkSpace">
               <input type="radio" />
               <p>휴대폰 결제</p>
-            </div>
-            <div className="checkSpace">
+            </label>
+            <label className="checkSpace">
               <input type="radio" />
               <p>Kakao Pay</p>
-            </div>
+            </label>
           </form>
           <div className="orderInfo">
             <div className="orderText">배송지 정보</div>
