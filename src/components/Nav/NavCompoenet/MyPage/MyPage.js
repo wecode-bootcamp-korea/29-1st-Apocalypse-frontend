@@ -19,7 +19,7 @@ const MyPage = () => {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.4.77:8000/users/signin', {
+    fetch('http://13.125.234.40:8080/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: inputValues.id,
@@ -31,7 +31,6 @@ const MyPage = () => {
         if (result.JWT) {
           sessionStorage.setItem('LoginToken', result.JWT);
           alert('로그인을 완료하였습니다.');
-          navigate('/');
         } else {
           alert('아이디 및 비밀번호를 확인해주세요');
         }
