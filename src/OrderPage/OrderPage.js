@@ -9,7 +9,7 @@ const OrderPage = () => {
   const [userInfo, setUserInfo] = useState({
     name: '',
     post: '',
-    adress: '',
+    address: '',
     detailAdress: '',
     delivery: '',
   });
