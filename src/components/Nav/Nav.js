@@ -126,7 +126,7 @@ function Nav() {
           }
           onMouseLeave={CloseSubNav}
         >
-          <ShoppingBasket />
+          <ShoppingBasket subNav={subNav} />
         </div>
       </div>
     </header>

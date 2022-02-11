@@ -4,7 +4,7 @@ import BaketList from './BasketList/BaketList';
 import * as Thousand from '../../../../styles/thousand';
 import './ShoppingBasket.scss';
 
-const ShoppingBasket = () => {
+const ShoppingBasket = ({ subNav }) => {
   const navigate = useNavigate();
   const [basketList, setBasketList] = useState([]);
   const [totalPrice, setTotalPrice] = useState([]);
@@ -19,7 +19,7 @@ const ShoppingBasket = () => {
         setBasketList(result.carts[0].cart);
         setTotalPrice(result.carts[0].total_price.total_price);
       });
-  }, []);
+  }, [subNav]);
 
   const totalQuantity = () => {
     let totalQuantityResult = 0;
