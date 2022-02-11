@@ -33,20 +33,15 @@ const CartProductList = ({ cart, setCartItem, setTotalPrice }) => {
     fetch(`http://3.34.199.69:8080/users/cart/${id}`, {
       method: 'DELETE',
       headers: { Authorization: sessionStorage.getItem('LoginToken') },
+    });
+    fetch('http://3.34.199.69:8080/users/cart', {
+      method: 'GET',
+      headers: { Authorization: sessionStorage.getItem('LoginToken') },
     })
       .then(res => res.json())
       .then(result => {
-        if (result.message === 'DELETE_CART') {
-          fetch('http://3.34.199.69:8080/users/cart', {
-            method: 'GET',
-            headers: { Authorization: sessionStorage.getItem('LoginToken') },
-          })
-            .then(res => res.json())
-            .then(result => {
-              setCartItem(result.carts[0].cart);
-              setTotalPrice(result.carts[0].total_price.total_price);
-            });
-        }
+        setCartItem(result.carts[0].cart);
+        setTotalPrice(result.carts[0].total_price.total_price);
       });
   };
 
