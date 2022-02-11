@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './MyPage.scss';
 
 const MyPage = () => {
-  const navigate = useNavigate('');
-
   const [inputValues, setInputValues] = useState({
     id: '',
     password: '',
@@ -19,7 +17,7 @@ const MyPage = () => {
   };
 
   const goToMain = () => {
-    fetch('http://10.58.4.77:8000/users/signin', {
+    fetch('http://3.34.199.69:8080/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: inputValues.id,
@@ -31,7 +29,6 @@ const MyPage = () => {
         if (result.JWT) {
           sessionStorage.setItem('LoginToken', result.JWT);
           alert('로그인을 완료하였습니다.');
-          navigate('/');
         } else {
           alert('아이디 및 비밀번호를 확인해주세요');
         }
@@ -48,7 +45,7 @@ const MyPage = () => {
     <div className="myPageNav">
       {!sessionStorage.getItem('LoginToken') ? (
         <div className="myPageLogin">
-          <div className="title">로그인</div>
+          <div className="titleMyPage">로그인</div>
           <div className="loginBox">
             <input
               name="id"
@@ -76,13 +73,13 @@ const MyPage = () => {
       ) : (
         <div className="myPageLoginComplete">
           <div>
-            <Link to="/MyPage">마이페이지 보기</Link>
+            <Link to="/LoginMyPage">마이페이지 보기</Link>
           </div>
           <div>
-            <Link to="/MyPage">관심상품 보기</Link>
+            <Link to="/LoginMyPage/LoginWishList">관심상품 보기</Link>
           </div>
           <div>
-            <Link to="/MyPage">장바구니 보기</Link>
+            <Link to="/Cart">장바구니 보기</Link>
           </div>
         </div>
       )}

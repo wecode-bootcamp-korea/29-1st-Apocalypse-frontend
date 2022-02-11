@@ -2,26 +2,20 @@ import React from 'react';
 import * as Thousand from '../../../../../styles/thousand';
 import './BasketList.scss';
 
-const BaketList = ({ basket, basketList, setBasketList, setTotalPrice }) => {
+const BaketList = ({ basket, setBasketList, setTotalPrice }) => {
   const deleteBasket = id => {
-    fetch(`http://13.125.234.40:8080/users/cart/${id}`, {
+    fetch(`http://3.34.199.69:8080/users/cart/${id}`, {
       method: 'DELETE',
+      headers: { Authorization: sessionStorage.getItem('LoginToken') },
+    });
+    fetch('http://3.34.199.69:8080/users/cart', {
+      method: 'get',
       headers: { Authorization: sessionStorage.getItem('LoginToken') },
     })
       .then(res => res.json())
       .then(result => {
-        if (result.message === 'DELETE_CART') {
-          // setBasketList(basketList.filter(com => com.cart_id !== id));
-          fetch('http://13.125.234.40:8080/users/cart', {
-            method: 'get',
-            headers: { Authorization: sessionStorage.getItem('LoginToken') },
-          })
-            .then(res => res.json())
-            .then(result => {
-              setBasketList(result.carts[0].cart);
-              setTotalPrice(result.carts[0].total_price.total_price);
-            });
-        }
+        setBasketList(result.carts[0].cart);
+        setTotalPrice(result.carts[0].total_price.total_price);
       });
   };
 

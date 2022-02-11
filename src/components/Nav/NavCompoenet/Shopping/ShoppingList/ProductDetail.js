@@ -5,6 +5,7 @@ const ProductDetail = ({ productList }) => {
   const navigate = useNavigate('');
 
   const goProductDetailPage = id => {
+    // window.location.replace(`/ProductDetailPage/${id}`);
     navigate(`/ProductDetailPage/${id}`);
   };
 

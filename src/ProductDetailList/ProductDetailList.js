@@ -11,7 +11,7 @@ const ProductDetailList = () => {
   const [rangeBoxText, setRangeBoxText] = useState('정렬하기');
 
   useEffect(() => {
-    fetch('http://13.125.234.40:8080/products/categories')
+    fetch('http://3.34.199.69:8080/products/categories')
       .then(res => res.json())
       .then(result => {
         setFilterList(result.Category);
@@ -19,9 +19,11 @@ const ProductDetailList = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://13.125.234.40:8080/products')
+    fetch('http://3.34.199.69:8080/products')
       .then(res => res.json())
-      .then(result => setProductList(result.Product));
+      .then(result => {
+        setProductList(result.Product);
+      });
   }, []);
 
   const OpenFilterBox = () => {
@@ -31,14 +33,14 @@ const ProductDetailList = () => {
   const checkHandler = e => {
     doFilterProduct(e.target.checked, e.target.value);
     if (filterProduct.size === 0) {
-      fetch(`http://13.125.234.40:8080/products`)
+      fetch(`http://3.34.199.69:8080/products`)
         .then(res => res.json())
         .then(result => {
           setProductList(result.Product);
         });
     } else {
       const filterProducts = [...filterProduct].join();
-      fetch(`http://13.125.234.40:8080/products?category=${filterProducts}`)
+      fetch(`http://3.34.199.69:8080/products?category=${filterProducts}`)
         .then(res => res.json())
         .then(result => {
           setProductList(result.Product);

@@ -1,15 +1,36 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import Bookmark from '../Bookmark/Bookmark';
 import AddCartBtn from '../AddCartBtn/AddCartBtn';
-import UseLocalStorage from '../UseLocalStorage';
 import './Modal.scss';
 
 function Modal({ productList, open, close }) {
-  const [addCart, setAddCart] = UseLocalStorage(`id${productList.id}`, false);
+  const navigate = useNavigate();
 
   const clickCart = () => {
-    setAddCart(addCart => !addCart);
-    alert('상품이 장바구니에 담겼습니다.');
+    if (sessionStorage.getItem('LoginToken')) {
+      fetch('http://3.34.199.69:8080/users/cart', {
+        method: 'POST',
+        headers: { Authorization: sessionStorage.getItem('LoginToken') },
+        body: JSON.stringify({
+          product_id: productList.id,
+        }),
+      })
+        .then(res => res.json())
+        .then(result => {
+          if (result.message === 'ADD_CART') {
+            document.body.style.overflow = 'unset';
+            navigate('/Cart');
+          } else if (result.message === 'DOES_NOT_EXIST_IN_CART') {
+            alert('장바구니에 담는데 실패했음');
+          } else {
+            document.body.style.overflow = 'unset';
+            navigate('/Cart');
+          }
+        });
+    } else {
+      navigate('/MyPage');
+    }
   };
 
   return (
@@ -20,13 +41,9 @@ function Modal({ productList, open, close }) {
             <button className="close" onClick={close}>
               <i class="fas fa-times" />
             </button>
-            <img
-              className="previewImg"
-              src="https://www.jomalone.co.kr/media/export/cms/products/1000x1000/jo_sku_LFFN01_1000x1000_0.png"
-              alt="img"
-            />
+            <img className="previewImg" src={productList.image} alt="img" />
             <div className="previewInfo">
-              <p className="classify">신제품</p>
+              <p className="classify">필수품</p>
               <h2 className="previewTitle">{productList.korean_name}</h2>
               <p className="explain">{productList.description}</p>
               <p className="price">

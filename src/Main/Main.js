@@ -5,8 +5,6 @@ import MoreText from './MoreText/MoreText';
 import Product from './Product/Product';
 import Benefit from './Benefit/Benefit';
 import MainSlider from './MainSlider/MainSlider';
-import Footer from '../components/Footer/Footer';
-import Nav from '../components/Nav/Nav';
 import './Main.scss';
 
 function Main() {
@@ -15,7 +13,7 @@ function Main() {
   const navigate = useNavigate('');
 
   useEffect(() => {
-    fetch('http://13.125.234.40:8080/products?category=무기')
+    fetch('http://3.34.199.69:8080/products?category=무기')
       .then(res => res.json())
       .then(data => {
         setProduct(data.Product);
@@ -34,29 +32,19 @@ function Main() {
 
   if (!product || !product.length) return null;
 
-  const goProductDetailPage = id => {
-    navigate(`/ProductDetailPage/${id}`);
-  };
-
   return (
     <main className="main">
-      <Nav />
       <MainSlider />
-
       <section className="section1">
         <div className="productBox">
-          <img
-            className="productImg"
-            alt="img"
-            src="https://www.jomalone.co.kr/media/export/cms/homepage/220117/jo_sku_LFFN01_DT_750x415.png"
-          />
-          <h2 className="title">{product[0].korean_name}</h2>
-          <MoreText />
+          <img className="productImg" alt="img" src={product[4].image} />
+          <h2 className="titleId1">{product[4].korean_name}</h2>
+          <MoreText product={product[4]} />
         </div>
         <img
           className="section1Img"
           alt="img"
-          src="https://images.unsplash.com/photo-1500252185289-40ca85eb23a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80"
+          src="https://images.unsplash.com/photo-1602510904648-cef1a47d92d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
         />
       </section>
 
@@ -67,14 +55,20 @@ function Main() {
           src="https://images.unsplash.com/photo-1561323577-5b76286cb15f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3574&q=80"
         />
         <div className="text">
-          <h1 className="title">혁명동지들을 위한 한정판</h1>
+          <h1 className="title">폭발은 예술이다</h1>
           <MoreText />
         </div>
       </section>
 
       <section className="section3">
-        <MediaAsset />
-        <MediaAsset />
+        <MediaAsset
+          title="뒷통수 조심"
+          img="https://images.unsplash.com/photo-1598982396242-f905080ebf14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+        />
+        <MediaAsset
+          title="사주경계 철저"
+          img="https://images.unsplash.com/photo-1627737014498-3874a1017778?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+        />
       </section>
 
       <section className="section4">
@@ -96,8 +90,14 @@ function Main() {
       </section>
 
       <section className="section5">
-        <MediaAsset />
-        <MediaAsset />
+        <MediaAsset
+          title="참호는 튼튼하게"
+          img="https://images.unsplash.com/photo-1558047198-a784d4f08c88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        />
+        <MediaAsset
+          title="생존에 필요한 랜덤박스"
+          img="https://images.unsplash.com/photo-1511989130945-c2b632959395?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        />
       </section>
 
       <section className="section6">
@@ -113,7 +113,6 @@ function Main() {
           explain="파괴력 있는 무기를 전달해 드립니다."
         />
       </section>
-      <Footer />
     </main>
   );
 }

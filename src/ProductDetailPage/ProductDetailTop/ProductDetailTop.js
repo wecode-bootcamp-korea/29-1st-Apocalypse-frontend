@@ -7,11 +7,9 @@ function ProductDetailTop({ productDetail }) {
   return (
     <div className="productDetailTop">
       <div className="leftColumn">
-        <img
-          className="productImg"
-          src="https://www.jomalone.co.kr/media/export/cms/products/1000x1000/jo_sku_LFFN01_1000x1000_0.png"
-          alt="img"
-        />
+        {productDetail && (
+          <img className="productImg" src={productDetail.images} alt="img" />
+        )}
       </div>
       <div className="rightColumn">
         <p className="classify">신제품</p>
@@ -30,11 +28,13 @@ function ProductDetailTop({ productDetail }) {
         <p className="explain">{productDetail.description}</p>
         <div className="productSizeBox">
           <div className="productSize">
-            <img
-              className="productSmallImg"
-              src="https://www.jomalone.co.kr/media/export/cms/products/1000x1000/jo_sku_LFFN01_1000x1000_0.png"
-              alt="img"
-            />
+            {productDetail && (
+              <img
+                className="productSmallImg"
+                src={productDetail.images}
+                alt="img"
+              />
+            )}
             <p className="sizeText">One Size</p>
           </div>
         </div>

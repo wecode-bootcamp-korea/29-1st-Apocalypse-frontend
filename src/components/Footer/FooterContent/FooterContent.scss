@@ -1,0 +1,30 @@
+@import '../../../styles/variables.scss';
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 60px 0px 0px 20px;
+  font-size: $fontsize3;
+
+  a {
+    text-decoration-line: none;
+    color: inherit;
+  }
+
+  .footerContentTitle {
+    padding-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+
+  .footerContentItem {
+    padding-bottom: 5px;
+    margin-bottom: 24px;
+    width: fit-content;
+    &:hover {
+      padding-bottom: 4px;
+      border-bottom: 1px solid black;
+    }
+  }
+}

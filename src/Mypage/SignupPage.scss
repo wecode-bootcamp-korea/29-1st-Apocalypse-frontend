@@ -15,16 +15,14 @@
 
 .newCustomers {
   width: 50%;
-  height: 100%;
   margin-right: 40px;
   max-width: 100%;
   overflow: visible;
-  position: relative;
 
   h2 {
     font-size: 20px;
     font-weight: bold;
-    margin:0 0 20px;
+    margin: 0 0 20px;
   }
 
   p {
@@ -32,18 +30,18 @@
     margin-bottom: 10px;
   }
 
-  .errorHide{
+  .errorHide {
     display: none;
   }
 
-  .error{
+  .error {
     color: #de342c;
     margin-bottom: 10px;
   }
 
   .inputText {
     display: block;
-    width: 100%; 
+    width: 100%;
     height: 40px;
     padding: 15px;
     font-size: 15px;
@@ -54,7 +52,7 @@
 
   .showPassword {
     display: flex;
-    
+
     .inputCheckBox {
       border: 1px solid black;
       width: 12px;
@@ -62,12 +60,12 @@
       margin-top: 10px;
       margin-right: 10px;
     }
-    
+
     span {
-    font-size: 15px;
+      font-size: 15px;
     }
   }
-  
+
   .conditionalText {
     margin: 20px 0;
     font-size: 15px;
@@ -75,7 +73,7 @@
   }
 
   .phoneAuthentication {
-    .phoneNumber { 
+    .phoneNumber {
       font-size: 15px;
     }
 
@@ -83,14 +81,14 @@
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
-      
+
       .firstNumber {
         display: block;
-        @include numberInputStyle
+        @include numberInputStyle;
       }
-      
+
       .lastNumber {
-        @include numberInputStyle
+        @include numberInputStyle;
       }
     }
     .authenticationBtn {
@@ -115,7 +113,7 @@
       border: none;
     }
   }
-  
+
   .tncSpace {
     margin-top: 20px;
     .termsAndConditions {
@@ -130,17 +128,17 @@
       border: 1px solid #ccc;
       overflow: scroll;
     }
-    
+
     .agreeBox {
       height: 30px;
       margin: 10px 0;
       display: flex;
-      
+
       .radioCheckBox {
         width: 12px;
         height: 12px;
         margin: 0 5px;
-      } 
+      }
       .agree {
         margin: 0 30px 0 0;
       }
@@ -159,7 +157,7 @@
       margin: 10px 0;
       display: flex;
 
-      .received{
+      .received {
         margin: 0 30px 0 0;
       }
 
@@ -167,10 +165,10 @@
         width: 12px;
         height: 12px;
         margin: 0 5px;
-      } 
+      }
     }
   }
-  .subscribers { 
+  .subscribers {
     display: flex;
     margin: 20px 0 40px;
     .subscribersText {

@@ -4,7 +4,7 @@ import './Benefit.scss';
 function Benefit({ title, explain }) {
   return (
     <a className="benefitLink" href="/">
-      <div className="benefit">
+      <div className="benefitMain">
         <h2 className="benefitTitle">{title}</h2>
         <p className="explain">{explain}</p>
       </div>

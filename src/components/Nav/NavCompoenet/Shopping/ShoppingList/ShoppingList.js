@@ -5,7 +5,7 @@ import './ShoppingList.scss';
 const ShoppingList = ({ categoryName }) => {
   return (
     <div className="shoppingList">
-      <img alt="testIMG" src="/images/test.jpg" />
+      <img alt="testIMG" src="{categoryName.Name.subcategory_image}" />
       <div className="productList">
         <div className="subTitle">{categoryName.category_name}</div>
         {categoryName.subcategory_list.map(subcategoryList => {

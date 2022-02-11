@@ -7,7 +7,7 @@ const Shopping = () => {
   const [productList, setProductList] = useState('');
 
   useEffect(() => {
-    fetch('http://13.125.234.40:8080/products/categories')
+    fetch('http://3.34.199.69:8080/products/categories')
       .then(res => res.json())
       .then(result => {
         setProductList(result.Category);

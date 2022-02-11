@@ -6,7 +6,8 @@
 
   img {
     width: 150px;
-    height: fit-content;
+    height: 0px;
+    opacity: 0;
   }
 
   .productList {
@@ -15,8 +16,9 @@
       font-weight: bolder;
     }
 
-    .product {
+    .productShopping {
       margin-top: 20px;
+
       cursor: pointer;
 
       .productSub {

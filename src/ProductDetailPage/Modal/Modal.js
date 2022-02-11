@@ -12,11 +12,7 @@ function Modal({ productList, open, close }) {
             <button className="close" onClick={close}>
               <i className="fas fa-times" />
             </button>
-            <img
-              className="previewImg"
-              src="https://www.jomalone.co.kr/media/export/cms/products/1000x1000/jo_sku_LFFN01_1000x1000_0.png"
-              alt="img"
-            />
+            <img className="previewImg" src={productList.image} alt="img" />
             <div className="previewInfo">
               <p className="classify">신제품</p>
               <h2 className="previewTitle">{productList.korean_name}</h2>

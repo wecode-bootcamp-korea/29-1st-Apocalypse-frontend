@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Shopping from './NavCompoenet/Shopping/Shopping';
 import Tendency from './NavCompoenet/tendency/Tendency';
 import Search from './NavCompoenet/Search/Search';
@@ -8,6 +9,7 @@ import ShoppingBasket from './NavCompoenet/ShoppingBasket/ShoppingBasket';
 import './Nav.scss';
 
 function Nav() {
+  const navigate = useNavigate();
   const [subNav, setSubNav] = useState(false);
 
   const CloseSubNav = () => {
@@ -25,6 +27,10 @@ function Nav() {
     };
     obj[subName] = true;
     setSubNav(obj);
+  };
+
+  const goToMain = () => {
+    navigate('/');
   };
 
   return (
@@ -56,7 +62,7 @@ function Nav() {
             성향분석
           </div>
         </div>
-        <div className="centerNavBox">
+        <div className="centerNavBox" onClick={goToMain}>
           <div className="mainTitle">APOCALYPSE</div>
           <div className="subTitle">WECODE</div>
         </div>
@@ -103,7 +109,7 @@ function Nav() {
           <Search />
         </div>
         <div
-          className={subNav.myPageNav ? 'myPage' : 'myPageHide'}
+          className={subNav.myPageNav ? 'myPageNavBar' : 'myPageHide'}
           onMouseLeave={CloseSubNav}
         >
           <MyPage />
@@ -120,7 +126,7 @@ function Nav() {
           }
           onMouseLeave={CloseSubNav}
         >
-          <ShoppingBasket />
+          <ShoppingBasket subNav={subNav} />
         </div>
       </div>
     </header>
