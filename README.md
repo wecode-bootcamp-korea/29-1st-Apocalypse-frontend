@@ -22,7 +22,7 @@
 
 ## 구현 영상
 
-[![프로젝트 구현 영상 링크](https://img.youtu.be/rbnuJMyuUyM/0.jpg)](https://youtu.be/rbnuJMyuUyM=0s)
+[![프로젝트 구현 영상 링크](https://img.youtube.com/vi/rbnuJMyuUyMg/0.jpg)](https://www.youtube.com/watch?v=rbnuJMyuUyM)
 
 ## 구현 기능
 
